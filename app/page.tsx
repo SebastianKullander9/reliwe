@@ -1,7 +1,9 @@
+import LandingPage from "@/components/sections/landingPage";
+
 export default function Home() {
     return (
-        <div className="">
-            <h1 className="">Hello reliwe</h1>
+        <div>
+            <LandingPage />
         </div>
     );
 }

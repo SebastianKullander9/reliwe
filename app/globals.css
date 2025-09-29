@@ -1,1 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+
+:root {
+    --reliwe-green: #1f5d37;
+    --reliwe-green-accent: #cddbd3;
+    --reliwe-green-text: #314439;
+    --reliwe-gray: #d0cccf;
+    --reliwe-gold: #bfa729;
+    --font-open-sans: "Open Sans", sans-serif;
+    --font-monserrat: "Montserrat", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-monserrat);
+}
+
+p, li, a, button {
+    font-family: var(--font-open-sans);
+}
