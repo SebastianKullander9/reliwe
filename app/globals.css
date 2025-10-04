@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+    font-family: "americana";
+    src: url("../public/fonts/Americana.otf") format("opentype");
+}
 
 :root {
     --reliwe-green: #1f5d37;
@@ -11,9 +15,14 @@
     --reliwe-gold: #bfa729;
     --font-open-sans: "Open Sans", sans-serif;
     --font-monserrat: "Montserrat", sans-serif;
+    --font-americana: "americana", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+    font-family: var(--font-americana);
+}
+
+h2, h3, h4, h5, h6 {
     font-family: var(--font-monserrat);
 }
 

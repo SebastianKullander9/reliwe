@@ -6,12 +6,12 @@ export default function Footer() {
         <footer>
             <div className="relative w-full flex flex-row">
                 <div className="w-1/2">
-                    <div className="flex justify-center">
+                    <div className="flex justify-center bg-white">
                         <Image src="/img/tree.jpg" alt="Illustration of a tree" width={600} height={600} />
                     </div>
                 </div>
                 <div className="w-1/2 bg-[var(--reliwe-green)] text-white flex flex-col gap-12 justify-center items-center">
-                    <h1 className="text-6xl font-semibold">Du hittar oss här</h1>
+                    <h1 className="text-5xl font-semibold">Du hittar oss här</h1>
                     <div className="flex flex-col items-center">
                         <p className="pb-8 text-lg text-gray-200">Har du frågor om våra projekt eller vill komma i kontakt med oss?</p>
                         <Button label="Kontakta oss" alternativeColors={true} />
