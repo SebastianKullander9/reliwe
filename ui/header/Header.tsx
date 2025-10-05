@@ -1,31 +1,69 @@
-import Link from "next/link"
-import Image from "next/image"
-import Button from "../button"
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import AnimatedButton from "../button/AnimatedButton";
+import { Cross as Hamburger } from "hamburger-react";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
+    const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 1) {
+                setScrolled(true);
+                console.log("true");
+            } else {
+                setScrolled(false);
+                console.log("false");
+            }
+        })
+    }, []);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";            
+        } else {
+            document.body.style.overflow = "";
+        }
+    }, [isOpen]);
+
     return (
-        <nav className="fixed top-0 z-10 w-full flex flex-row px-12 mx-auto py-3 items-center justify-between">
-            <div className="invisible">
-                <Link href="/">
-                    <Image src="/logo/reliwe-logo.png" alt="A logo for the company" width={70} height={70} />
-                </Link>
-            </div>
-            <ul className="flex gap-8 text-lg text-[var(--reliwe-green-accent)] ">
-                <Link href="/vara-projekt">
-                    <li>Våra projekt</li>
-                </Link>
-                <Link href="/om-oss">
-                    <li>Om oss</li>
-                </Link>
-                <Link href="/kontakt">
-                    <li>Kontakt</li>
-                </Link>
-            </ul>
-            <div>
-                <button className={`px-4 py-2 text-lg border-1 rounded-full text-[var(--reliwe-green-accent)]`}>
-                    Anmäl intresse
-                </button>
-            </div>
-        </nav>
+        <>
+        
+            <nav className={`fixed top-0 z-10 w-full flex flex-row site-x-padding mx-auto py-3 items-center justify-between transition-colors duration-300 ${scrolled ? "bg-white" : ""}`}>
+                <MobileMenu isOpen={isOpen} />
+                <div className="z-[51]">
+                    <Link href="/">
+                        <Image src={`/logo/${scrolled || isOpen ? "reliwe-transparent-green.png" : "reliwe-transparent-green-lighter.png"}`} alt="A logo for the company" width={70} height={70} />
+                    </Link>
+                </div>
+                <ul className={` gap-8 site-text-size hidden md:flex text-[var(${scrolled ? "--reliwe-green": "--reliwe-green-accent"})]`}>
+                    <Link href="/vara-projekt">
+                        <li>Våra projekt</li>
+                    </Link>
+                    <Link href="/om-oss">
+                        <li>Om oss</li>
+                    </Link>
+                    <Link href="/kontakt">
+                        <li>Kontakt</li>
+                    </Link>
+                </ul>
+                <div className="hidden md:block">
+                    {scrolled ? (
+                        <AnimatedButton label="Anmäl intresse" color={"darkGreen"} />
+                    ) : (
+                        <AnimatedButton label="Anmäl intresse" color={"lightGreen"} />
+                    )}
+                </div>
+                
+                <div className="z-[51] md:hidden">
+                    <Hamburger toggled={isOpen} toggle={setIsOpen} size={28}  distance="sm" color={scrolled || isOpen ? "#1f5d37" : "#cddbd3"} />
+                </div>
+            </nav>
+        </>
     )
 }
