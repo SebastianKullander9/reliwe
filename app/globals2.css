@@ -17,23 +17,23 @@
     }
 
     .site-text-size {
-        @apply text-gray-600 text-base sm:text-base md:text-base lg:text-lg;
+        @apply text-[var(--reliwe-green)] text-base sm:text-base md:text-base lg:text-lg;
     }
 
     .normal-heading {
-        @apply text-gray-800 font-semibold text-xl pb-4 sm:text-2xl sm:pb-6 md:text-3xl md:pb-8 lg:text-4xl lg:pb-10 xl:text-5xl xl:pb-12;
+        @apply text-[var(--reliwe-green)] font-semibold text-xl pb-4 sm:text-2xl sm:pb-6 md:text-3xl md:pb-8 lg:text-4xl lg:pb-10 xl:text-5xl xl:pb-12;
     }
 
     .card-heading {
-        @apply text-gray-800 font-semibold text-xl pb-4 sm:text-xl sm:pb-4 md:text-2xl md:pb-4 lg:text-3xl lg:pb-6 xl:text-4xl xl:pb-8;
+        @apply text-[var(--reliwe-green)] font-semibold text-xl pb-4 sm:text-xl sm:pb-4 md:text-2xl md:pb-4 lg:text-3xl lg:pb-6 xl:text-4xl xl:pb-8;
     }
 
     .text-green {
-        @apply text-[var(--reliwe-green-text)]
+        @apply text-[var(--reliwe-green)]
     }
 
     .card-text {
-        @apply text-gray-800;
+        @apply text-[var(--reliwe-green)]
     }
 }
 

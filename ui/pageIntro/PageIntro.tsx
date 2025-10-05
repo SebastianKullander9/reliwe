@@ -13,7 +13,7 @@ export default function PageIntro({ title, texts, imgUrl }: PageIntroProps) {
                 <h1 className="normal-heading">{title}</h1>
                 <div>
                     {texts.map((text: string, index: number) => (
-                        <p key={index} className="max-w-prose pb-4 text-center site-text-size text-[var(--reliwe-green-text)]">{text}</p>
+                        <p key={index} className="max-w-prose pb-4 text-center site-text-size text-green">{text}</p>
                     ))}
                 </div>
             </div>

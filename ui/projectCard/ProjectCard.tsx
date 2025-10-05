@@ -45,7 +45,7 @@ export default function ProjectCard({
             <div className="w-full lg:w-1/2 bg-[var(--reliwe-green-accent)] flex flex-col p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 gap-12 justify-between">
                 <div>
                     <h1 className="card-heading">{title}</h1>
-                    <p className="max-w-prose text-lg text-[var(--reliwe-green-text)]">
+                    <p className="max-w-prose text-lg text-green">
                         {text}
                     </p>
                 </div>
@@ -53,14 +53,14 @@ export default function ProjectCard({
                 <div className="flex flex-row justify-between max-w-prose flex-wrap gap-8">
                     <div className="flex flex-col gap-4">
                         <div>
-                            <h2 className="font-semibold text-gray-800 text-lg">Byggstart</h2>
-                            <p className="text-lg text-[var(--reliwe-green-text)]">{year}</p>
+                            <h2 className="font-semibold card-text text-lg">Byggstart</h2>
+                            <p className="text-lg text-green">{year}</p>
                         </div>
                         <div>
-                            <h2 className="font-semibold text-gray-800 text-lg">
+                            <h2 className="font-semibold card-text text-lg">
                                 Inflyttning
                             </h2>
-                            <p className="text-lg text-[var(--reliwe-green-text)]">
+                            <p className="text-lg text-green">
                                 {movingInYear}
                             </p>
                         </div>
@@ -68,16 +68,16 @@ export default function ProjectCard({
 
                     <div className="flex flex-col gap-4">
                         <div>
-                            <h2 className="font-semibold text-gray-800 text-lg">
+                            <h2 className="font-semibold card-text text-lg">
                                 Antal lägenheter
                             </h2>
-                            <p className="text-lg text-[var(--reliwe-green-text)]">
+                            <p className="text-lg text-green">
                                 {apartmentAmount}
                             </p>
                         </div>
                         <div>
-                            <h2 className="font-semibold text-gray-800 text-lg">Antal rum</h2>
-                            <p className="text-lg text-[var(--reliwe-green-text)]">
+                            <h2 className="font-semibold card-text text-lg">Antal rum</h2>
+                            <p className="text-lg text-green">
                                 {roomAmount}
                             </p>
                         </div>

@@ -15,12 +15,12 @@ export default function Contact() {
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-12">
                     <div className="flex flex-col">
-                        <h1 className="normal-heading">E-POST</h1>
-                        <p className="site-text-size text-gray-600">info@reliwe.se</p>
+                        <h1 className="normal-heading text-2xl md:text-3xl pb-4">E-POST</h1>
+                        <p className="site-text-size text-green">info@reliwe.se</p>
                     </div>
                     <div className="flex flex-col">
-                        <h1 className="normal-heading">BESÖKSADRESS</h1>
-                        <div className="site-text-size text-gray-600">
+                        <h1 className="normal-heading text-2xl md:text-3xl pb-4">BESÖKSADRESS</h1>
+                        <div className="site-text-size text-green">
                             <p>Ingmar Bergmans Gata 2</p>
                             <p>114 34 Stockholm, Sweden</p>
                         </div>

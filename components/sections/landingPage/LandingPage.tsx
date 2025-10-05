@@ -61,7 +61,7 @@ export default function LandingPage() {
                 <div className="flex flex-col text-center">
                     <h1 className="normal-heading">Våra projekt</h1>
                     <div className="flex flex-col items-center">
-                        <p className="max-w-prose pb-8 site-text-size text-[var(--reliwe-green-text)]">
+                        <p className="max-w-prose pb-8 site-text-size text-green">
                             Vi utvecklar bostäder för livet – oavsett om du söker en
                             bostadsrätt eller en hyresrätt. Våra projekt finns i attraktiva
                             tillväxtområden och byggs med fokus på kvalitet, hållbarhet och
