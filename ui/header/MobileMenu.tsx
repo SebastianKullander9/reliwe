@@ -18,7 +18,7 @@ export default function MobileMenu({ isOpen }: { isOpen: boolean }) {
                 </div>
 
                 <div>
-                    <AnimatedButton label="Anmäl intresse" color="darkGreen" />
+                    <AnimatedButton label="Anmäl intresse" color="darkGreen" linkTo="/" />
                 </div>
 
                 <div className="absolute bottom-4">

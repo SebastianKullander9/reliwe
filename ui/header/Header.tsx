@@ -6,22 +6,24 @@ import { useState, useEffect } from "react";
 import AnimatedButton from "../button/AnimatedButton";
 import { Cross as Hamburger } from "hamburger-react";
 import MobileMenu from "./MobileMenu";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+    const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 1) {
-                setScrolled(true);
-                console.log("true");
-            } else {
-                setScrolled(false);
-                console.log("false");
-            }
-        })
+        const handleScroll = () => setScrolled(window.scrollY > 1);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const navLinks = [
+        { href: "/vara-projekt", label: "Våra projekt" },
+        { href: "/om-oss", label: "Om oss" },
+        { href: "/kontakt", label: "Kontakt" },
+    ];
 
     useEffect(() => {
         if (isOpen) {
@@ -41,22 +43,28 @@ export default function Header() {
                         <Image src={`/logo/${scrolled || isOpen ? "reliwe-transparent-green.png" : "reliwe-transparent-green-lighter.png"}`} alt="A logo for the company" width={70} height={70} />
                     </Link>
                 </div>
-                <ul className={` gap-8 site-text-size hidden md:flex text-[var(${scrolled ? "--reliwe-green": "--reliwe-green-accent"})]`}>
-                    <Link href="/vara-projekt">
-                        <li>Våra projekt</li>
-                    </Link>
-                    <Link href="/om-oss">
-                        <li>Om oss</li>
-                    </Link>
-                    <Link href="/kontakt">
-                        <li>Kontakt</li>
-                    </Link>
+                <ul className={` gap-8 site-text-size hidden md:flex text-[var(${scrolled ? "red-700": "--reliwe-green-accent"})]`}>
+                    {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                        return (
+                            <Link key={link.href} href={link.href}>
+                            <li className="relative cursor-pointer group">
+                                    {link.label}
+                                    <span
+                                        className={`absolute left-0 bottom-0 h-[1px] ${scrolled ? "bg-black" : "bg-[var(--reliwe-green-accent)]"} transition-all duration-300 ${
+                                            isActive ? "w-full" : "w-0 group-hover:w-full"
+                                        }`}
+                                    ></span>
+                                </li>
+                            </Link>
+                        );
+                    })}
                 </ul>
                 <div className="hidden md:block">
                     {scrolled ? (
-                        <AnimatedButton label="Anmäl intresse" color={"darkGreen"} />
+                        <AnimatedButton label="Anmäl intresse" color={"darkGreen"} linkTo="/" />
                     ) : (
-                        <AnimatedButton label="Anmäl intresse" color={"lightGreen"} />
+                        <AnimatedButton label="Anmäl intresse" color={"lightGreen"} linkTo="/" />
                     )}
                 </div>
                 

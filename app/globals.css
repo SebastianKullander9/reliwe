@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -13,24 +14,48 @@
     }
 
     .site-y-padding {
-        @apply py-6 sm:py-10 md:py-16 lg:py-20 xl:px-28;
+        @apply py-6 sm:py-10 md:py-16 lg:py-20 xl:py-28;
+    }
+
+    .site-y-margin {
+        @apply my-6 sm:py-10 md:my-16 lg:my-20 xl:my-28;
+    }
+
+    .text-y-padding {
+        @apply py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12;
+    }
+
+    .text-pb {
+        @apply mb-4 mt-20 ;
+    }
+
+    .site-gap {
+        @apply gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12
+    }
+
+    .site-gap2 {
+        @apply gap-2 sm:gap-3 md:gap-4 lg:gap-5 xl:gap-6
     }
 
     .site-text-size {
-        @apply text-gray-600 text-base sm:text-base md:text-base lg:text-lg;
+        @apply text-gray-700 text-base sm:text-base md:text-base lg:text-lg;
     }
 
     .normal-heading {
-        @apply text-gray-800 font-semibold text-xl pb-4 sm:text-2xl sm:pb-6 md:text-3xl md:pb-8 lg:text-4xl lg:pb-10 xl:text-5xl xl:pb-12;
+        @apply text-gray-800 text-4xl pb-4 sm:text-4xl sm:pb-6 md:text-5xl md:leading-16 md:pb-8 lg:leading-20 lg:text-5xl lg:pb-10 xl:text-6xl xl:pb-12;
+    }
+
+    .secondary-heading {
+        @apply text-gray-800 tracking-widest text-base sm:text-base md:text-base lg:text-lg;
     }
 
     .card-heading {
         @apply text-gray-800 font-semibold text-xl pb-4 sm:text-xl sm:pb-4 md:text-2xl md:pb-4 lg:text-3xl lg:pb-6 xl:text-4xl xl:pb-8;
     }
 
-    .text-green {
+    /*.text-green {
         @apply text-[var(--reliwe-green-text)]
-    }
+    }*/
 
     .card-text {
         @apply text-gray-800;
@@ -40,6 +65,7 @@
 :root {
     --reliwe-green: #1f5d37;
     --reliwe-green-accent: #cddbd3;
+    --reliwe-green-accent-rgb: 205, 219, 211;
     --reliwe-green-text: #314439;
     --reliwe-gray: #d0cccf;
     --font-open-sans: "Open Sans", sans-serif;
@@ -54,10 +80,21 @@ h1 {
     font-family: var(--font-americana);
 }
 
-h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
     font-family: var(--font-monserrat);
 }
 
-p, li, a, button {
-    font-family: var(--font-open-sans);
+p, li, a, button, h2 {
+    font-family: "Geist", sans-serif;
+	font-style: normal;
+	font-optical-sizing: auto;
+	font-weight: 500;
 }
+
+/* 
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+*/

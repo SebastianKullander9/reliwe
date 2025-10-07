@@ -14,8 +14,8 @@ export default function OurProjects() {
                 imgUrl="/img/vara-projekt.jpg"
             />
 
-            <div className="site-x-padding lg:container mx-auto flex flex-col gap-48 pb-48">
-                <h1 className="normal-heading text-center pt-24">Pågående projekt</h1>
+            <div className="site-x-padding lg:container mx-auto flex flex-col gap-24 md:gap-24 pb-12">
+                <h1 className="normal-heading text-center pt-30">Pågående projekt</h1>
 
                 {data.map((project, index) => (
                     <ProjectCard

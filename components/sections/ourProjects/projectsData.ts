@@ -6,7 +6,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Flatås-Vy-sydost.jpg"
+        imgUrl: ["/projects/Flatås-Vy-sydost.jpg", "/projects/Flatås-Vy-sydost.jpg", "/projects/Ekängen-Bygglov-2024-01-19.jpg"]
     },
     {
         title: "Haningeterassen, Haninge",
@@ -15,7 +15,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Haninge-Perspektiv-Vinkeln(1).jpg"
+        imgUrl: ["/projects/Haninge-Perspektiv-Vinkeln(1).jpg", "/projects/Flatås-Vy-sydost.jpg", "/projects/Ekängen-Bygglov-2024-01-19.jpg"]
     },
     {
         title: "Ekängen, Lidköping",
@@ -24,7 +24,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Ekängen-Bygglov-2024-01-19.jpg"
+        imgUrl: ["/projects/Ekängen-Bygglov-2024-01-19.jpg", "/projects/Flatås-Vy-sydost.jpg", "/projects/Ekängen-Bygglov-2024-01-19.jpg"]
     },
     {
         title: "Oppeby 1, Nyköping",
@@ -33,7 +33,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Oppeby_Cam_001_kväll.jpg"
+        imgUrl: ["/projects/Oppeby_Cam_001_kväll.jpg", "/projects/Flatås-Vy-sydost.jpg", "/projects/Ekängen-Bygglov-2024-01-19.jpg"]
     },
     {
         title: "Rullbanan, Riksten",
@@ -42,7 +42,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Rullbanan-Gatuperspektiv.jpg"
+        imgUrl: ["/projects/Rullbanan-Gatuperspektiv.jpg", "/projects/Flatås-Vy-sydost.jpg", "/projects/Ekängen-Bygglov-2024-01-19.jpg"]
     },
     {
         title: "Inflygningen, Riksten",
@@ -51,7 +51,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Inflygningen-Perspektiv-gata.jpg"
+        imgUrl: ["/projects/Inflygningen-Perspektiv-gata.jpg", "/projects/Flatås-Vy-sydost.jpg", "/projects/Ekängen-Bygglov-2024-01-19.jpg"]
     },
     {
         title: "Umami Park, Sundbyberg",
@@ -60,7 +60,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Hus_A-Umami.jpg"
+        imgUrl: ["/projects/Hus_A-Umami.jpg"]
     },
     {
         title: "Gårdshuset, Sundbyberg",
@@ -69,7 +69,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Gårdshuset-Gatufasad .jpg"
+        imgUrl: ["/projects/Gårdshuset-Gatufasad.jpg"]
     },
     {
         title: "Strömmingarna, Täby",
@@ -78,7 +78,7 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Täby-Strömmingen.png"
+        imgUrl: ["/projects/Täby-Strömmingen.png"]
     },
     {
         title: "Bifodret, Uppsala",
@@ -87,6 +87,6 @@ export const data = [
         apartmentAmount: "311",
         movingInYear: "2026",
         roomAmount: "1-4",
-        imgUrl: "/projects/Bifodret-SYDVÄST-06.jpg"
+        imgUrl: ["/projects/Bifodret-SYDVÄST-06.jpg"]
     }
 ]

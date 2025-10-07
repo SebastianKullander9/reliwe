@@ -37,7 +37,7 @@ const colorScheme = {
 
 type ColorSchemeKey = keyof typeof colorScheme;
 
-export default function AnimatedButton({ label, color }: { label: string, color: ColorSchemeKey }) {
+export default function AnimatedButton({ label, color, linkTo }: { label: string, color: ColorSchemeKey, linkTo: string }) {
     const bgRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
     const tl = useRef<gsap.core.Timeline>(null);
@@ -79,6 +79,7 @@ export default function AnimatedButton({ label, color }: { label: string, color:
             textRef={textRef}
             label={label}
             colorScheme={scheme}
+            linkTo={linkTo}
         />
     );
 }

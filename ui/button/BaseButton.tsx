@@ -1,4 +1,5 @@
 import { RefObject } from "react";
+import Link from "next/link";
 
 type colorScheme = {
     text: string;
@@ -15,9 +16,10 @@ interface BaseButtonProps {
     bgRef: RefObject<HTMLDivElement | null>;
     label: string;
     colorScheme: colorScheme;
+    linkTo: string;
 }
 
-export default function BaseButton({ label, handleMouseEnter, handleMouseLeave, textRef, bgRef, colorScheme }: BaseButtonProps) {
+export default function BaseButton({ label, handleMouseEnter, handleMouseLeave, textRef, bgRef, colorScheme, linkTo }: BaseButtonProps) {
 
     console.log(colorScheme)
     return (
@@ -27,7 +29,9 @@ export default function BaseButton({ label, handleMouseEnter, handleMouseLeave, 
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <p ref={textRef} className={`relative z-10 site-text-size`} style={{ color: colorScheme.text }}>{label}</p>
+            <Link href={linkTo}>
+                <p ref={textRef} className={`relative z-10 site-text-size`} style={{ color: colorScheme.text }}>{label}</p>
+            </Link>
             <div
                 ref={bgRef}
                 className={`absolute inset-0 translate-y-full`}

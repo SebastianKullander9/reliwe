@@ -24,18 +24,18 @@ export default function LandingPage() {
 
             <div className="w-full h-screen relative flex flex-row items-center bg-white">
                 <div className="site-x-padding flex flex-col md:flex-row md:gap-12">
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-center md:items-start">
-                        <h1 className="normal-heading pb-4">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-between items-center md:items-start">
+                        <h1 className="normal-heading mb-12 text-center md:text-start leading-13">
                             Vi gör plats för livet
                         </h1>
                         <div className="flex flex-col gap-8 text-gray-500 items-center md:items-start pb-12 md:pb-0">
-                            <p className="max-w-prose site-text-size">
+                            <p className="max-w-prose site-text-size text-center md:text-start">
                                 Välkommen till en bostadsutvecklare som skapar hållbara hem och
                                 levande stadsdelar där människor kan trivas och växa – idag och
                                 hela livet ut.
                             </p>
                             <div className="max-w-40 min-w-40 hidden md:block">
-                                <AnimatedButton label="Om oss" color="darkGreen" />
+                                <AnimatedButton label="Om oss" color="darkGreen" linkTo="/om-oss" />
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ export default function LandingPage() {
                         />
 
                         <div className="max-w-40 min-w-40 pt-12 md:hidden">
-                            <AnimatedButton label="Om oss" color="darkGreen" />
+                            <AnimatedButton label="Om oss" color="darkGreen" linkTo="/om-oss" />
                         </div>
                     </div>
 
@@ -57,18 +57,57 @@ export default function LandingPage() {
                 </div>
             </div>
 
-            <div className="w-full h-screen bg-[var(--reliwe-green-accent)] site-x-padding flex justify-center items-center">
-                <div className="flex flex-col text-center">
-                    <h1 className="normal-heading">Våra projekt</h1>
-                    <div className="flex flex-col items-center">
-                        <p className="max-w-prose pb-8 site-text-size text-green">
+            <div className="w-full bg-white site-x-padding site-y-padding">
+                <div className="flex flex-col md:flex-row site-gap text-center md:text-start">
+                    <div className="w-full md:w-1/2">
+                        <h1 className="normal-heading mb-12">Våra projekt</h1>
+                    </div>
+                    <div className="w-full md:w-1/2">
+                         <p className="pb-8 site-text-size text-green">
                             Vi utvecklar bostäder för livet – oavsett om du söker en
                             bostadsrätt eller en hyresrätt. Våra projekt finns i attraktiva
                             tillväxtområden och byggs med fokus på kvalitet, hållbarhet och
                             långsiktigt boende.
                         </p>
-                        <div className="max-w-40 min-w-40">
-                            <AnimatedButton label="Våra projekt" color="darkGreen" />
+                        <div className="max-w-40 min-w-40 hidden md:block">
+                            <AnimatedButton label="Våra projekt" color="darkGreen" linkTo="/vara-projekt" />
+                        </div>
+                    </div>
+                </div>
+            
+                <div className="flex flex-col md:flex-row md:justify-between site-gap">
+                    <div className="w-full md:w-1/2 flex flex-col justify-between">
+                        <div>
+                            <h2 className="uppercase secondary-heading text-pb text-center">
+                                Ekängen, Linköping
+                            </h2>
+                        </div>
+                        <div className="w-full h-[500px] relative mt-8">
+                            <Image
+                                fill
+                                className="object-cover"
+                                src="/projects/Ekängen-Bygglov-2024-01-19.jpg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+
+                    <div className="w-full md:w-1/2 flex flex-col justify-between">
+                        <div>
+                            <h2 className="uppercase secondary-heading text-pb text-center">
+                                Inflygningen, Riksten
+                            </h2>
+                        </div>
+                        <div className="w-full h-[500px] relative mt-8">
+                            <Image
+                                fill
+                                className="object-cover"
+                                src="/projects/Inflygningen-Perspektiv-gata.jpg"
+                                alt=""
+                            />
+                        </div>
+                        <div className="max-w-40 min-w-40 flex md:hidden mt-10 mx-auto">
+                            <AnimatedButton label="Våra projekt" color="darkGreen" linkTo="/vara-projekt" />
                         </div>
                     </div>
                 </div>

@@ -9,8 +9,8 @@ interface PageIntroProps {
 export default function PageIntro({ title, texts, imgUrl }: PageIntroProps) {
     return (
         <div className={`h-[${imgUrl ? "100vh" : "50vh"}] flex flex-col`}>
-            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] text-[var(--reliwe-green)] flex flex-col items-center justify-center">
-                <h1 className="normal-heading">{title}</h1>
+            <div className="w-full h-[calc(50vh+85px)] bg-[var(--reliwe-green-accent)] text-[var(--reliwe-green)] flex flex-col items-center justify-center site-x-padding">
+                <h1 className="normal-heading text-center pb-12">{title}</h1>
                 <div>
                     {texts.map((text: string, index: number) => (
                         <p key={index} className="max-w-prose pb-4 text-center site-text-size text-green">{text}</p>

@@ -14,7 +14,7 @@ export default function ContactSection() {
                     <div className="flex flex-col items-center">
                         <p className="pb-8 site-text-size text-gray-200">Har du frågor om våra projekt eller vill komma i kontakt med oss?</p>
                         <div>
-                            <AnimatedButton label="Kontakta oss" color="white" />
+                            <AnimatedButton label="Kontakta oss" color="white" linkTo="/kontakt" />
                         </div>
                     </div>
                 </div>
