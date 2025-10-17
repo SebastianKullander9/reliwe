@@ -24,7 +24,7 @@ export default function Accordion({ title, content, index }: AccordionProps) {
 
     return (
         <div className="relative w-full border-t-1 border-gray-700 py-4 overflow-hidden">
-            <h2 className="flex whitespace-nowrap">
+            <h2 className="flex whitespace-nowrap text-sm md:text-[18px]">
                 <button
                     aria-expanded={isOpen}
                     aria-controls={`accordion-content-${index}`}
@@ -44,7 +44,7 @@ export default function Accordion({ title, content, index }: AccordionProps) {
             <div 
                 ref={ref}
                 id={`accordion-content-${index}`}
-                className={`w-full overflow-hidden ${isOpen ? `opacity-100 mt-4` : "h-0 opacity-0"} transition-[height, opacity] duration-300`} 
+                className={`w-full overflow-hidden ${isOpen ? `opacity-100 mt-4` : "h-0 opacity-0"} transition-[height, opacity] duration-300 text-sm md:text-[18px]`} 
                 style={{ height: divHeight }}
             >
                 {content}
