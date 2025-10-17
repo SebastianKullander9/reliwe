@@ -37,8 +37,10 @@ export default async function OurProjects() {
             <IntroBanner 
                 title="Välkommen hem"
                 texts={[
-                    "Hos oss hittar du hem att trivas i - oavsett om du vill köpa eller hyra. Vi bygger för människor, med omtanke om både vardag och framtid.",
-                    "Anmäl ditt intresse och bli först med att höra de senaste nyheterna om våra hem."
+                    `Hos oss hittar du hem att trivas i – oavsett om du vill köpa eller hyra. Vi
+                    utvecklar, bygger och förvaltar bostäder med omtanke och kvalitet, för
+                    vardagens små stunder och framtidens stora ögonblick.`,
+                    "Anmäl ditt intresse och bli först med att ta del av våra nya projekt och lediga hem."
                 ]}
                 imgUrl="/site-images/vara-projekt.jpg"
                 imgAlt="Image of a child, her mother and dog laying down in a sofa looking happy togheter"

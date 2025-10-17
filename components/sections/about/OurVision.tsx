@@ -5,9 +5,12 @@ export default function OurVision() {
                 Vår vision
             </h2>
             <p className="max-w-prose">
-                Vi vill bidra till en bostadsmarknad med mångfald och valfrihet. Det gör vi genom att utveckla nya bostäder som både säljs och hyrs ut - men 
-                också genom att steg för steg bygga upp ett växande bestånd av hyresrätter som vi själva förvaltar. Vår målbild är att Reliwe i allt högre grad 
-                ska vara en aktiv och pålitlig hyresvärd.
+                Vi vill bidra till en bostadsmarknad med mångfald och valfrihet. Det gör
+                vi genom att både sälja och hyra ut bostäder – men också genom att gradvis
+                bygga upp ett eget, växande bestånd av hyresrätter som vi själva förvaltar. Vår
+
+                målbild är att Reliwe ska vara en aktiv och pålitlig partner på
+                bostadsmarknaden.
             </p>
         </section>
     )

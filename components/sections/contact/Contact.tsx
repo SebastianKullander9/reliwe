@@ -12,8 +12,8 @@ export default function Contact() {
                 screenReaderH1="Contact us"
                 showImage={false}
             />
-            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-row">
-                <div className="relative w-1/2 h-full">
+            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">
+                <div className="relative w-full md:w-1/2 h-full order-2 md:order-1">
                     <Image
                         fill
                         className="object-contain"
@@ -21,7 +21,7 @@ export default function Contact() {
                         alt="Illustration of a tree with a matching color scheme for reliwe"
                     />
                 </div>
-                <div className="w-1/2 flex flex-col justify-center items-center text-center items-horizontal-gap">
+                <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center items-horizontal-gap order-1 md:order-2">
                     <div className="flex flex-col gap-1">
                         <h2 className="text-family text-[21px]">
                             E-post

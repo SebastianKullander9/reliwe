@@ -8,8 +8,13 @@ export default function About() {
     return (
         <section>
             <IntroBanner 
-                title="Ett hem för livet"
-                texts={["Vi skapar bostäder som människor kan trivas i - oavsett om det är bostadsrätter eller hyresrätter. Med fokus på kvalitet, hållbarhet och långsiktighet vill vi göra livet enklare och tryggare för våra boende."]}
+                title="Hem att trivas i"
+                texts={[
+                    `Vi skapar bostäder där människor kan trivas - oavsett om det är
+                    bostadsrätt eller hyresrätt. Våra projekt planeras med omtanke, kvalitet i varje
+                    detalj och långsiktigt värde, för att göra vardagen enklare och tryggare för våra
+                    boende.`
+                ]}
                 imgUrl="/site-images/om-oss.jpg"
                 imgAlt="Image of a couple drinking coffé and looking happy togheter"
                 screenReaderH1="About us"

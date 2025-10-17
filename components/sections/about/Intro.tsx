@@ -9,13 +9,10 @@ export default function Intro() {
                 <div className="w-full md:w-1/2 flex flex-col md:justify-between items-vertical-gap md:gap-0">
                     <h2 className="text-4xl lg:text-7xl text-center lg:text-start">Vi bygger hem för livet</h2>
                     <p className="max-w-prose">
-                        Reliwe är en bostadsutvecklare som skapar
-                        både bostadsrätter och hyresrätter - för en
-                        blandad och levande stadsmiljö. Som
-                        hyresvärd är vi långsiktiga och närvarande,
-                        med ambitionen att skapa trygga och
-                        välskötta hem där människor kan bo länge
-                        och trivas.
+                        Reliwe utvecklar, bygger och förvaltar både bostadsrätter och hyresrätter
+                        som bidrar till en blandad och levande stadsmiljö. Som långsiktig hyresvärd är
+                        vi närvarande och ansvarstagande, med ambitionen att skapa trygga,
+                        välskötta hem där människor vill bo länge.
                     </p>
                 </div>
                 <div className="w-full aspect-[4/5] md:aspect-auto md:w-1/2 relative">

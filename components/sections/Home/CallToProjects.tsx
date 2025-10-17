@@ -14,10 +14,9 @@ export default function CallToProjects() {
                     </div>
                     <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap">
                         <p>
-                            Vi utvecklar bostäder för livet - oavsett om du söker en
-                            bostadsrätt eller en hyresrätt. Våra projekt finns i attraktiva
-                            tillväxtområden och byggs med fokus på kvalitet, hållbarhet och
-                            långsiktigt boende.
+                            Vi utvecklar och förvaltar bostäder för livet - oavsett om du söker en
+                            bostadsrätt eller en hyresrätt. Våra projekt finns i attraktiva tillväxtområden och
+                            byggs med fokus på kvalitet, hållbarhet och långsiktigt boende.
                         </p>
                         <div className="hidden lg:block">
                             <Link href="/vara-projekt">

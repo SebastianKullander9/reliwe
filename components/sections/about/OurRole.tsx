@@ -5,9 +5,12 @@ export default function OurRole() {
                 Vår roll i samhället
             </h2>
             <p className="max-w-prose">
-                Vi ser oss som mer än bostadsutvecklare. Genom att kombinera nya bostadsprojekt med en växande egen hyresportfölj 
-                skapar vi trygghet både för individen och för stadsdelen i stort. Vi bygger för dagens behov - och 
-                för framtidens hållbara boende.
+                Vi är mer än en bostadsutvecklare. Genom att kombinera nya projekt
+                med en växande egen hyresportfölj skapar vi trygghet - både för de
+                människor som bor hos oss och för hela stadsdelar. Våra bostäder, från
+                hyresrätter till bostadsrätter, byggs och förvaltas med omtanke, kvalitet och
+                långsiktigt värde. På så sätt skapar vi hållbara hem och levande miljöer där
+                människor kan trivas, växa och känna sig hemma - idag och över tid.
             </p>
         </section>
     )
