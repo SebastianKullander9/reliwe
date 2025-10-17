@@ -4,7 +4,7 @@ import { data } from "./cardData";
 export default function Sustainability() {
     return (
         <>
-            <section className="w-full min-h-screen body-x-padding section-y-padding bg-[var(--reliwe-offwhite)] flex flex-col items-vertical-gap justify-center">
+            <section className="w-full min-h-screen body-x-padding section-y-padding bg-[var(--reliwe-offwhite)] flex flex-col items-vertical-gap justify-center text-[var(--reliwe-green)]">
                 <h2 className="text-4xl lg:text-7xl text-center py-12 md:py-0">
                     Hållbarhet i fokus
                 </h2>

@@ -1,6 +1,6 @@
 export default function OurRole() {
     return (
-        <section className="w-full h-screen bg-[var(--reliwe-beige)] body-x-padding flex flex-col items-vertical-gap items-center justify-center">
+        <section className="w-full h-screen bg-[var(--reliwe-beige)] body-x-padding flex flex-col items-vertical-gap items-center justify-center text-[var(--reliwe-green)]">
             <h2 className="text-4xl lg:text-7xl text-center lg:text-start">
                 Vår roll i samhället
             </h2>

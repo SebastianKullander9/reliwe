@@ -12,7 +12,7 @@ export default function Contact() {
                 screenReaderH1="Contact us"
                 showImage={false}
             />
-            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">
+            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row text-[var(--reliwe-green)]">
                 <div className="relative w-full md:w-1/2 h-full order-2 md:order-1">
                     <Image
                         fill

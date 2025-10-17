@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function CallToProjects() {
     return (
         <>
-            <section className="w-full h-auto lg:h-screen bg-[var(--reliwe-offwhite)] body-x-padding section-y-padding flex flex-col gap-24" aria-labelledby="projects-heading">
+            <section className="w-full h-auto lg:h-screen bg-[var(--reliwe-offwhite)] body-x-padding section-y-padding flex flex-col gap-24 text-[var(--reliwe-green)]" aria-labelledby="projects-heading">
                 <div className="flex flex-col lg:flex-row items-horizontal-gap lg:gap-0">
                     <div className="w-full lg:w-1/2">
                         <h2 className="text-4xl lg:text-7xl text-center lg:text-start">

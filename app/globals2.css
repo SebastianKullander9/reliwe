@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import "tailwindcss";
+
+:root {
+    --reliwe-green: #1f5d37;
+    --reliwe-green-accent: #cddbd3; /*#d8e6dc maybe this instead?*/
+    --reliwe-green-text: #314439;
+    --reliwe-gray: #d0cccf;
+	--reliwe-gold: #e9db97;
+	--reliwe-offwhite: #faf7f5;
+	--reliwe-beige: #ece3d6;
+}
+
+@font-face {
+	font-family: "pppangaia";
+	src: url("/fonts/PPPangaia-Medium.otf") format("opentype");
+	font-weight: normal;
+	font-style: bold;
+	font-display: swap;
+}
+
+html {
+  	overflow-y: scroll;
+}
+
+html, body {
+  	overscroll-behavior: none;
+}
+
+h1, h2 {
+	font-family: "pppangaia";
+}
+
+.text-family {
+	font-family: "Geist", sans-serif;
+	font-style: normal;
+	font-optical-sizing: auto;
+	font-weight: 600;
+}
+
+.text-bold {
+	font-weight: 800
+}
+
+p, li, a, button, h3, h4 {
+    font-family: "Geist", sans-serif;
+	font-style: normal;
+	font-optical-sizing: auto;
+	font-weight: 500;
+}
+
+.emphasize-text {
+	font-weight: 700;
+	font-size: 18px;
+}
+
+p, span {
+	font-size: 17px;
+}
+
+.override-text-size {
+	font-size: 12px!important;
+}
+
+.items-horizontal-gap {
+	@apply gap-8;
+}
+
+.items-vertical-gap {
+	@apply gap-8;
+}
+
+.items-pb {
+	@apply pb-8;
+}
+
+.body-x-padding {
+	@apply px-4 md:px-8 lg:px-16 xl:px-32;
+}
+
+.section-y-padding {
+	@apply py-12 md:py-12 lg:py-12 xl:py-16;
+}

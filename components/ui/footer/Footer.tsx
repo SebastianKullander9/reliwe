@@ -9,7 +9,7 @@ type FooterProps = {
 export default function Footer({ aboveHero }: FooterProps) {
     return (
         <>
-            <footer className={`w-full h-screen flex flex-col md:flex-row fixed inset-0 -z-20 ${aboveHero ? "-z-20" : "-z-30"}`}>
+            <footer className={`w-full h-screen flex flex-col md:flex-row fixed inset-0 -z-20 ${aboveHero ? "-z-20" : "-z-30"} text-[var(--reliwe-green)]`}>
                 <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
                     <Image 
                         src="/site-images/tree-accent-green.jpg" 

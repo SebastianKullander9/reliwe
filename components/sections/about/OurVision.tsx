@@ -1,6 +1,6 @@
 export default function OurVision() {
     return (
-        <section className="w-full min-h-screen bg-[var(--reliwe-green-accent)] body-x-padding flex flex-col items-vertical-gap items-center justify-center">
+        <section className="w-full min-h-screen bg-[var(--reliwe-green-accent)] body-x-padding flex flex-col items-vertical-gap items-center justify-center text-[var(--reliwe-green)]">
             <h2 className="text-4xl lg:text-7xl text-center lg:text-start">
                 Vår vision
             </h2>
