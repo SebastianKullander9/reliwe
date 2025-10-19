@@ -41,7 +41,7 @@ export default function Footer({ aboveHero }: FooterProps) {
                     </div>
                 </div>
             </footer>
-            <div className="w-full h-screen pointer-events-none -z-50" aria-hidden="true" data-scroll-spacer />
+            <div className="w-full h-screen pointer-events-none -z-[9999]" aria-hidden="true" data-scroll-spacer />
         </>
     );
 }

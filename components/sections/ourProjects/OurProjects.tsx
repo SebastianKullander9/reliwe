@@ -25,7 +25,10 @@ async function getProjects() {
             roomAmount,
             images
         }
-    `);
+        `,
+        {}, 
+        { next: { revalidate: 60 } }
+    );
     return projects;
 }
 
