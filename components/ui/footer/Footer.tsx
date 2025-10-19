@@ -4,12 +4,16 @@ import Link from "next/link";
 
 type FooterProps = {
     aboveHero?: boolean;
+    isFooterVisible?: boolean;
+    isClient?: boolean;
 }
 
-export default function Footer({ aboveHero }: FooterProps) {
+export default function Footer({ aboveHero, isFooterVisible, isClient=false }: FooterProps) {
     return (
         <>
-            <footer className={`w-full h-screen flex flex-col md:flex-row fixed inset-0 -z-20 ${aboveHero ? "-z-20" : "-z-30"}`}>
+            <footer className={`w-full h-screen flex flex-col md:flex-row fixed inset-0 transition-all duration-300 ${isClient ? "" : "z-1"} ${
+                isFooterVisible ? "z-10" : (aboveHero ? "-z-20" : "-z-30")
+            }`}>
                 <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
                     <Image 
                         src="/site-images/tree-accent-green.jpg" 
@@ -41,7 +45,8 @@ export default function Footer({ aboveHero }: FooterProps) {
                     </div>
                 </div>
             </footer>
-            <div className="w-full h-screen pointer-events-none -z-[9999]" aria-hidden="true" data-scroll-spacer />
+
+            <div className="w-full h-screen pointer-events-none" aria-hidden="true" data-scroll-spacer />
         </>
     );
 }

@@ -4,7 +4,9 @@ import Footer from "@/components/ui/footer/Footer";
 export default function OmOss() {
     return (
         <>
-            <About />
+            <div className="relative z-2">
+                <About />
+            </div>
             <Footer />
         </>
     );

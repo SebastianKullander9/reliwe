@@ -7,8 +7,10 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <CallToAbout />
-            <CallToProjects />
+            <div className="relative z-[9999]">
+                <CallToAbout />
+                <CallToProjects />
+            </div>
             <FooterWithClient />
         </>
     );

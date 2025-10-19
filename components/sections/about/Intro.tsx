@@ -7,7 +7,7 @@ export default function Intro() {
                 className="w-full min-h-screen body-x-padding section-y-padding bg-[var(--reliwe-offwhite)] flex flex-col md:flex-row justify-center items-vertical-gap md:gap-0"
             >
                 <div className="w-full md:w-1/2 flex flex-col md:justify-between items-vertical-gap md:gap-0">
-                    <h2 className="text-4xl lg:text-7xl text-center lg:text-start">Vi bygger hem för livet</h2>
+                    <h2 className="text-4xl lg:text-7xl text-center md:text-start">Vi bygger hem för livet</h2>
                     <p className="max-w-prose">
                         Reliwe utvecklar, bygger och förvaltar både bostadsrätter och hyresrätter
                         som bidrar till en blandad och levande stadsmiljö. Som långsiktig hyresvärd är

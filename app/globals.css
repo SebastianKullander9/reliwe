@@ -12,8 +12,8 @@
 }
 
 @font-face {
-	font-family: "pppangaia";
-	src: url("/fonts/PPPangaia-Medium.otf") format("opentype");
+	font-family: "americana";
+	src: url("/fonts/americanabt_roman.ttf") format("truetype");
 	font-weight: normal;
 	font-style: bold;
 	font-display: swap;
@@ -28,7 +28,7 @@ html, body {
 }
 
 h1, h2 {
-	font-family: "pppangaia";
+	font-family: "americana";
 }
 
 .text-family {
@@ -55,8 +55,8 @@ p, li, a, button, h3, h4 {
 }
 
 p, span {
-	font-size: 17px;
-}
+	@apply text-[16px] md:text-[18px] font-[500] md:font-[500] };
+
 
 .override-text-size {
 	font-size: 12px!important;
