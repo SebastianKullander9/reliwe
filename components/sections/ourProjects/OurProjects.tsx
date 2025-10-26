@@ -1,8 +1,7 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
-import ProjectCard from "@/components/ui/projectCard/ProjectCard";
-//import { data } from "./projectData";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/sanity/image";
+import ProjectsList from "./ProjectList";
 
 type Project = {
     title: string;
@@ -12,6 +11,7 @@ type Project = {
     apartmentAmount: string;
     roomAmount: string;
     images: string[];
+    status: "ongoing" | "done" | "upcoming";
 }
 
 async function getProjects() {
@@ -23,7 +23,8 @@ async function getProjects() {
             apartmentAmount,
             movingInYear,
             roomAmount,
-            images
+            images,
+            status
         }
         `,
         {}, 
@@ -34,6 +35,13 @@ async function getProjects() {
 
 export default async function OurProjects() {
     const projects = await getProjects();
+
+    const formatted = projects.map((project: Project) => ({
+        ...project,
+        imgUrls: project.images?.map((img: string) =>
+            urlFor(img).width(800).url()
+        ) ?? [],
+    }));
 
     return (
         <section>
@@ -49,21 +57,7 @@ export default async function OurProjects() {
                 imgAlt="Image of a child, her mother and dog laying down in a sofa looking happy togheter"
                 screenReaderH1="Våra projekt - Reliwe bostadsprojekt"
             />
-            {projects.map((project: Project, index: number) => (
-                <ProjectCard
-                    key={index}
-                    title={project.title}
-                    text={project.text}
-                    year={project.year}
-                    movingInYear={project.movingInYear}
-                    apartmentAmount={project.apartmentAmount}
-                    roomAmount={project.roomAmount}
-                    imgUrls={project.images.map((img: string) => 
-                        urlFor(img).width(800).url()
-                    )}
-                    index={index}
-                />
-            ))}
+            <ProjectsList projects={formatted} />
         </section>
     )
 }

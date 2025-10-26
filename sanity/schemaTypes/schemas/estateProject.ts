@@ -1,80 +1,94 @@
-import { defineType, defineField } from 'sanity'
+import { defineType, defineField } from "sanity"
 
 export const estateProject = defineType({
-    name: 'estateProject',
-    title: 'Fastighetsprojekt',
-    type: 'document',
+    name: "estateProject",
+    title: "Fastighetsprojekt",
+    type: "document",
     fields: [
         defineField({
-            name: 'title',
-            title: 'Projekttitel',
-            type: 'string',
-            validation: Rule => Rule.required().error('Projekttitel krävs'),
-            description: 't.ex. "Ekängen, Lidköping"'
+            name: "title",
+            title: "Projekttitel",
+            type: "string",
+            validation: Rule => Rule.required().error("Projekttitel krävs"),
+            description: "t.ex. 'Ekängen, Lidköping'"
         }),
         defineField({
-            name: 'text',
-            title: 'Beskrivning',
-            type: 'text',
+            name: "text",
+            title: "Beskrivning",
+            type: "text",
             rows: 4,
-            validation: Rule => Rule.required().error('Beskrivning krävs')
+            validation: Rule => Rule.required().error("Beskrivning krävs")
         }),
         defineField({
-            name: 'year',
-            title: 'År',
-            type: 'string',
-            description: 'Projektår'
+            name: "year",
+            title: "År",
+            type: "string",
+            description: "Projektår"
         }),
         defineField({
-            name: 'apartmentAmount',
-            title: 'Antal lägenheter',
-            type: 'string',
-            description: 'Totalt antal lägenheter'
+            name: "apartmentAmount",
+            title: "Antal lägenheter",
+            type: "string",
+            description: "Totalt antal lägenheter"
         }),
         defineField({
-            name: 'movingInYear',
-            title: 'Inflyttningsår',
-            type: 'string',
-            description: 'Förväntat inflyttningsår'
+            name: "movingInYear",
+            title: "Inflyttningsår",
+            type: "string",
+            description: "Förväntat inflyttningsår"
         }),
         defineField({
-            name: 'roomAmount',
-            title: 'Antal rum',
-            type: 'string',
-            description: 't.ex. "1-4" för 1 till 4 rum'
+            name: "roomAmount",
+            title: "Antal rum",
+            type: "string",
+            description: "t.ex. '1-4' för 1 till 4 rum"
         }),
         defineField({
-            name: 'images',
-            title: 'Projektbilder',
-            type: 'array',
+            name: "images",
+            title: "Projektbilder",
+            type: "array",
             of: [{ 
-                type: 'image',
+                type: "image",
                 options: {
                     hotspot: true
                 },
                 fields: [
                     {
-                        name: 'alt',
-                        type: 'string',
-                        title: 'Alternativ text',
-                        description: 'Beskrivning av bilden för sökmotorer och tillgänglighet'
+                        name: "alt",
+                        type: "string",
+                        title: "Alternativ text",
+                        description: "Beskrivning av bilden för sökmotorer och tillgänglighet"
                     }
                 ]
             }],
-            validation: Rule => Rule.required().error('Minst en bild krävs')
+            validation: Rule => Rule.required().error("Minst en bild krävs")
+        }),
+        defineField({
+            name: "status",
+            title: "Projekt Status",
+            type: "string",
+            options: {
+                list: [
+                    { title: "Planerade", value: "planned" },
+                    { title: "Pågående", value: "ongoing" },
+                    { title: "Genomförda", value: "done" },
+                ],
+                layout: "radio",
+            },
+            validation: (Rule) => Rule.required().error("Projektstatus krävs.")
         })
     ],
     preview: {
         select: {
-            title: 'title',
-            year: 'year',
-            media: 'images.0'
+            title: "title",
+            year: "year",
+            media: "images.0"
         },
         prepare(selection) {
             const { title, year, media } = selection
             return {
                 title: title,
-                subtitle: year ? `År: ${year}` : 'Inget år angivet',
+                subtitle: year ? `År: ${year}` : "Inget år angivet",
                 media: media
             }
         }
