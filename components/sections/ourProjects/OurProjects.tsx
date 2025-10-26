@@ -3,6 +3,15 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/sanity/image";
 import ProjectsList from "./ProjectList";
 
+type SanityImage = {
+    _type: "image";
+    asset: {
+        _ref: string;
+        _type: "reference";
+    };
+    alt?: string;
+};
+
 type Project = {
     title: string;
     text: string;
@@ -10,11 +19,33 @@ type Project = {
     movingInYear: string;
     apartmentAmount: string;
     roomAmount: string;
-    images: string[];
+    images: SanityImage[];
+    imgUrls: string[];
     status: "ongoing" | "done" | "upcoming";
-}
+};
 
-async function getProjects() {
+type IntroBannerData = {
+    title: string;
+    texts: string[];
+    image?: SanityImage;
+};
+
+type OurProjectsPageData = {
+    introBanner: IntroBannerData;
+    projects: Project[];
+};
+
+async function getOurProjectsPage(): Promise<OurProjectsPageData> {
+    const data = await client.fetch(`
+        *[_type == "projectsPage"][0]{
+            introBanner {
+                title,
+                texts,
+                image
+            }
+        }
+    `);
+
     const projects = await client.fetch(`
         *[_type == "estateProject"] | order(_createdAt desc) {
             title,
@@ -26,38 +57,41 @@ async function getProjects() {
             images,
             status
         }
-        `,
-        {}, 
-        { next: { revalidate: 60 } }
-    );
-    return projects;
+    `);
+
+    const formattedProjects: Project[] = projects.map((project: Project) => ({
+        ...project,
+        imgUrls: project.images?.map((img: SanityImage) => urlFor(img).width(800).url()) ?? [],
+    }));
+
+    const introBanner: IntroBannerData = data?.introBanner || {
+        title: "",
+        texts: [],
+    };
+
+    return {
+        introBanner,
+        projects: formattedProjects,
+    };
 }
 
 export default async function OurProjects() {
-    const projects = await getProjects();
-
-    const formatted = projects.map((project: Project) => ({
-        ...project,
-        imgUrls: project.images?.map((img: string) =>
-            urlFor(img).width(800).url()
-        ) ?? [],
-    }));
+    const data = await getOurProjectsPage();
 
     return (
         <section>
-            <IntroBanner 
-                title="Välkommen hem"
-                texts={[
-                    `Hos oss hittar du hem att trivas i – oavsett om du vill köpa eller hyra. Vi
-                    utvecklar, bygger och förvaltar bostäder med omtanke och kvalitet, för
-                    vardagens små stunder och framtidens stora ögonblick.`,
-                    "Anmäl ditt intresse och bli först med att ta del av våra nya projekt och lediga hem."
-                ]}
-                imgUrl="/site-images/vara-projekt.jpg"
-                imgAlt="Image of a child, her mother and dog laying down in a sofa looking happy togheter"
+            <IntroBanner
+                title={data.introBanner.title}
+                texts={data.introBanner.texts}
+                imgUrl={
+                    data.introBanner.image
+                        ? urlFor(data.introBanner.image).width(1600).url()
+                        : ""
+                }
+                imgAlt={data.introBanner.image?.alt || ""}
                 screenReaderH1="Våra projekt - Reliwe bostadsprojekt"
             />
-            <ProjectsList projects={formatted} />
+            <ProjectsList projects={data.projects} />
         </section>
-    )
+    );
 }

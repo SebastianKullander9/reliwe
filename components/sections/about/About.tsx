@@ -4,25 +4,69 @@ import OurVision from "./OurVision";
 import OurRole from "./OurRole";
 import Sustainability from "./sustainability/Sustainability";
 
-export default function About() {
+type SanityImage = {
+    asset: {
+        url: string;
+    };
+    alt: string;
+}
+
+type SustainabilityCard = {
+    image: SanityImage;
+    title: string;
+    text: string;
+}
+
+type AboutContent = {
+    introBanner: {
+        title: string;
+        texts: string[];
+        image: SanityImage;
+    };
+    intro: {
+        title: string;
+        text: string;
+        image: SanityImage;
+    };
+    ourVision: {
+        title: string;
+        text: string;
+    };
+    ourRole: {
+        title: string;
+        text: string;
+    };
+    sustainability: SustainabilityCard[];
+}
+
+export default function About({ content }: { content: AboutContent }) {
+    if (!content || !content.introBanner) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <section>
             <IntroBanner 
-                title="Hem att trivas i"
-                texts={[
-                    `Vi skapar bostäder där människor kan trivas - oavsett om det är
-                    bostadsrätt eller hyresrätt. Våra projekt planeras med omtanke, kvalitet i varje
-                    detalj och långsiktigt värde, för att göra vardagen enklare och tryggare för våra
-                    boende.`
-                ]}
-                imgUrl="/site-images/om-oss.jpg"
-                imgAlt="Image of a couple drinking coffé and looking happy togheter"
+                title={content.introBanner.title}
+                texts={content.introBanner.texts}
+                imgUrl={content.introBanner.image.asset.url}
+                imgAlt={content.introBanner.image.alt}
                 screenReaderH1="About us"
             />
-            <Intro />
-            <OurVision />
-            <OurRole />
-            <Sustainability />
+            <Intro 
+                title={content.intro.title}
+                text={content.intro.text}
+                image={content.intro.image}
+            />
+            <OurVision 
+                title={content.ourVision.title} 
+                text={content.ourVision.text} 
+            />
+            <OurRole 
+                title={content.ourRole.title} 
+                text={content.ourRole.text} 
+            />
+            <Sustainability cards={content.sustainability} />
         </section>
     )
 }

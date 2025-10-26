@@ -1,12 +1,38 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
 import Image from "next/image";
 
-export default function Contact() {
+type SanityImage = {
+    asset: {
+        url: string;
+    };
+    alt: string;
+}
+
+type ContactContent = {
+    introBanner: {
+        title: string;
+        texts: string[];
+    };
+    contactInfo: {
+        email: string;
+        address: {
+            street: string;
+            city: string;
+        };
+        image: SanityImage;
+    };
+}
+
+export default function Contact({ content }: { content: ContactContent }) {
+    if (!content || !content.introBanner) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <section>
             <IntroBanner
-                title="Hur kan vi hjälpa till?"
-                texts={["Varmt välkommen att kontakta oss om du har frågor om företaget eller våra projekt."]}
+                title={content.introBanner.title}
+                texts={content.introBanner.texts}
                 imgUrl=""
                 imgAlt=""
                 screenReaderH1="Contact us"
@@ -17,8 +43,8 @@ export default function Contact() {
                     <Image
                         fill
                         className="object-contain"
-                        src="/site-images/tree-accent-green.jpg"
-                        alt="Illustration of a tree with a matching color scheme for reliwe"
+                        src={content.contactInfo.image.asset.url}
+                        alt={content.contactInfo.image.alt}
                     />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center items-horizontal-gap order-1 md:order-2">
@@ -27,7 +53,7 @@ export default function Contact() {
                             E-post
                         </h2>
                         <p>
-                            info@reliwe.se
+                            {content.contactInfo.email}
                         </p>
                     </div>
                     <div className="flex flex-col gap-1">
@@ -36,10 +62,10 @@ export default function Contact() {
                         </h2>
                         <div>
                             <p>
-                                Ingmar Bergmans Gata 2
+                                {content.contactInfo.address.street}
                             </p>
                             <p>
-                                114 34 Stockholm, Sweden
+                                {content.contactInfo.address.city}
                             </p>
                         </div>
                     </div>

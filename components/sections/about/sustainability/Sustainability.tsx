@@ -1,7 +1,16 @@
 import InfoCard from "./InfoCard";
-import { data } from "./cardData";
 
-export default function Sustainability() {
+type Card = {
+    image: { asset: { _ref: string } | { url: string }; alt?: string };
+    title: string;
+    text: string;
+};
+
+type SustainabilityProps = {
+    cards: Card[];
+};
+
+export default function Sustainability({ cards }: SustainabilityProps) {
     return (
         <>
             <section className="w-full min-h-screen body-x-padding section-y-padding bg-[var(--reliwe-offwhite)] flex flex-col items-vertical-gap justify-center">
@@ -9,10 +18,10 @@ export default function Sustainability() {
                     Hållbarhet i fokus
                 </h2>
                 <div className="flex flex-col md:flex-row gap-36 sm:gap-6 md:items-horizontal-gap">
-                    {data.map((card, index) => (
+                    {cards.map((card, index) => (
                         <InfoCard
                             key={index}
-                            imgUrl={card.imgUrl}
+                            image={card.image}
                             title={card.title}
                             text={card.text}
                         />
@@ -22,6 +31,5 @@ export default function Sustainability() {
 
             <div className="w-full h-24 bg-[var(--reliwe-offwhite)]" />
         </>
-       
-    )
+    );
 }

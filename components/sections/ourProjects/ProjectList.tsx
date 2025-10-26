@@ -24,23 +24,23 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
 
     return (
         <>
-            <div className="h-full py-8 bg-[var(--reliwe-offwhite)]">
-                <div className=" max-w-6xl mx-auto flex justify-center gap-4 ">
-                    {["all", "ongoing", "upcoming", "done"].map((status) => (
+            <div className="h-full py-8 pb-8 bg-[var(--reliwe-offwhite)]">
+                <div className="max-w-6xl mx-auto flex justify-center gap-3 sm:gap-4">
+                    {["all", "ongoing", "planned", "done"].map((status) => (
                         <button
                             key={status}
                             onClick={() => setFilter(status as "all" | "ongoing" | "done" | "planned")}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition cursor-pointer ${
+                            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
                                 filter === status
                                     ? "bg-[var(--reliwe-green)] text-white"
-                                    : "bg-gray-200 hover:bg-gray-300"
+                                    : "bg-[var(--reliwe-green-accent)] hover:bg-gray-300"
                             }`}
                         >
                             {status === "all"
                                 ? "Alla"
                                 : status === "ongoing"
                                 ? "Pågående"
-                                : status === "upcoming"
+                                : status === "planned"
                                 ? "Kommande"
                                 : "Färdiga"
                             }
