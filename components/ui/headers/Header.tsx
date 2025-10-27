@@ -91,7 +91,7 @@ export default function Header({
             <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 
             <header 
-                className={`fixed w-full h-24 flex flex-row justify-between items-center body-x-padding z-[51]
+                className={`fixed w-full h-24 flex flex-row justify-between items-center body-x-padding z-[9999]
                     ${showHeader ? "translate-y-0" : "-translate-y-full"} 
                     transition-transform duration-300`}
                 style={{ backgroundColor: isOpen ? "var(--reliwe-offwhite)" : background }}

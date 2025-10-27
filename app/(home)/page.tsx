@@ -86,7 +86,7 @@ export default async function Home() {
     return (
         <>
             <Hero />
-            <div className="relative z-[9999]">
+            <div className="relative z-[9998]">
                 <CallToAbout data={data.callToAbout} />
                 <CallToProjects data={data.callToProjects} />
             </div>

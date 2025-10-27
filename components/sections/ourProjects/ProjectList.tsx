@@ -26,7 +26,7 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
         <>
             <div className="h-full py-8 pb-8 bg-[var(--reliwe-offwhite)]">
                 <div className="max-w-6xl mx-auto flex justify-center gap-3 sm:gap-4">
-                    {["all", "ongoing", "planned", "done"].map((status) => (
+                    {["all", "planned", "ongoing", "done"].map((status) => (
                         <button
                             key={status}
                             onClick={() => setFilter(status as "all" | "ongoing" | "done" | "planned")}
@@ -41,8 +41,8 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                                 : status === "ongoing"
                                 ? "Pågående"
                                 : status === "planned"
-                                ? "Kommande"
-                                : "Färdiga"
+                                ? "Planerade"
+                                : "Genomförda"
                             }
                         </button>
                     ))}
