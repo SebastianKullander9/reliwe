@@ -9,7 +9,10 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        revalidatePath("/vara-projekt")
+        revalidatePath("/");
+        revalidatePath("/om-oss");
+        revalidatePath("/kontakt");
+        revalidatePath("/vara-projekt");
         return NextResponse.json({ revalidated: true })
     } catch (err) {
         return NextResponse.json({ message: "Error revalidating" }, { status: 500 })
