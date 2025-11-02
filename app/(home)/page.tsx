@@ -1,6 +1,7 @@
 import CallToAbout from "@/components/sections/Home/CallToAbout";
 import CallToProjects from "@/components/sections/Home/CallToProjects";
 import Hero from "@/components/sections/Home/Hero";
+import KeyNumbers from "@/components/sections/Home/KeyNumbers";
 import FooterWithClient from "@/components/ui/footer/FooterWithClient";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/sanity/image";
@@ -86,9 +87,10 @@ export default async function Home() {
     return (
         <>
             <Hero />
-            <div className="relative z-[9998]">
+            <div className="relative z-[9997]">
                 <CallToAbout data={data.callToAbout} />
                 <CallToProjects data={data.callToProjects} />
+                <KeyNumbers />
             </div>
             <FooterWithClient />
         </>

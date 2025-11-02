@@ -55,7 +55,8 @@ p, li, a, button, h3, h4 {
 }
 
 p, span {
-	@apply text-[16px] md:text-[18px] font-[500] md:font-[500] };
+	@apply text-[16px] md:text-[18px] font-[500] md:font-[500] 
+};
 
 
 .override-text-size {
