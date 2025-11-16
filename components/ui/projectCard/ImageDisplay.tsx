@@ -14,6 +14,7 @@ export default function ImageDisplay({ imgUrls, projectName }: ImageDisplayProps
                     className="object-cover"
                     src={imgUrls[0]}
                     alt={`Exterior view of project ${projectName}`}
+					unoptimized
                 />
             </div>
         </figure>

@@ -27,7 +27,7 @@ export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReader
             </div>
             {showImage ? (
                 <div className="w-full h-[50vh] relative">
-                    <Image src={imgUrl} alt={imgAlt} fill className="object-cover" />
+                    <Image src={imgUrl} alt={imgAlt} fill priority unoptimized className="object-cover" />
                 </div>
             ): (
                 <></>

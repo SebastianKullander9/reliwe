@@ -61,7 +61,13 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
 
     const formattedProjects: Project[] = projects.map((project: Project) => ({
         ...project,
-        imgUrls: project.images?.map((img: SanityImage) => urlFor(img).width(800).url()) ?? [],
+        imgUrls: project.images?.map((img: SanityImage) => 
+			urlFor(img)
+			.width(2000)
+			.quality(90)
+			.auto("format")
+			.url()
+		) ?? [],
     }));
 
     const introBanner: IntroBannerData = data?.introBanner || {
@@ -85,7 +91,10 @@ export default async function OurProjects() {
                 texts={data.introBanner.texts}
                 imgUrl={
                     data.introBanner.image
-                        ? urlFor(data.introBanner.image).width(1600).url()
+                        ? urlFor(data.introBanner.image).width(2000)
+						.quality(95)
+						.auto("format")
+						.url()
                         : ""
                 }
                 imgAlt={data.introBanner.image?.alt || ""}
