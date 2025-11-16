@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import heroImage from "@/public/site-images/hero-test-3.jpg";
+import heroImage from "@/public/site-images/hero.jpg";
 import { americana } from "../../../app/fonts";
 
 export default function Hero() {
@@ -17,7 +17,7 @@ export default function Hero() {
                     priority
                     onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
                 />
-                {/*<div className="absolute inset-0 bg-black/50" />*/}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-black/40" />
             </div>
             <div className="relative w-full h-[100svh] flex flex-col justify-end pb-[33vh] items-center leading-[10vw] lg:leading-[7vw] gap-36">
                 <div className="">
