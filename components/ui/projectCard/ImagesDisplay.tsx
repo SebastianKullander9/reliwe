@@ -110,6 +110,7 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
                                         src={url}
                                         alt={`Exterior view of project ${projectName}, Image ${index + 1}`}
                                         priority={index === 0}
+										unoptimized
                                     />
                                 </div>
                             </div>

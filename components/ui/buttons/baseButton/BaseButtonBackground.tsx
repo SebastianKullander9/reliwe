@@ -9,7 +9,7 @@ type BaseButtonBackgroundProps = {
 export default function BaseButtonBackground({ label, bgColor, hoverTextColor }: BaseButtonBackgroundProps) {
     return (
         <button 
-            className={`relative overflow-hidden py-3 px-5 group rounded-full cursor-pointer min-w-40`}
+            className={`relative overflow-hidden py-3 px-5 group rounded-full cursor-pointer min-w-47`}
             style={{ backgroundColor: bgColor}}
         >
             <div 

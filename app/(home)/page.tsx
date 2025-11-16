@@ -87,7 +87,7 @@ export default async function Home() {
     return (
         <>
             <Hero />
-            <div className="relative z-[9997]">
+            <div className="relative z-[9997] flex flex-col">
                 <CallToAbout data={data.callToAbout} />
                 <CallToProjects data={data.callToProjects} />
                 <KeyNumbers />

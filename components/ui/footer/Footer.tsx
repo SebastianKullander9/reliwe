@@ -22,18 +22,23 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
                         height={600}
                     />
                 </div>
-                <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex flex-col items-vertical-gap items-center justify-center">
-                    <h2 className="text-4xl lg:text-7xl text-center">
-                        Du hittar oss här
-                    </h2>
-                    <p className="text-center">
-                        Har du frågor om våra projekt eller vill komma i kontakt med oss?
-                    </p>
-                    <div>
-                        <Link href="/kontakt">
-                            <BaseButtonBackground label="Kontakta oss" bgColor="#1f5d37" hoverTextColor="#faf7f5"/>
-                        </Link>
-                    </div>
+                <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex flex-col items-center justify-center body-x-padding">
+					<div className="flex flex-col items-vertical-gap">
+						<div className="flex flex-col gap-4 md:gap-48 justify-between h-full">
+							<h2 className="heading text-center">
+								Du hittar oss här
+							</h2>
+							<p className="text-center">
+								Har du frågor om våra projekt eller vill komma i kontakt med oss?
+							</p>
+						</div>
+						<div className="flex items-center flex-col">
+							<Link href="/kontakt">
+								<BaseButtonBackground label="Kontakta oss" bgColor="#1f5d37" hoverTextColor="#faf7f5"/>
+							</Link>
+						</div>
+					</div>
+
                 </div>
                 <div className="absolute bottom-0 w-full h-24 flex justify-center">
                     <div className="absolute bottom-4 !text-sm flex flex-row items-horizontal-gap items-center">

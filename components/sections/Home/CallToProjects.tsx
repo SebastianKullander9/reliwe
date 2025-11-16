@@ -28,12 +28,12 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
     return (
         <>
             <section
-                className="w-full h-auto lg:h-screen bg-[var(--reliwe-offwhite)] body-x-padding section-y-padding flex flex-col gap-24"
+                className="w-full h-auto py-24 lg:h-screen bg-[var(--reliwe-offwhite)] body-x-padding section-y-padding flex flex-col gap-24"
                 aria-labelledby="projects-heading"
             >
                 <div className="flex flex-col lg:flex-row items-horizontal-gap lg:gap-0">
                     <div className="w-full lg:w-1/2">
-                        <h2 className="text-4xl lg:text-7xl text-center lg:text-start">{heading}</h2>
+                        <h2 className="heading lg:text-start text-center">{heading}</h2>
                     </div>
                     <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap">
                         <p>{text}</p>

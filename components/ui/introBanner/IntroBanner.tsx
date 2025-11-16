@@ -15,7 +15,7 @@ export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReader
             <h1 className="sr-only">{screenReaderH1}</h1>
 
             <div className="w-full h-[calc(50vh+200px)] body-x-padding flex flex-col text-center items-center justify-center items-vertical-gap">
-                <h2 className="text-4xl lg:text-7xl">{title}</h2>
+                <h2 className="heading mb-12">{title}</h2>
                 {texts.map((text, index) => (
                     <p 
                         key={index}

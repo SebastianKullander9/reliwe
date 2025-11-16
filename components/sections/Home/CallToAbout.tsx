@@ -21,13 +21,13 @@ export default function CallToAbout({ data }: { data: CallToAboutData }) {
 
     return (
         <section
-            className="w-full h-screen bg-[var(--reliwe-offwhite)] body-x-padding flex items-center"
+            className="w-full py-24 md:h-[calc(100vh+100px)] bg-[var(--reliwe-offwhite)] body-x-padding flex items-center"
             aria-labelledby="about-heading"
         >
-            <div className="flex flex-col lg:flex-row items-horizontal-gap">
-                <div className="w-full lg:w-1/2 flex flex-col justify-between items-vertical-gap lg:gap-0 items-pb">
-                    <h2 className="text-4xl lg:text-7xl text-center lg:text-start">{heading}</h2>
-                    <div className="flex flex-col items-vertical-gap">
+            <div className="flex flex-col lg:flex-row items-horizontal-gap max-h-9/10">
+                <div className="w-full lg:w-1/2 flex flex-col justify-between items-vertical-gap lg:gap-0">
+                    <h2 className="heading lg:text-start max-w-[10ch] text-center">{heading}</h2>
+                    <div className="flex flex-col items-vertical-gap max-w-prose">
                         <p className="max-w-prose">{text}</p>
                         <div className="hidden lg:block">
                             <Link href="/om-oss">
@@ -40,12 +40,13 @@ export default function CallToAbout({ data }: { data: CallToAboutData }) {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap lg:gap-0">
+                <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap lg:gap-0 relative">
                     {image && (
                         <Image
-                            src={urlFor(image).width(1254).height(836).url()}
-                            width={1254}
-                            height={836}
+                            src={urlFor(image).url()}
+							width={2000}
+							height={800}
+							className="object-contain max-h-full object-right"
                             alt={image.alt || ""}
                             loading="lazy"
                         />

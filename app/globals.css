@@ -38,6 +38,10 @@ h1, h2 {
 	font-weight: 600;
 }
 
+.heading {
+	@apply text-6xl md:text-6xl lg:text-8xl;
+}
+
 .text-bold {
 	font-weight: 800
 }
@@ -55,7 +59,7 @@ p, li, a, button, h3, h4 {
 }
 
 p, span {
-	@apply text-[16px] md:text-[18px] font-[500] md:font-[500] 
+	@apply text-[16px] md:text-[18px] font-[500] md:font-[500];
 };
 
 
@@ -76,7 +80,7 @@ p, span {
 }
 
 .body-x-padding {
-	@apply px-4 md:px-8 lg:px-16 xl:px-32;
+	@apply px-4 md:px-8 lg:px-12 xl:px-14;
 }
 
 .section-y-padding {
