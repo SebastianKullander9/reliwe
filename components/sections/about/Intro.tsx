@@ -16,7 +16,7 @@ export default function Intro({ title, text, image }: IntroProps) {
                 className="w-full min-h-screen body-x-padding section-y-padding bg-[var(--reliwe-offwhite)] flex flex-col md:flex-row justify-center items-vertical-gap md:gap-0"
             >
                 <div className="w-full md:w-1/2 flex flex-col md:justify-between items-vertical-gap md:gap-0">
-                    <h2 className="text-4xl lg:text-7xl text-center md:text-start">{title}</h2>
+                    <h2 className="heading text-center md:text-start">{title}</h2>
                     <p className="max-w-prose">{text}</p>
                 </div>
                 <div className="w-full aspect-[4/5] md:aspect-auto md:w-1/2 relative">

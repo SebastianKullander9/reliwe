@@ -33,7 +33,7 @@ export default function Header({
     const prevScroll = useRef(0);
     const [background, setBackground] = useState(startBackground);
     const [text, setText] = useState(startTextColor);
-    const [btnColor, setBtnColor] = useState("#d8e6dc");
+    const [btnColor, setBtnColor] = useState("#faf7f5");
     const [hamburgerColor, setHamburgerColor] = useState(btnScrollChange ? "#faf7f5" : "black");
 
     useEffect(() => {
@@ -43,7 +43,7 @@ export default function Header({
             if (window.scrollY < colorCutoff) {
                 setBackground(startBackground);
                 setText(startTextColor);
-                setBtnColor("#d8e6dc");
+                setBtnColor("#faf7f5");
                 
                 if (btnScrollChange) {
                     setHamburgerColor("#faf7f5");
@@ -105,9 +105,9 @@ export default function Header({
                                 isOpen ? (
                                     "/logo/reliwe-logo-black.png"
                                 ): btnScrollChange
-                                ? (btnColor ? "/logo/reliwe-logo-lightgreen.png" : "/logo/reliwe-logo-green.png")
+                                ? (btnColor ? "/logo/reliwe-logo-offwhite.png" : "/logo/reliwe-logo-black.png")
                                 : 
-                                "/logo/reliwe-logo-green.png"
+                                "/logo/reliwe-logo-black.png"
                             } 
                             alt="Reliwe company logo"
                             priority
@@ -139,16 +139,22 @@ export default function Header({
                 <div className="min-w-50 justify-end hidden md:flex">
                     {btnScrollChange ? (
                         btnColor ? (
-                            <BaseButton 
-                                label="Anmäl intresse" 
-                                bgColor={btnColor} 
-                                hoverTextColor="#000000"
-                            />
+							<Link target="_blank" href="https://form.typeform.com/to/LGYdubKX">
+								<BaseButton 
+									label="Anmäl intresse" 
+									bgColor={btnColor} 
+									hoverTextColor="#000000"
+								/>
+							</Link>
                         ) : (
-                            <BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
+							<Link target="_blank" href="https://form.typeform.com/to/LGYdubKX">
+                            	<BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
+							</Link>
                         )
                     ) : (
-                        <BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
+						<Link target="_blank" href="https://form.typeform.com/to/LGYdubKX">
+                        	<BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
+						</Link>
                     )}  
                 </div>
                 <div className="md:hidden">

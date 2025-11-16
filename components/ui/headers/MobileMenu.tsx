@@ -22,7 +22,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                     </Link>
                 </nav>
                 <div>
-                    <Link href="">
+                    <Link target="_blank" href="https://form.typeform.com/to/LGYdubKX">
                         <BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
                     </Link>
                 </div>

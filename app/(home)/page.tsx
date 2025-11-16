@@ -69,7 +69,7 @@ async function getHomePage(): Promise<HomePageData> {
     const formattedProjects: FeaturedProject[] =
         data.callToProjects?.featuredProjects?.map((project: FeaturedProject) => ({
             ...project,
-            imageUrl: project.images ? urlFor(project.images).width(1000).url() : undefined,
+            imageUrl: project.images ? urlFor(project.images).width(2000).quality(95).auto("format").url() : undefined,
         })) ?? [];
 
     return {

@@ -19,9 +19,9 @@ export default function Hero() {
                 />
                 {/*<div className="absolute inset-0 bg-black/50" />*/}
             </div>
-            <div className="relative w-full h-[100svh] flex flex-col justify-center items-center leading-[10vw] lg:leading-[7vw] gap-36">
-                <div>
-                    <h1 className={`${americana.className} text-9xl text-[var(--reliwe-offwhite)]`}>En plats för livet</h1>
+            <div className="relative w-full h-[100svh] flex flex-col justify-end pb-[33vh] items-center leading-[10vw] lg:leading-[7vw] gap-36">
+                <div className="">
+                    <h1 className={`${americana.className} text-6xl sm:text-7xl md:text-8xl xl:text-9xl text-center text-[var(--reliwe-offwhite)]`}>En plats för livet</h1>
                 </div>
             </div>
         </section>

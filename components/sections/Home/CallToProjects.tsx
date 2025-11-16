@@ -64,6 +64,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                                         className="object-cover"
                                         src={project.imageUrl}
                                         alt={project.images?.alt || project.title}
+										unoptimized
                                     />
                                 )}
                             </div>
