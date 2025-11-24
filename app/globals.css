@@ -40,6 +40,12 @@ h1, h2 {
 
 .heading {
 	@apply text-6xl md:text-6xl lg:text-8xl;
+	-webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .text-bold {

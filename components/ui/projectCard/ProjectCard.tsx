@@ -34,7 +34,7 @@ export default function ProjectCard({
         >
             <div className={`flex flex-col ${imgUrls.length > 1 ? "md:flex-row" : "md:flex-col md:w-1/2"} items-vertical-gap md:gap-0`}>
                 <div className={`w-full ${imgUrls.length > 1 ? "md:w-1/2" : ""} flex justify-center md:justify-start`}>
-                    <h2 className="heading text-start break-words hyphens-auto">{title}</h2>
+                    <h2 className="heading text-start [overflow-wrap:anywhere] [word-break:break-word]">{title}</h2>
                 </div>
                 <div className={`w-full ${imgUrls.length > 1 ? "md:w-1/2": ""} flex flex-col items-vertical-gap`}>
                     <p>{text}</p>
