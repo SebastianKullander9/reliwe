@@ -36,7 +36,7 @@ export default async function OmOss() {
             title,
             text
         }
-    }`);
+    }`, {}, { next: { revalidate: 0 } });
 
     return (
         <>

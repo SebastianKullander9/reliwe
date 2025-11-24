@@ -9,13 +9,15 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        revalidatePath("/");
-        revalidatePath("/om-oss");
-        revalidatePath("/kontakt");
-        revalidatePath("/vara-projekt");
-		revalidatePath("integritetspolicy");
+        revalidatePath("/", "page");
+        revalidatePath("/om-oss", "page");
+        revalidatePath("/kontakt", "page");
+        revalidatePath("/vara-projekt", "page");
+        revalidatePath("/integritetspolicy", "page");
+        
+        revalidatePath("/", "layout");
         return NextResponse.json({ revalidated: true })
     } catch (err) {
-        return NextResponse.json({ message: "Error revalidating" }, { status: 500 })
+        return NextResponse.json({ message: "Error revalidating", error: err }, { status: 500 })
     }
 }

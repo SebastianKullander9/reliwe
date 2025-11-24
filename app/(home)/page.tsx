@@ -57,7 +57,7 @@ async function getHomePage(): Promise<HomePageData> {
                 }
             }
         }
-    `);
+    `, {}, { next: { revalidate: 0 } });
 
     if (!data) {
         return {

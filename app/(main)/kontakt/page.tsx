@@ -20,7 +20,7 @@ export default async function Kontakt() {
                 alt
             }
         }
-    }`);
+    }`, {}, { next: { revalidate: 0 } });
 
     return (
         <>
