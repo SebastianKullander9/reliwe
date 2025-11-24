@@ -1,7 +1,7 @@
 import BaseButtonBackground from "@/components/ui/buttons/baseButton/BaseButtonBackground";
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/sanity/image";
+import { urlFor } from "@/sanity/lib/image";
 
 type SanityImage = {
     _type: "image";

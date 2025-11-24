@@ -4,6 +4,7 @@ import { homePage } from "./schemas/homePage";
 import { projectsPage } from "./schemas/projectsPage";
 import { aboutPage } from "./schemas/aboutPage";
 import { contactPage } from "./schemas/contactPage";
+import { integrityPage } from "./schemas/integrityPolicy";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
     types: [
@@ -12,5 +13,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         projectsPage,
 		aboutPage,
         contactPage,
+		integrityPage,
     ]
 }
