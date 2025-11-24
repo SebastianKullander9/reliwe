@@ -1,7 +1,7 @@
 import BaseButtonBackground from "@/components/ui/buttons/baseButton/BaseButtonBackground";
 import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/sanity/image";
+import { urlFor } from "@/sanity/lib/image";
 
 interface CallToAboutData {
     heading: string;

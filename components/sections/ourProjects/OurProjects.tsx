@@ -1,6 +1,6 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
 import { client } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/sanity/image";
+import { urlFor } from "@/sanity/lib/image";
 import ProjectsList from "./ProjectList";
 
 type SanityImage = {

@@ -4,7 +4,7 @@ import Hero from "@/components/sections/Home/Hero";
 import KeyNumbers from "@/components/sections/Home/KeyNumbers";
 import FooterWithClient from "@/components/ui/footer/FooterWithClient";
 import { client } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/sanity/image";
+import { urlFor } from "@/sanity/lib/image";
 
 type SanityImage = {
     _type: "image";

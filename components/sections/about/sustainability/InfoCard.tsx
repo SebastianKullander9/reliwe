@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/sanity/image";
+import { urlFor } from "@/sanity/lib/image";
 
 type InfoCardProps = {
     image: { asset: { _ref: string } | { url: string }; alt?: string };
