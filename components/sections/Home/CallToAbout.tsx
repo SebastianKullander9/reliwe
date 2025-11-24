@@ -26,7 +26,7 @@ export default function CallToAbout({ data }: { data: CallToAboutData }) {
         >
             <div className="flex flex-col lg:flex-row items-horizontal-gap max-h-9/10">
                 <div className="w-full lg:w-1/2 flex flex-col justify-between items-vertical-gap lg:gap-0">
-                    <h2 className="heading lg:text-start max-w-[10ch] text-center">{heading}</h2>
+                    <h2 className="heading lg:text-start lg:max-w-[10ch] text-center">{heading}</h2>
                     <div className="flex flex-col items-vertical-gap max-w-prose">
                         <p className="max-w-prose">{text}</p>
                         <div className="hidden lg:block">

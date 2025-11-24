@@ -13,8 +13,8 @@ export default function KeyNumberCard({ title, number, imgUrl }: KeyNumberCardPr
             <div className="flex flex-row justify-between md:flex-col md:items-center md:justify-center h-full gap-8">
                 <Image src={imgUrl} width={100} height={100} alt="" className="w-18 md:w-22 h-18 md:h-22" />
                 <div className="flex flex-col items-center min-w-52 md:w-full gap-3">
-                    <p className="text-bold !text-3xl lg:!text-4xl">{number}</p>
-                    <h2 className="text-family text-[var(--reliwe-green)] text-base lg:text-xl">{title}</h2>
+                    <p className="text-bold !text-xl lg:!text-4xl">{number}</p>
+                    <p className="text-family text-[var(--reliwe-green)] text-base lg:text-xl">{title}</p>
                 </div>
             </div>
         </div>

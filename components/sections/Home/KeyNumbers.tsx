@@ -34,14 +34,13 @@ async function getKeyNumbers(): Promise<KeyNumbersData | null> {
         }
     }`;
     
-    const data = await client.fetch(query, {}, { next: { tags: ['sanity', 'homePage'] } });
+    const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
     return data?.keyNumbers || null;
 }
 
 export default async function KeyNumbers() {
     const data = await getKeyNumbers();
 
-    // Handle case where data doesn't exist yet
     if (!data) {
         return null;
     }

@@ -44,7 +44,7 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
                 image
             }
         }
-    `);
+    `, {}, { next: { revalidate: 0 }});
 
     const projects = await client.fetch(`
         *[_type == "estateProject"] | order(_createdAt desc) {
@@ -57,7 +57,7 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
             images,
             status
         }
-    `);
+    `, {}, { next: { revalidate: 0 }});
 
     const formattedProjects: Project[] = projects.map((project: Project) => ({
         ...project,

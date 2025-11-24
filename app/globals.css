@@ -27,6 +27,10 @@ html, body {
   	overscroll-behavior: none;
 }
 
+body {
+	background-color: #faf7f5;
+}
+
 h1, h2 {
 	font-family: "americana";
 }
@@ -35,11 +39,12 @@ h1, h2 {
 	font-family: "Geist", sans-serif;
 	font-style: normal;
 	font-optical-sizing: auto;
-	font-weight: 600;
+	@apply font-[400] md:font-[500];
 }
 
 .heading {
-	@apply text-6xl md:text-6xl lg:text-8xl;
+	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
+	@apply text-[clamp(3rem,6vw,6rem)];
 	-webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -56,7 +61,7 @@ p, li, a, button, h3, h4 {
     font-family: "Geist", sans-serif;
 	font-style: normal;
 	font-optical-sizing: auto;
-	font-weight: 500;
+	@apply font-[400] md:font-[500];
 }
 
 .emphasize-text {
@@ -65,7 +70,7 @@ p, li, a, button, h3, h4 {
 }
 
 p, span {
-	@apply text-[16px] md:text-[18px] font-[500] md:font-[500];
+	@apply text-[16px] md:text-[18px] font-[300] md:font-[500];
 };
 
 

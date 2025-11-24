@@ -33,7 +33,7 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                             className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
                                 filter === status
                                     ? "bg-[var(--reliwe-green)] text-white"
-                                    : "bg-[var(--reliwe-green-accent)] hover:bg-gray-300"
+                                    : "bg-[var(--reliwe-green-accent)] hover:bg-[#c0d2c8]"
                             }`}
                         >
                             {status === "all"
