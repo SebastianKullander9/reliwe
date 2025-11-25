@@ -1,5 +1,6 @@
+import { ReactNode } from "react";
 import Accordion from "@/components/ui/accordion/Accordion";
-import { PortableText, PortableTextBlock } from "@portabletext/react";
+import { PortableText, PortableTextBlock  } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 
 type Section = {
@@ -14,14 +15,14 @@ type IntegrityPolicy = {
 
 const portableTextComponents = {
     block: {
-        normal: ({ children }: any) => <p className="mb-4">{children}</p>,
-        h1: ({ children }: any) => <h1 className="text-2xl font-bold mb-4">{children}</h1>,
-        h2: ({ children }: any) => <h2 className="text-xl font-bold mb-3">{children}</h2>,
-        h3: ({ children }: any) => <h3 className="text-lg font-bold mb-3">{children}</h3>,
+        normal: ({ children }: { children?: ReactNode }) => <p className="mb-4">{children}</p>,
+        h1: ({ children }: { children?: ReactNode }) => <h1 className="text-2xl font-bold mb-4">{children}</h1>,
+        h2: ({ children }: { children?: ReactNode }) => <h2 className="text-xl font-bold mb-3">{children}</h2>,
+        h3: ({ children }: { children?: ReactNode }) => <h3 className="text-lg font-bold mb-3">{children}</h3>,
     },
     marks: {
-        strong: ({ children }: any) => <strong className="font-bold">{children}</strong>,
-        em: ({ children }: any) => <em className="italic">{children}</em>,
+        strong: ({ children }: { children?: ReactNode }) => <strong className="font-bold">{children}</strong>,
+        em: ({ children }: { children?: ReactNode }) => <em className="italic">{children}</em>,
     },
 };
 
