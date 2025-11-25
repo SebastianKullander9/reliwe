@@ -12,6 +12,19 @@ type IntegrityPolicy = {
 	sections: Section[];
 }
 
+const portableTextComponents = {
+    block: {
+        normal: ({ children }: any) => <p className="mb-4">{children}</p>,
+        h1: ({ children }: any) => <h1 className="text-2xl font-bold mb-4">{children}</h1>,
+        h2: ({ children }: any) => <h2 className="text-xl font-bold mb-3">{children}</h2>,
+        h3: ({ children }: any) => <h3 className="text-lg font-bold mb-3">{children}</h3>,
+    },
+    marks: {
+        strong: ({ children }: any) => <strong className="font-bold">{children}</strong>,
+        em: ({ children }: any) => <em className="italic">{children}</em>,
+    },
+};
+
 async function getIntegrityPolicy() {
     const query = `*[_type == "integrityPolicy"][0]{
         title,
@@ -36,7 +49,7 @@ export default async function IntegrityPolicy() {
                     <Accordion 
                         key={index}
                         title={section.title}
-                        content={<PortableText value={section.content} />}
+                        content={<PortableText value={section.content} components={portableTextComponents}/>}
                         index={index}
                     />
                 ))}
