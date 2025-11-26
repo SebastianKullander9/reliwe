@@ -30,14 +30,16 @@ export default function Contact({ content }: { content: ContactContent }) {
 
     return (
         <section>
-            <IntroBanner
-                title={content.introBanner.title}
-                texts={content.introBanner.texts}
-                imgUrl=""
-                imgAlt=""
-                screenReaderH1="Contact us"
-                showImage={false}
-            />
+			<div className="min-h-[50vh] bg-[var(--reliwe-green-accent)]">
+				<IntroBanner
+					title={content.introBanner.title}
+					texts={content.introBanner.texts}
+					imgUrl=""
+					imgAlt=""
+					screenReaderH1="Contact us"
+					showImage={false}
+				/>
+			</div>
             <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">
                 <div className="relative w-full md:w-1/2 h-full order-2 md:order-1">
                     <Image

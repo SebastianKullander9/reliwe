@@ -11,7 +11,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
                 colorCutoff={1}
                 btnScrollChange={true}
             />
-            {children}
+			{children}
         </>
     );
 }
