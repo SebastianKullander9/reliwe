@@ -9,6 +9,7 @@
 	--reliwe-gold: #e9db97;
 	--reliwe-offwhite: #faf7f5;
 	--reliwe-beige: #ece3d6;
+	--header-height: 94px;
 }
 
 @font-face {
@@ -101,4 +102,8 @@ p, span {
 
 .section-y-padding {
 	@apply py-12 md:py-12 lg:py-12 xl:py-16;
+}
+
+.header-height {
+	height: 94px;
 }

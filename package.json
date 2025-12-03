@@ -9,10 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.10.3",
     "embla-carousel-react": "^8.6.0",
+    "gsap": "^3.13.0",
     "hamburger-react": "^2.5.2",
     "next": "15.5.5",
     "next-sanity": "^11.5.5",
