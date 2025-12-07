@@ -20,12 +20,14 @@ export default function InfoCard({ image, title, text }: InfoCardProps) {
                     alt={image.alt || ""}
                 />
             </div>
-            <div className="">
-                <h3 className="text-[22px] whitespace-nowrap">{title}</h3>
-            </div>
-            <div className="">
-                <p>{text}</p>
-            </div>
+			<div className="flex flex-col gap-4">
+				<div className="">
+					<h3 className="uppercase text-xl tracking-wider">{title}</h3>
+				</div>
+				<div className="">
+					<p>{text}</p>
+				</div>
+			</div>
         </div>
     );
 }

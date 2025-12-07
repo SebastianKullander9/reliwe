@@ -5,7 +5,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return (
         <>
             <Header 
-                startBackground="#cddbd3" 
+                startBackground="#c9cec3" 
                 scrolledBackground="#faf7f5"
                 startTextColor="black"
                 scrolledTextColor="black"

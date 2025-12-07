@@ -125,7 +125,7 @@ export default function Header({
                                     {link.label}
                                     <span 
                                         className={`
-                                            absolute left-0 bottom-0 h-[1px] transition-all duration-300
+                                            absolute left-0 bottom-[-3] h-[1px] transition-all duration-300
                                             w-0 ${isActive ? "w-full" : "group-hover:w-full"}
                                             group-focus:w-full focus-visible:w-full
                                         `}

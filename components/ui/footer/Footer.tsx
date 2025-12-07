@@ -16,7 +16,7 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
             }`}>
                 <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
                     <Image 
-                        src="/site-images/tree-accent-green.jpg" 
+                        src="/site-images/tree-accent-green-new.jpg" 
                         alt="An illustration of a tree that fits with the brands color scheme"
                         width={600} 
                         height={600}

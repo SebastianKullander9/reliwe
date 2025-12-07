@@ -15,7 +15,13 @@ type Project = {
 };
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
-    const [filter, setFilter] = useState<"all" | "ongoing" | "done" | "planned">("all");
+    const [activeFilters, setActiveFilters] = useState<("ongoing" | "done" | "planned")[]>([]);
+
+	const statuses: ("planned" | "ongoing" | "done")[] = [
+		"planned",
+		"ongoing",
+		"done",
+	];
 
 	const sortOrder: Record<Project["status"], number> = {
 		planned: 0,
@@ -23,38 +29,47 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
 		done: 2,
 	}
 
+    const toggleFilter = (status: "planned" | "ongoing" | "done") => {
+        setActiveFilters((prev) =>
+            prev.includes(status)
+                ? prev.filter((s) => s !== status)
+                : [...prev, status]
+        );
+    };
+
     const filteredProjects =
-    filter === "all"
-        ? projects
-              .slice()
-              .sort((a, b) => sortOrder[a.status] - sortOrder[b.status])
-        : projects.filter((p) => p.status === filter)
+        activeFilters.length === 0
+            ? [...projects].sort((a, b) => sortOrder[a.status] - sortOrder[b.status])
+            : projects
+                  .filter((p) => activeFilters.includes(p.status))
                   .sort((a, b) => sortOrder[a.status] - sortOrder[b.status]);
 
     return (
         <>
             <div className="h-full py-8 pb-8 bg-[var(--reliwe-offwhite)]">
                 <div className="max-w-6xl mx-auto flex justify-center gap-3 sm:gap-4">
-                    {["all", "planned", "ongoing", "done"].map((status) => (
-                        <button
-                            key={status}
-                            onClick={() => setFilter(status as "all" | "ongoing" | "done" | "planned")}
-                            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
-                                filter === status
-                                    ? "bg-[var(--reliwe-green)] text-white"
-                                    : "bg-[var(--reliwe-green-accent)] hover:bg-[#c0d2c8]"
-                            }`}
-                        >
-                            {status === "all"
-                                ? "Alla"
-                                : status === "ongoing"
-                                ? "Pågående"
-                                : status === "planned"
-                                ? "Planerade"
-                                : "Genomförda"
-                            }
-                        </button>
-                    ))}
+
+                    {statuses.map((status) => {
+                        const isActive = activeFilters.includes(status);
+
+                        return (
+                            <button
+                                key={status}
+                                onClick={() => toggleFilter(status)}
+                                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
+                                    isActive
+                                        ? "bg-[var(--reliwe-green)] text-white"
+                                        : "bg-[var(--reliwe-green-accent)] hover:bg-[#bcc2b4]"
+                                }`}
+                            >
+                                {status === "ongoing"
+                                    ? "Pågående"
+                                    : status === "planned"
+                                    ? "Planerade"
+                                    : "Genomförda"}
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 

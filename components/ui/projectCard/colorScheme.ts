@@ -4,11 +4,14 @@ export const colorScheme = [
         hoverColor: "#efe6df",
     },
     {
-        backgroundColor: "#dbe5df", //light green
-        hoverColor: "#b8cbc1",
+        backgroundColor: "#c9cec3", //light green
+        hoverColor: "#bcc2b4",
     },
     {
-        backgroundColor: "#f3eee6", //beige
-        hoverColor: "#dfcfba",
+        backgroundColor: "#e8dfd4", //beige
+		hoverColor: "#e3d9cb"
     }
 ];
+
+/*--background-olive: #dcd9c9;*/
+/*--background-beige: #e8dfd4;*/

@@ -3,14 +3,21 @@
 
 :root {
     --reliwe-green: #1f5d37;
-    --reliwe-green-accent: #cddbd3; /*#d8e6dc maybe this instead?*/
+    --reliwe-green-accent: #c9cec3;
     --reliwe-green-text: #314439;
     --reliwe-gray: #d0cccf;
 	--reliwe-gold: #e9db97;
 	--reliwe-offwhite: #faf7f5;
 	--reliwe-beige: #ece3d6;
 	--header-height: 94px;
+	--background-offwhite: #faf7f5;
+	--background-green: #c9cec3;
+	--background-beige: #e8dfd4;
 }
+
+/*--background-olive: #dcd9c9;*/
+/*--background-beige: #e8dfd4;*/
+/*--reliwe-green-accent: #cddbd3;*/
 
 @font-face {
 	font-family: "americana";
@@ -45,7 +52,7 @@ h1, h2 {
 
 .heading {
 	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
-	@apply text-[clamp(3rem,6vw,6rem)];
+	@apply text-[clamp(3rem,6vw,5.3rem)];
 	-webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -56,7 +63,7 @@ h1, h2 {
 
 .heading-no-break {
 	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
-	@apply text-[clamp(3rem,6vw,6rem)];
+	@apply text-[clamp(3rem,6vw,5.3rem)];
 }
 
 .text-bold {

@@ -34,7 +34,7 @@ export function ScrollWrapper({ scrollSections, stickySection }: ScrollHandlerPr
 		//Sticky
 		ScrollTrigger.create({
 			trigger: startTrigger,
-			start: "top top",
+			start: `top-=${headerTopMargin} top`,
 			endTrigger: endTrigger,
 			end: "bottom bottom",
 			pin: true,
@@ -63,7 +63,7 @@ export function ScrollWrapper({ scrollSections, stickySection }: ScrollHandlerPr
 			</article>
 			<article 
 				ref={stickySectionRef}
-				className="w-full md:w-1/2 md:h-screen bg-[var(--reliwe-offwhite)] text-white flex items-center justify-center font-bold"
+				className="w-full md:w-1/2 md:h-[calc(100vh-94px)] bg-[var(--reliwe-offwhite)] text-white flex items-center justify-center font-bold"
 			>
 				{stickySection}
 			</article>

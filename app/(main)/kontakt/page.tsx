@@ -9,7 +9,11 @@ export default async function Kontakt() {
         },
         contactInfo{
             email,
-            address{
+            address1{
+                street,
+                city
+            },
+			address2{
                 street,
                 city
             },
