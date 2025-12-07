@@ -13,8 +13,8 @@ type SustainabilityProps = {
 export default function Sustainability({ cards }: SustainabilityProps) {
     return (
         <>
-            <section className="w-full min-h-screen body-x-padding section-y-padding bg-[var(--reliwe-offwhite)] flex flex-col items-vertical-gap justify-center">
-                <h2 className="heading text-center py-12 md:py-0 mb-24">
+            <section className="w-full min-h-[calc(100vh+100px)] body-x-padding bg-[var(--reliwe-offwhite)] flex flex-col items-vertical-gap justify-between">
+                <h2 className="heading py-12 md:py-0 mb-24">
                     Hållbarhet i fokus
                 </h2>
                 <div className="flex flex-col md:flex-row gap-36 sm:gap-6 md:items-horizontal-gap">
@@ -28,8 +28,6 @@ export default function Sustainability({ cards }: SustainabilityProps) {
                     ))}
                 </div>
             </section>
-
-            <div className="w-full h-24 bg-[var(--reliwe-offwhite)]" />
         </>
     );
 }

@@ -1,43 +1,33 @@
-import { RefObject } from "react";
-import { sections } from "./content";
+import { content } from "../aboutContent";
+import { ScrollWrapper } from "./scrollWrapper";
+import furnitureIllustration from "../../../../public/about/furniture-2.svg";
+import Image from "next/image";
 
-interface SectionHandlerProps {
-	refs: RefObject<(HTMLDivElement | null)[]>;
-	sectionHeaderOffset: number;
-
-}
-
-export default function SectionHandler({ refs, sectionHeaderOffset }: SectionHandlerProps) {
-
-	const setRef = (index: number) => (element: HTMLDivElement | null) => {
-		refs.current[index] = element;
-	}
-
+export default function SectionHandler() {
 	return (
-		<>
-			{sections.map((section, index) => (
-				<article
-					className="w-full h-screen body-x-padding bg-[var(--reliwe-offwhite)]"
-					key={section.title + index}
-					ref={setRef(index)}
-				>
-					<div className="border-t-1">
-						<h3 className="text-center uppercase text-xl tracking-wider py-8">
-							{section.title}
-						</h3>
-					</div>
-					<div 
-						className="h-full flex justify-center items-center"
-						style={{ 
-							marginTop: `-${sectionHeaderOffset * (index + 1)}px` 
-						}}
+		<ScrollWrapper 
+			scrollSections={
+				content.map((section, index) => (
+					<div
+						key={section.title + index}
+						className={`
+							bg-[var(--reliwe-offwhite)] text-black relative
+							${index === content.length - 1 && "hidden md:block"}
+						`}
+						style={{ height: `calc(100vh - ${(94 * index) + 94}px)` }}
 					>
-						<p className="max-w-[45ch]">
-							{section.text}
-						</p>
+						<div className="w-full h-[100px] flex items-center absolute border-t justify-center">
+							<h3 className="text-center uppercase text-xl tracking-wider">{section.title}</h3>
+						</div>
+						<div className="h-full w-full flex items-center justify-center">
+							<p className="max-w-[45ch]">{section.text}</p>
+						</div>
 					</div>
-				</article>
-			))}
-		</>
+				))
+			}
+			stickySection={
+				<Image src={furnitureIllustration} width={550} height={550} alt="" />
+			}
+		/>
 	);
 };

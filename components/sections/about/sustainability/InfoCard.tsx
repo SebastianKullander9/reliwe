@@ -12,7 +12,7 @@ export default function InfoCard({ image, title, text }: InfoCardProps) {
 
     return (
         <div className="flex flex-col items-vertical-gap flex-1">
-            <div className="relative aspect-square w-full min-h-3/5">
+            <div className="relative aspect-square w-full min-h-5/10 max-h-5/10">
                 <Image
                     src={imgUrl}
                     fill
@@ -20,10 +20,10 @@ export default function InfoCard({ image, title, text }: InfoCardProps) {
                     alt={image.alt || ""}
                 />
             </div>
-            <div className="text-center">
+            <div className="">
                 <h3 className="text-[22px] whitespace-nowrap">{title}</h3>
             </div>
-            <div className="text-center">
+            <div className="">
                 <p>{text}</p>
             </div>
         </div>
