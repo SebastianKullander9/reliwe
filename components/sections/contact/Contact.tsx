@@ -15,7 +15,11 @@ type ContactContent = {
     };
     contactInfo: {
         email: string;
-        address: {
+        address1: {
+            street: string;
+            city: string;
+        };
+		address2: {
             street: string;
             city: string;
         };
@@ -60,15 +64,20 @@ export default function Contact({ content }: { content: ContactContent }) {
                     </div>
                     <div className="flex flex-col gap-1">
                         <h2 className="text-family text-[21px]">
-                            Besöksadress
+                            Besöksadress Stockholm
                         </h2>
                         <div>
-                            <p>
-                                {content.contactInfo.address.street}
-                            </p>
-                            <p>
-                                {content.contactInfo.address.city}
-                            </p>
+							<p>{content.contactInfo.address1?.street || "Ingen adress angiven"}</p>
+							<p>{content.contactInfo.address1?.city || ""}</p>
+                        </div>
+                    </div>
+					<div className="flex flex-col gap-1">
+                        <h2 className="text-family text-[21px]">
+                            Besöksadress Norrköping
+                        </h2>
+                        <div>
+							<p>{content.contactInfo.address2?.street || "Ingen adress angiven"}</p>
+							<p>{content.contactInfo.address2?.city || ""}</p>
                         </div>
                     </div>
                 </div>

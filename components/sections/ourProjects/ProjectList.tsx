@@ -11,16 +11,25 @@ type Project = {
     apartmentAmount: string;
     roomAmount: string;
     imgUrls: string[];
-    status: "ongoing" | "done" | "upcoming";
+    status: "ongoing" | "done" | "planned";
 };
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
     const [filter, setFilter] = useState<"all" | "ongoing" | "done" | "planned">("all");
 
-    const filteredProjects = 
-        filter === "all"
-            ? projects
-            : projects.filter((p) => p.status === filter);
+	const sortOrder: Record<Project["status"], number> = {
+		planned: 0,
+		ongoing: 1,
+		done: 2,
+	}
+
+    const filteredProjects =
+    filter === "all"
+        ? projects
+              .slice()
+              .sort((a, b) => sortOrder[a.status] - sortOrder[b.status])
+        : projects.filter((p) => p.status === filter)
+                  .sort((a, b) => sortOrder[a.status] - sortOrder[b.status]);
 
     return (
         <>

@@ -115,7 +115,7 @@ export default function Header({
                     </Link>
                     <span className="sr-only">Reliwe</span>
                 </div>
-                <nav aria-label="Main navigation" className="items-horizontal-gap hidden md:flex">
+                <nav aria-label="Main navigation" className="gap-16 hidden md:flex">
                     {linkData.map((link) => {
                         const isActive = pathname === link.href;
 

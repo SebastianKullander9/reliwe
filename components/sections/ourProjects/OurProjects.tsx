@@ -21,7 +21,7 @@ type Project = {
     roomAmount: string;
     images: SanityImage[];
     imgUrls: string[];
-    status: "ongoing" | "done" | "upcoming";
+    status: "ongoing" | "done" | "planned";
 };
 
 type IntroBannerData = {

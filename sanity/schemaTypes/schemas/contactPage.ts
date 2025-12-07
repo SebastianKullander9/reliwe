@@ -46,22 +46,39 @@ export const contactPage = defineType({
                     validation: (Rule) => Rule.required().email(),
                 }),
                 defineField({
-                    name: "address",
-                    title: "Besöksadress",
-                    type: "object",
-                    fields: [
-                        defineField({
-                            name: "street",
-                            title: "Gatuadress",
-                            type: "string",
-                        }),
-                        defineField({
-                            name: "city",
-                            title: "Stad och postnummer",
-                            type: "string",
-                        }),
-                    ],
-                }),
+					name: "address1",
+					title: "Besöksadress 1",
+					type: "object",
+					fields: [
+						defineField({
+							name: "street",
+							title: "Gatuadress",
+							type: "string",
+						}),
+						defineField({
+							name: "city",
+							title: "Stad och postnummer",
+							type: "string",
+						}),
+					],
+				}),
+				defineField({
+					name: "address2",
+					title: "Besöksadress 2",
+					type: "object",
+					fields: [
+						defineField({
+							name: "street",
+							title: "Gatuadress",
+							type: "string",
+						}),
+						defineField({
+							name: "city",
+							title: "Stad och postnummer",
+							type: "string",
+						}),
+					],
+				}),
                 defineField({
                     name: "image",
                     title: "Bild",
