@@ -16,11 +16,11 @@
     "embla-carousel-react": "^8.6.0",
     "gsap": "^3.13.0",
     "hamburger-react": "^2.5.2",
-    "next": "15.5.5",
+    "next": "16.0.7",
     "next-sanity": "^11.5.5",
-    "react": "19.1.0",
+    "react": "19.2.1",
     "react-cookie-consent": "^9.0.0",
-    "react-dom": "19.1.0",
+    "react-dom": "19.2.1",
     "sanity": "^4.10.3",
     "styled-components": "^6.1.19"
   },
@@ -28,11 +28,15 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
     "eslint": "^9",
-    "eslint-config-next": "15.5.5",
+    "eslint-config-next": "16.0.7",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3"
   }
 }
