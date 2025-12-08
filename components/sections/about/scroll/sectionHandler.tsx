@@ -1,18 +1,18 @@
-import { content } from "../aboutContent";
+import { sections } from "./content";
 import { ScrollWrapper } from "./scrollWrapper";
-import furnitureIllustration from "../../../../public/about/furniture-2.svg";
+import telestaden from "@/public/about/Telestaden.png";
 import Image from "next/image";
 
 export default function SectionHandler() {
 	return (
 		<ScrollWrapper 
 			scrollSections={
-				content.map((section, index) => (
+				sections.map((section, index) => (
 					<div
 						key={section.title + index}
 						className={`
 							bg-[var(--reliwe-offwhite)] text-black relative
-							${index === content.length - 1 && "hidden md:block"}
+							${index === sections.length - 1 && "hidden md:block"}
 						`}
 						style={{ height: `calc(100vh - ${(94 * index) + 94}px)` }}
 					>
@@ -26,7 +26,7 @@ export default function SectionHandler() {
 				))
 			}
 			stickySection={
-				<Image src={furnitureIllustration} width={550} height={550} alt="" />
+				<Image src={telestaden} fill className="object-cover" alt="" />
 			}
 		/>
 	);

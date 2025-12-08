@@ -57,16 +57,21 @@ export function ScrollWrapper({ scrollSections, stickySection }: ScrollHandlerPr
 	});
 
 	return (
-		<section className={`h-calc(${(100 * scrollSections.length)}vh - ${headerTopMargin * scrollSections.length}px) flex flex-col md:flex-row body-x-padding bg-[var(--reliwe-offwhite)]`}>
+		<section className={`h-calc(${(100 * scrollSections.length)}vh - ${headerTopMargin * scrollSections.length}px) flex flex-row md:flex-row body-x-padding bg-[var(--reliwe-offwhite)]`}>
+			<article 
+				ref={stickySectionRef}
+				className="w-full hidden md:flex md:w-1/2 md:h-[calc(100vh-94px)] bg-[var(--reliwe-offwhite)] text-white items-center justify-center"
+			>
+				<div className="w-full h-full relative pr-16 pb-23 ">
+					<div className="w-full h-full relative overflow-hidden">
+						{stickySection}
+					</div>
+				</div>
+			</article>
 			<article className="w-full md:w-1/2 h-full">
 				{sectionsWithRefs}
 			</article>
-			<article 
-				ref={stickySectionRef}
-				className="w-full hidden md:flex md:w-1/2 md:h-[calc(100vh-94px)] bg-[var(--reliwe-offwhite)] text-white items-center justify-center font-bold"
-			>
-				{stickySection}
-			</article>
+
 		</section>
 	)
 }

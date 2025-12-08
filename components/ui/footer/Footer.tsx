@@ -18,13 +18,14 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
                     <Image 
                         src="/site-images/tree-accent-green-new.jpg" 
                         alt="An illustration of a tree that fits with the brands color scheme"
+						className="scale-80 md:scale-100"
                         width={600} 
                         height={600}
                     />
                 </div>
-                <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex flex-col items-center justify-center body-x-padding">
+                <div className="w-full md:w-2/3 h-full bg-[var(--reliwe-green-accent)] flex flex-col items-center justify-center body-x-padding">
 					<div className="flex flex-col items-vertical-gap">
-						<div className="flex flex-col gap-4 md:gap-48 justify-between h-full">
+						<div className="flex flex-col gap-4 md:gap-12 h-full mt-4 md:mt-0">
 							<h2 className="heading text-center">
 								Du hittar oss här
 							</h2>
@@ -41,11 +42,11 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
 
                 </div>
                 <div className="absolute bottom-0 w-full h-24 flex justify-center">
-                    <div className="absolute bottom-4 !text-sm flex flex-row items-horizontal-gap items-center">
-                        <p className="!text-sm">© {new Date().getFullYear()} Reliwe Sverige AB</p>
+                    <div className="absolute bottom-4 flex flex-row items-horizontal-gap items-center">
+                        <p className="!text-sm md:!text-base">© {new Date().getFullYear()} Reliwe Sverige AB</p>
                         <p>|</p>
                         <Link href="/integritetspolicy">
-                            <span className="!text-sm hover:underline">Integritetspolicy</span>
+                            <span className="!text-sm md:!text-base hover:underline">Integritetspolicy</span>
                         </Link>
                     </div>
                 </div>

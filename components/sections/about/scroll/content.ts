@@ -5,11 +5,11 @@ export const sections = [
 	},
 	{
 		title: "Vår roll i samhället",
-		text: "Vi är mer än en bostadsutvecklare. Genom att kombinera nya projekt med en växande egen hyresportfölj skapar vi trygghet – både för de människor som bor hos oss och för hela stadsdelar. Våra bostäder, från hyresrätter till bostadsrätter, byggs och förvaltas med omtanke, kvalitet och långsiktigt värde. På så sätt skapar vi hållbara hem och levande miljöer där människor kan trivas, växa och känna sig hemma – idag och över tid. Genom lokaler i bottenplan främjar vi närservice och social interaktion, och med laddstolpar i husens garage gör vi det enklare att leva hållbart i vardagen.",	
+		text: "Vi är mer än en bostadsutvecklare. Genom att kombinera nya projekt med en växande egen hyresportfölj skapar vi trygghet – både för de som bor hos oss och för hela stadsdelar. Våra bostäder, från hyresrätter till bostadsrätter, byggs och förvaltas med omtanke, kvalitet och långsiktigt värde. Genom lokaler i bottenplan främjar vi närservice och social interaktion, och med laddstolpar i husens garage gör vi det enklare att leva hållbart i vardagen.",	
 	},
 	{
 		title: "Vårt löfte till kunden",
-		text: "När du bor eller köper av oss ska du känna dig trygg – både idag och i framtiden. Vi finns här genom hela resan: vid de första funderingarna, genom köpprocessen, under byggtiden och långt efter inflyttning. Med personlig service, tydlig kommunikation och ett genuint engagemang vill vi göra varje boendeupplevelse enkel, positiv och förutsägbar.",	
+		text: "När du bor eller köper av oss ska du känna dig trygg – både idag och i framtiden. Vi finns här genom hela resan, från de första funderingarna till byggtiden och långt efter inflyttning. Med personlig service, tydlig kommunikation och ett genuint engagemang gör vi varje boendeupplevelse enkel och förutsägbar.",	
 	},
 	{
 		title: "",
