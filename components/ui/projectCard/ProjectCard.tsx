@@ -27,7 +27,7 @@ export default function ProjectCard({
 
     return (
         <div 
-            className={`w-full ${imgUrls.length > 1 ? "" : "h-[calc(100vh+200px)]"} body-x-padding section-y-padding flex 
+            className={`w-full ${imgUrls.length > 1 ? "" : "min-h-[calc(100vh+200px)]"} body-x-padding section-y-padding flex 
                 ${imgUrls.length > 1 ? "flex-col" : "flex-col md:flex-row items-center"} 
                 justify-center md:justify-between items-vertical-gap !gap-24`}
             style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor}}

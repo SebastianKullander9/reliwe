@@ -63,7 +63,7 @@ h1, h2 {
 
 .heading-no-break {
 	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
-	@apply text-[clamp(3rem,6vw,5.3rem)];
+	@apply text-[clamp(2.9rem,6vw,5.3rem)];
 }
 
 .text-bold {

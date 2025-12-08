@@ -15,34 +15,19 @@ type Project = {
 };
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
-    const [activeFilters, setActiveFilters] = useState<("ongoing" | "done" | "planned")[]>([]);
+    const [activeFilter, setActiveFilter] = useState<"all" | "planned" | "ongoing" | "done">("all");
 
-	const statuses: ("planned" | "ongoing" | "done")[] = [
+	const statuses: ("all" | "planned" | "ongoing" | "done")[] = [
+		"all",
 		"planned",
 		"ongoing",
 		"done",
 	];
 
-	const sortOrder: Record<Project["status"], number> = {
-		planned: 0,
-		ongoing: 1,
-		done: 2,
-	}
-
-    const toggleFilter = (status: "planned" | "ongoing" | "done") => {
-        setActiveFilters((prev) =>
-            prev.includes(status)
-                ? prev.filter((s) => s !== status)
-                : [...prev, status]
-        );
-    };
-
-    const filteredProjects =
-        activeFilters.length === 0
-            ? [...projects].sort((a, b) => sortOrder[a.status] - sortOrder[b.status])
-            : projects
-                  .filter((p) => activeFilters.includes(p.status))
-                  .sort((a, b) => sortOrder[a.status] - sortOrder[b.status]);
+	const filteredProjects =
+        activeFilter === "all"
+            ? projects
+            : projects.filter((p) => p.status === activeFilter);
 
     return (
         <>
@@ -50,19 +35,21 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                 <div className="max-w-6xl mx-auto flex justify-center gap-3 sm:gap-4">
 
                     {statuses.map((status) => {
-                        const isActive = activeFilters.includes(status);
+                        const isActive = activeFilter === status;
 
                         return (
                             <button
                                 key={status}
-                                onClick={() => toggleFilter(status)}
+                                onClick={() => setActiveFilter(status)}
                                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition cursor-pointer ${
                                     isActive
                                         ? "bg-[var(--reliwe-green)] text-white"
                                         : "bg-[var(--reliwe-green-accent)] hover:bg-[#bcc2b4]"
                                 }`}
                             >
-                                {status === "ongoing"
+                                {status === "all"
+                                    ? "Alla"
+                                    : status === "ongoing"
                                     ? "Pågående"
                                     : status === "planned"
                                     ? "Planerade"

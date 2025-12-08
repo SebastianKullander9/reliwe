@@ -76,7 +76,14 @@ export const estateProject = defineType({
                 layout: "radio",
             },
             validation: (Rule) => Rule.required().error("Projektstatus krävs.")
-        })
+        }),
+		defineField({
+			name: "sortOrder",
+			title: "Sorteringsordning",
+			type: "number",
+			description: "Lägre nummer visas först. Används för manuell sortering.",
+			validation: Rule => Rule.min(0)
+		}),
     ],
     preview: {
         select: {

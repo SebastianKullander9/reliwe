@@ -22,7 +22,7 @@ export default function InfoCard({ image, title, text }: InfoCardProps) {
             </div>
 			<div className="flex flex-col gap-4">
 				<div className="">
-					<h3 className="uppercase text-xl tracking-wider">{title}</h3>
+					<h3 className="uppercase text-xl tracking-wider text-center md:text-start">{title}</h3>
 				</div>
 				<div className="">
 					<p>{text}</p>

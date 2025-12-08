@@ -22,6 +22,7 @@ type Project = {
     images: SanityImage[];
     imgUrls: string[];
     status: "ongoing" | "done" | "planned";
+	sortOrder?:number;
 };
 
 type IntroBannerData = {
@@ -47,7 +48,18 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
     `, {}, { next: { revalidate: 0 }});
 
     const projects = await client.fetch(`
-        *[_type == "estateProject"] | order(_createdAt desc) {
+        *[_type == "estateProject"] 
+		| order(
+			select(
+				status == "planned" => 0,
+				status == "ongoing" => 1,
+				status == "done" => 2,
+				99
+			) asc,
+			sortOrder asc,
+			_createdAt desc
+		)
+		{
             title,
             text,
             year,
@@ -55,7 +67,8 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
             movingInYear,
             roomAmount,
             images,
-            status
+            status,
+			sortOrder
         }
     `, {}, { next: { revalidate: 0 }});
 

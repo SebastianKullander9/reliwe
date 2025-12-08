@@ -15,7 +15,7 @@ export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReader
             <h1 className="sr-only">{screenReaderH1}</h1>
 
             <div className="w-full h-full body-x-padding flex flex-col text-center items-center justify-center items-vertical-gap py-12 lg:py-24">
-                <h2 className="heading-no-break mb-12 mt-[15vh] sm:mt-[10vh] md:mt-[5vh]">{title}</h2>
+                <h2 className="heading-no-break md:mb-12 mt-[15vh] sm:mt-[10vh] md:mt-[5vh]">{title}</h2>
                 {texts.map((text, index) => (
                     <p 
                         key={index}

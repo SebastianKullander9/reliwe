@@ -63,7 +63,7 @@ export function ScrollWrapper({ scrollSections, stickySection }: ScrollHandlerPr
 			</article>
 			<article 
 				ref={stickySectionRef}
-				className="w-full md:w-1/2 md:h-[calc(100vh-94px)] bg-[var(--reliwe-offwhite)] text-white flex items-center justify-center font-bold"
+				className="w-full hidden md:flex md:w-1/2 md:h-[calc(100vh-94px)] bg-[var(--reliwe-offwhite)] text-white items-center justify-center font-bold"
 			>
 				{stickySection}
 			</article>
