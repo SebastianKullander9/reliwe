@@ -30,7 +30,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                     <Link href="/integritetspolicy" onClick={() => setIsOpen(false)}>
                         <span className="!text-sm underline underline-offset-3">Integritetspolicy</span>
                     </Link>
-                    <p className="!text-sm">© {new Date().getFullYear()} Reliwe Sverige AB</p>
+                    <p className="!text-sm">© {new Date().getFullYear()} Reliwe AB</p>
                 </div>
             </div>
         </section>

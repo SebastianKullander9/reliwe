@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BaseButtonBackground from "../buttons/baseButton/BaseButtonBackground";
 import Link from "next/link";
+import ReliweLogo from "@/public/logo/reliwe-logo-black.png";
 
 type FooterProps = {
     aboveHero?: boolean;
@@ -26,6 +27,14 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
                 <div className="w-full md:w-2/3 h-full bg-[var(--reliwe-green-accent)] flex flex-col items-center justify-center body-x-padding">
 					<div className="flex flex-col items-vertical-gap">
 						<div className="flex flex-col gap-4 md:gap-12 h-full mt-4 md:mt-0">
+							<div className="w-full flex justify-center">
+								<div className="relative w-[clamp(120px,25vw,270px)] pt-8 hidden [@media(min-height:700px)]:block">
+									<Image 
+										src={ReliweLogo}
+										alt="An image of the companys logo, reliwe"
+									/>
+								</div>
+							</div>
 							<h2 className="heading text-center">
 								Du hittar oss här
 							</h2>
@@ -43,7 +52,7 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
                 </div>
                 <div className="absolute bottom-0 w-full h-24 flex justify-center">
                     <div className="absolute bottom-4 flex flex-row items-horizontal-gap items-center">
-                        <p className="!text-sm md:!text-base">© {new Date().getFullYear()} Reliwe Sverige AB</p>
+                        <p className="!text-sm md:!text-base">© {new Date().getFullYear()} Reliwe AB</p>
                         <p>|</p>
                         <Link href="/integritetspolicy">
                             <span className="!text-sm md:!text-base hover:underline">Integritetspolicy</span>
