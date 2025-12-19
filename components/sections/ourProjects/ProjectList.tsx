@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ProjectCard from "@/components/ui/projectCard/ProjectCard";
+import ProjectRenderer from "@/components/ui/projectCard/ProjectRenderer";
 
 type Project = {
     title: string;
@@ -62,16 +62,10 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
 
             <div>
                 {filteredProjects.map((project: Project, index: number) => (
-                    <ProjectCard
-                        key={index}
-                        title={project.title}
-                        text={project.text}
-                        year={project.year}
-                        movingInYear={project.movingInYear}
-                        apartmentAmount={project.apartmentAmount}
-                        roomAmount={project.roomAmount}
-                        imgUrls={project.imgUrls}
-                        index={index}
+                    <ProjectRenderer
+						key={index}
+						project={project}
+						index={index}
                     />
                 ))}
             </div>

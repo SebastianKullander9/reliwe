@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BaseButtonBackground from "../buttons/baseButton/BaseButtonBackground";
 import Link from "next/link";
-import ReliweLogo from "@/public/logo/reliwe-logo-black.png";
+import ReliweLogo from "@/public/logo/reliwe-logo-green.png";
 
 type FooterProps = {
     aboveHero?: boolean;
@@ -15,11 +15,11 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
             <footer className={`w-full h-screen flex flex-col md:flex-row fixed inset-0 transition-all duration-300 ${isClient ? "" : "z-1"} ${
                 isFooterVisible ? "z-10" : (aboveHero ? "-z-20" : "-z-30")
             }`}>
-                <div className="w-full md:w-1/2 h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
+                <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
                     <Image 
                         src="/site-images/tree-accent-green-new.jpg" 
                         alt="An illustration of a tree that fits with the brands color scheme"
-						className="scale-80 md:scale-100"
+						className="scale-60 md:scale-100"
                         width={600} 
                         height={600}
                     />
@@ -28,14 +28,14 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
 					<div className="flex flex-col items-vertical-gap">
 						<div className="flex flex-col gap-4 md:gap-12 h-full mt-4 md:mt-0">
 							<div className="w-full flex justify-center">
-								<div className="relative w-[clamp(120px,25vw,270px)] pt-8 hidden [@media(min-height:700px)]:block">
+								<div className="relative w-[clamp(80px,25vw,170px)] pt-8">
 									<Image 
 										src={ReliweLogo}
 										alt="An image of the companys logo, reliwe"
 									/>
 								</div>
 							</div>
-							<h2 className="heading text-center">
+							<h2 className="text-4xl md:text-[clamp(3rem,6vw,5.3rem)] text-center">
 								Du hittar oss här
 							</h2>
 							<p className="text-center">

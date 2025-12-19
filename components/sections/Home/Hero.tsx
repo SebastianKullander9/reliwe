@@ -8,12 +8,12 @@ import { americana } from "../../../app/fonts";
 export default function Hero() {
     return (
         <section className="relative -z-20">
-            <div className="absolute sm:fixed inset-0 bg-[#0d0d0d]">
+            <div className="absolute sm:fixed inset-0 bg-[var(--reliwe-offwhite)]">
                 <Image 
                     src={heroImage} 
                     alt="Background image for hero section" 
                     fill
-                    className="object-cover opacity-0 transition-opacity duration-500"
+                    className="object-cover  transition-opacity duration-500"
                     placeholder="blur"
                     priority
                     onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
@@ -25,7 +25,7 @@ export default function Hero() {
                 <div className="">
                     <h1 className={`${americana.className} text-6xl sm:text-7xl md:text-8xl xl:text-8xl text-center text-[var(--reliwe-offwhite)]`}>En plats för livet</h1>
                 </div>
-				<div className="relative w-[clamp(190px,25vw,290px)]">
+				<div className="relative w-[clamp(140px,25vw,240px)]">
 					<Image 
 						src={LogoImage}
 						alt="Image of the companys logo"
