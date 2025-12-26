@@ -12,24 +12,28 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 	const clampedIndex = index % colorScheme.length;
 
 	return (
-		<article
-			className="w-full body-x-padding section-y-padding flex flex-col items-vertical-gap md:gap-24"
-			style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }}
-		>
-			<div className="flex flex-col md:flex-row items-vertical-gap">
-				<div className="w-full md:w-1/2">
-					<h2 className="heading text-center md:text-start">
-						{project.title}
-					</h2>
+		<>
+			<article
+				className="w-full body-x-padding section-y-padding flex flex-col items-vertical-gap md:gap-24"
+				style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }}
+			>
+				<div className="flex flex-col md:flex-row items-vertical-gap">
+					<div className="w-full md:w-1/2">
+						<h2 className="heading text-center md:text-start">
+							{project.title}
+						</h2>
+					</div>
+					<div className="w-full md:w-1/2 flex flex-col items-vertical-gap">
+						<p>{project.text}</p>
+						<ProjectStats project={project} />
+					</div>
 				</div>
-				<div className="w-full md:w-1/2 flex flex-col items-vertical-gap">
-					<p>{project.text}</p>
-					<ProjectStats project={project} />
+				<div>
+					<ImagesDisplay imgUrls={project.imgUrls} projectName={project.title} clampedIndex={clampedIndex} />
 				</div>
-			</div>
-			<div>
-				<ImagesDisplay imgUrls={project.imgUrls} projectName={project.title} clampedIndex={clampedIndex} />
-			</div>
-		</article>
+			</article>
+			
+			<div className="h-20 w-full" style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }} />
+		</>
 	);
 };
