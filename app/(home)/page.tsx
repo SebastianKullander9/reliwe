@@ -5,6 +5,7 @@ import KeyNumbers from "@/components/sections/Home/KeyNumbers";
 import FooterWithClient from "@/components/ui/footer/FooterWithClient";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { Metadata } from "next";
 
 type SanityImage = {
     _type: "image";
@@ -80,6 +81,12 @@ async function getHomePage(): Promise<HomePageData> {
         },
     };
 }
+
+export const metadata: Metadata = {
+	title: "Hem - Reliwe",
+	description:
+		"Vi utvecklar miljömärkta fastigheter med fokus på innovation och hållbarhet. Samtliga projekt uppfyller energiklass B för hög energieffektivitet.",
+};
 
 export default async function Home() {
     const data = await getHomePage();

@@ -1,6 +1,12 @@
 import About from "@/components/sections/about/About";
 import Footer from "@/components/ui/footer/Footer";
 import { client } from "@/sanity/lib/client";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Om oss - Reliwe",
+	description: "Lär känna Reliwe – vi utvecklar miljömärkta fastigheter med fokus på innovation, hållbarhet och energieffektiva lösningar."
+};
 
 export default async function OmOss() {
     const aboutData = await client.fetch(`*[_type == "aboutPage"][0]{

@@ -13,6 +13,9 @@ export default function GlobalLayout({ children }: { children: React.ReactNode }
 
     return (
         <html lang="sv">
+			<head>
+				<link rel="icon" href="/favicon.ico" sizes="any" />
+			</head>
             <body className="antialiased">
                 {children}
                 <CookieBanner gaId={GA_ID} />
