@@ -14,7 +14,7 @@ export default function KeyNumberCard({ title, number, imgUrl }: KeyNumberCardPr
                 <Image src={imgUrl} width={100} height={100} alt="" className="w-18 md:w-22 h-18 md:h-22" />
                 <div className="flex flex-col items-center min-w-52 md:w-full gap-3">
                     <p className="text-bold !text-xl lg:!text-4xl">{number}</p>
-                    <p className="text-family text-[var(--reliwe-green)] text-base lg:text-xl">{title}</p>
+                    <p className="text-family text-black text-base lg:text-xl">{title}</p>
                 </div>
             </div>
         </div>

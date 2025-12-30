@@ -36,6 +36,10 @@ export default function Header({
     const [btnColor, setBtnColor] = useState("#faf7f5");
     const [hamburgerColor, setHamburgerColor] = useState(btnScrollChange ? "#faf7f5" : "black");
 
+	useEffect(() => {
+		setIsOpen(false);
+	}, [pathname]);
+
     useEffect(() => {
         const watchScroll = () => {
             const currentScroll = window.scrollY;

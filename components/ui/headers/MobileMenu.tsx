@@ -11,13 +11,13 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
         <section className={`${isOpen ? "translate-y-0" : "translate-y-full"} transition-transform duration-300 fixed inset-0 bg-[var(--reliwe-offwhite)] z-[9999]`}>
             <div className="h-full flex flex-col justify-center items-center text-center gap-24 body-x-padding">
                 <nav className="flex flex-col text-2xl gap-4">
-					<Link href="/om-oss" onClick={() => setIsOpen(false)}>
+					<Link href="/om-oss">
                         Om oss
                     </Link>
-                    <Link href="/vara-projekt" onClick={() => setIsOpen(false)}>
+                    <Link href="/vara-projekt">
                         Våra projekt
                     </Link>
-                    <Link href="/kontakt" onClick={() => setIsOpen(false)}>
+                    <Link href="/kontakt">
                         Kontakt
                     </Link>
                 </nav>

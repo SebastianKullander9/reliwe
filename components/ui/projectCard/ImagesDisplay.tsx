@@ -7,6 +7,8 @@ import Image from "next/image";
 import "./embla.css";
 import moveLeft from "../../../public/svgs/arrow-left.svg";
 import moveRight from "../../../public/svgs/arrow-right.svg";
+import { TfiArrowLeft } from "react-icons/tfi";
+import { TfiArrowRight } from "react-icons/tfi";
 import { colorScheme } from "./colorScheme";
 
 type ImagesDisplayProps = {
@@ -57,7 +59,7 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
     return (
         <figure className="w-full flex flex-col" aria-label="Project image gallery -mx-0 md:-mx-4">
             <div 
-                className="flex flex-row order-2 md:order-1 justify-center md:justify-start mt-4 md:mt-0"
+                className="flex flex-row order-2 md:order-1 justify-center md:justify-start mt-4 md:mt-0 gap-8 md:gap-2"
                 style={{ display: disableCarousel ? "none" : "flex" }}
             >
                 <button 
@@ -67,12 +69,8 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
                     className="p-2 rounded-full transition-colors duration-200 cursor-pointer arrow-hover"
                     style={{ "--hover-color": colorScheme[clampedIndex].hoverColor } as React.CSSProperties}
                 >
-                    <Image 
-                        src={moveLeft}
-                        alt=""
-                        width={35}
-                        height={35}
-                    />
+					<TfiArrowLeft size={30}/>
+                    
                 </button>
                 <button 
                     aria-label="Scroll images right"
@@ -81,12 +79,7 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
                     className="p-2 rounded-full transition-colors duration-200 cursor-pointer arrow-hover"
                     style={{ "--hover-color": colorScheme[clampedIndex].hoverColor } as React.CSSProperties}
                 >
-                    <Image 
-                        src={moveRight}
-                        alt=""
-                        width={35}
-                        height={35}
-                    />
+					<TfiArrowRight size={30}/>
                 </button>
             </div>
             <div className="flex embla order-1 md:order-2">

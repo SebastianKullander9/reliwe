@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -38,23 +38,27 @@ export function ScrollWrapper({ scrollSections, stickySection }: ScrollHandlerPr
 			endTrigger: endTrigger,
 			end: "bottom bottom",
 			pin: true,
-			scrub: true,
 			pinSpacing: false,
+			anticipatePin: 1,
 		});
 
 		//scroll
 		scrollSectionsRef.current.forEach((section, index) => {
 			ScrollTrigger.create({
 				trigger: section,
-				start: `top-=${(headerTopMargin + (headerTopMargin * index))}px top`,
+				start: `top-=${(headerTopMargin + (headerTopMargin * index + (index === 0 ? 1 : 0)))}px top`,
 				endTrigger: endTrigger,
 				end: "bottom bottom",
 				pin: true,
-				scrub: true,
 				pinSpacing: false,
+				anticipatePin: 1,
 			});
 		});
 	});
+
+	useEffect(() => {
+		ScrollTrigger.refresh();
+	}, []);
 
 	return (
 		<section className={`h-calc(${(100 * scrollSections.length)}vh - ${headerTopMargin * scrollSections.length}px) flex flex-row md:flex-row body-x-padding bg-[var(--reliwe-offwhite)]`}>
