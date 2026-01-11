@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import CookieBanner from "@/components/ui/cookies/CookieBanner";
 
@@ -6,6 +6,13 @@ export const metadata: Metadata = {
     title: "Reliwe",
     description:
         "Vi utvecklar miljömärkta fastigheter med fokus på innovation och hållbarhet. Samtliga projekt uppfyller energiklass B för hög energieffektivitet...",
+};
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    viewportFit: 'cover',
+    interactiveWidget: 'resizes-visual',
 };
 
 export default function GlobalLayout({ children }: { children: React.ReactNode }) {

@@ -41,39 +41,43 @@ export default function Header({
 	}, [pathname]);
 
     useEffect(() => {
-        const watchScroll = () => {
-            const currentScroll = window.scrollY;
+    const watchScroll = () => {
+        const currentScroll = window.scrollY;
+        
+        // Handle color changes
+        if (window.scrollY < colorCutoff) {
+            setBackground(startBackground);
+            setText(startTextColor);
+            setBtnColor("#faf7f5");
             
-            if (window.scrollY < colorCutoff) {
-                setBackground(startBackground);
-                setText(startTextColor);
-                setBtnColor("#faf7f5");
-                
-                if (btnScrollChange) {
-                    setHamburgerColor("#faf7f5");
-                }
-            } else {
-                setBackground(scrolledBackground);
-                setText(scrolledTextColor);
-                setBtnColor("")
-
-                if (btnScrollChange) {
-                    setHamburgerColor("black");
-                }
+            if (btnScrollChange) {
+                setHamburgerColor("#faf7f5");
             }
+        } else {
+            setBackground(scrolledBackground);
+            setText(scrolledTextColor);
+            setBtnColor("")
 
-            if (currentScroll > prevScroll.current && currentScroll > 30) {
-                setShowHeader(false);
-            } else {
-                setShowHeader(true);
+            if (btnScrollChange) {
+                setHamburgerColor("black");
             }
+        }
 
-            prevScroll.current = currentScroll;
-        };
+        // Handle header visibility - ADD THRESHOLD HERE
+        const hideThreshold = colorCutoff + 100; // Hide only after color change + extra scroll
+        
+        if (currentScroll > prevScroll.current && currentScroll > hideThreshold) {
+            setShowHeader(false);
+        } else {
+            setShowHeader(true);
+        }
 
-        window.addEventListener("scroll", watchScroll);
-        return () => window.removeEventListener("scroll", watchScroll);
-    }, []);
+        prevScroll.current = currentScroll;
+    };
+
+    window.addEventListener("scroll", watchScroll);
+    return () => window.removeEventListener("scroll", watchScroll);
+}, [colorCutoff, startBackground, scrolledBackground, startTextColor, scrolledTextColor, btnScrollChange]);
 
     useEffect(() => {
         if (isOpen) {
@@ -101,7 +105,7 @@ export default function Header({
                 style={{ backgroundColor: isOpen ? "var(--reliwe-offwhite)" : background }}
             >
                 <div className="min-w-50 flex justify-start">
-                    <Link href="/" aria-label="Go to reliwe home page" onClick={() => setIsOpen(false)}>
+                    <Link href="/" aria-label="Go to reliwe home page">
                         <Image 
                             width={80} 
                             height={80} 

@@ -12,7 +12,7 @@ type FooterProps = {
 export default function Footer({ aboveHero, isFooterVisible, isClient=false }: FooterProps) {
     return (
         <>
-            <footer className={`w-full h-screen flex flex-col md:flex-row fixed inset-0 transition-all duration-300 ${isClient ? "" : "z-1"} ${
+            <footer className={`w-full h-[100dvh] flex flex-col md:flex-row fixed inset-0 transition-all duration-300 ${isClient ? "" : "z-1"} ${
                 isFooterVisible ? "z-10" : (aboveHero ? "-z-20" : "-z-30")
             }`}>
                 <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
