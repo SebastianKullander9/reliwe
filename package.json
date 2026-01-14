@@ -16,6 +16,7 @@
     "embla-carousel-react": "^8.6.0",
     "gsap": "^3.13.0",
     "hamburger-react": "^2.5.2",
+    "lenis": "^1.3.17",
     "next": "16.0.10",
     "next-sanity": "^11.5.5",
     "react": "19.2.1",

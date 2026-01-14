@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import CookieBanner from "@/components/ui/cookies/CookieBanner";
+import SmoothScroll from "@/components/ui/smoothScroll/SmoothScroll";
 
 export const metadata: Metadata = {
     title: "Reliwe",
@@ -24,6 +25,7 @@ export default function GlobalLayout({ children }: { children: React.ReactNode }
 				<link rel="icon" href="/favicon.ico" sizes="any" />
 			</head>
             <body className="antialiased">
+				<SmoothScroll />
                 {children}
                 <CookieBanner gaId={GA_ID} />
             </body>
