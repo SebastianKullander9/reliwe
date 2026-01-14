@@ -1,6 +1,6 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
 import Intro from "./Intro";
-import Sustainability from "./sustainability/Sustainability";
+import SustainabilityTwo from "./sustainability/SustainabilityTwo";
 import ScrollSection from "./scrollSection/ScrollSection";
 
 type SanityImage = {
@@ -58,7 +58,7 @@ export default function About({ content }: { content: AboutContent }) {
                 image={content.intro.image}
             />
 			<ScrollSection />
-            <Sustainability cards={content.sustainability} />
+            <SustainabilityTwo cards={content.sustainability} />
         </section>
     )
 }
