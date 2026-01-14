@@ -1,14 +1,14 @@
 import localFont from "next/font/local";
 
-export const americana = localFont({
+export const pangaia = localFont({
     src: [
         {
-            path: "../public/fonts/americanabt_roman.ttf",
+            path: "../public/fonts/PPPAngaia-medium.otf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../public/fonts/americanabt_roman.ttf",
+            path: "../public/fonts/PPPAngaia-medium.otf",
             weight: "700",
             style: "normal",
         },
