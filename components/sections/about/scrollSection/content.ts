@@ -11,4 +11,8 @@ export const sections = [
 		title: "Vårt löfte till kunden",
 		text: "När du bor eller köper av oss ska du känna dig trygg – både idag och i framtiden. Vi finns här genom hela resan, från de första funderingarna till byggtiden och långt efter inflyttning. Med personlig service, tydlig kommunikation och ett genuint engagemang gör vi varje boendeupplevelse enkel och förutsägbar.",	
 	},
+	{
+		title: "",
+		text: "",	
+	},
 ]

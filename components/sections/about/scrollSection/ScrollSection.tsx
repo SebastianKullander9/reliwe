@@ -81,12 +81,12 @@ export default function ScrollSection() {
 
 			{sections.map((section, index) => (
 				<div 
-					className="relative w-full h-screen z-10 text-[var(--reliwe-offwhite)] flex items-center justify-center"
+					className={`relative w-full ${index + 1 === sections.length ? "h-[calc(100vh-188px)] md:h-[calc(100vh-240px)]" : ""} h-screen z-10 text-[var(--reliwe-offwhite)] flex items-center justify-center body-x-padding`}
 					ref={index + 1 === sections.length ? endPinnedSection : null}
 					key={section.title + index}
 				>
 					<div className="text-center">
-						<h1 className="heading">
+						<h1 className="heading-no-break">
 							{section.title}
 						</h1>
 						<p className="max-w-prose">
