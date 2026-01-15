@@ -115,3 +115,9 @@ p, span {
 .header-height {
 	height: 94px;
 }
+
+@supports (-webkit-touch-callout: none) {
+	.panel {
+		height: -webkit-fill-available;
+	}
+}

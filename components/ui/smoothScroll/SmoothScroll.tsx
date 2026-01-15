@@ -12,5 +12,5 @@ export default function SmoothScroll() {
 		return lenis.start();
 	}, [lenis]);
 
-	return <ReactLenis root options={{ lerp: 0.1, duration: 0.8 }} />
+	return <ReactLenis root options={{ lerp: 0.5, duration: 1 }} />
 };

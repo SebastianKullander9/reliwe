@@ -95,7 +95,7 @@ export default async function Home() {
         <>
             <Hero />
             <div className="relative z-[9997] flex flex-col" id="gpu-scroll">
-                <CallToAbout data={data.callToAbout} />
+                {/*<CallToAbout data={data.callToAbout} />*/}
                 <CallToProjects data={data.callToProjects} />
                 <KeyNumbers />
             </div>

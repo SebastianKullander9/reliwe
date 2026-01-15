@@ -43,12 +43,14 @@ export default function SustainabilityTwo({ cards }: SustainabilityProps) {
 			}
 
 			ScrollTrigger.create({
-			trigger: panel,
-			start: index === 0 ? "top top" : `top top+=${offset - (index * 1)}px`,
-			endTrigger: endPin.current,
-			end: "bottom bottom",
-			pin: true,
-			pinSpacing: false
+				trigger: panel,
+				start: index === 0 ? "top top" : `top top+=${offset - (index * 1)}px`,
+				endTrigger: endPin.current,
+				end: "bottom bottom",
+				pin: true,
+				pinSpacing: false,
+				anticipatePin: 1,
+				invalidateOnRefresh: true
 			});
 		});
 
