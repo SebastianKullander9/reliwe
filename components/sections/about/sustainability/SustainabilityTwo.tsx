@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import { useState } from "react";
+import pageImage from "../../../../public/site-images/om-oss-card2.jpg";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -21,78 +21,34 @@ type SustainabilityProps = {
 };
 
 export default function SustainabilityTwo({ cards }: SustainabilityProps) {
-	const endPin = useRef<HTMLDivElement>(null);
-	const pinOffsetRef = useRef(0);
-	const headerRef = useRef<HTMLDivElement>(null);
-	const [pinOffset, setPinOffset] = useState(0);
-
-	useGSAP(() => {
-		if (!headerRef.current) return;
-
-		const offset = headerRef.current.offsetHeight;
-
-		gsap.utils.toArray<HTMLElement>(".panel").forEach((panel, index) => {
-			if (index > 0) {
-				gsap.set(panel, {
-					height: `calc(100vh - ${offset - (index * 1)}px)`
-				});
-			} else {
-				gsap.set(panel, {
-					height: "100vh"
-				});
-			}
-
-			ScrollTrigger.create({
-				trigger: panel,
-				start: index === 0 ? "top top" : `top top+=${offset - (index * 1)}px`,
-				endTrigger: endPin.current,
-				end: "bottom bottom",
-				pin: true,
-				pinSpacing: false,
-				anticipatePin: 1,
-				invalidateOnRefresh: true
-			});
-		});
-
-		ScrollTrigger.refresh();
-	});
-
 	return (
-		<>
-			{cards.map((card, index) => {
-					const imgUrl = "url" in card.image.asset ? card.image.asset.url : urlFor(card.image).url();
-
-					return (
-						<div 
-							className={`w-full panel bg-[var(--reliwe-offwhite)] body-x-padding`}
-							key={card.title + index}
-							ref={index + 1 === cards.length ? endPin : null}
-						>
-							{index === 0 && (
-								<h1 className="heading text-start md:text-center pt-[94px] border-b md:body-x-padding" ref={headerRef}>
-									Hållbarhet i fokus
-								</h1>
-							)}
-
-							<div className={`flex flex-col md:flex-row justify-center pt-4 md:pt-24 md:body-x-padding gap-4 md:gap-8 ${index > 0 ? "border-t" : ""}`}>
-								<h3 className="md:hidden uppercase whitespace-nowrap text-xl tracking-wider text-start">{card.title}</h3>
-								<div>
-									<Image 
-										src={imgUrl}
-										alt=""
-										width={750}
-										height={450}
-										className="rounded-lg"
-									/>
-								</div>
-								<div className="flex flex-col justify-between">
-									<h3 className="hidden md:block uppercase text-2xl tracking-wider text-center">{card.title}</h3>
-									<p className="max-w-prose">{card.text}</p>
-								</div>
-							</div>
-						</div>
-					);
-			})}
-		</>
+		<div className="min-h-screen w-full bg-[var(--reliwe-offwhite)] body-x-padding pt-24">
+			<h1 className="heading">
+				Hållbarhet i fokus
+			</h1>
+			<div className="grid grid-cols-12 gap-4 md:gap-8">
+				<div className="col-span-12 md:col-span-5 flex items-end">
+					<div>
+						<p>
+							Vi utvecklar hållbara och levande stadsdelar där människor kan mötas, trivas och känna trygghet.
+						</p>
+						<br></br>
+						<p>
+							Genom att kombinera blandade upplåtelseformer med service, mötesplatser och energieffektiva byggnader i energiklass B eller bättre skapar vi miljöer som håller över tid. 
+							Med hållbara materialval, smarta energilösningar och ett tydligt fokus på kvalitet, 
+							låga driftskostnader och stabil ekonomi minimerar vi klimatpåverkan och bygger fastigheter som är hållbara – socialt, miljömässigt och ekonomiskt.
+						</p>
+					</div>
+				</div>
+				<div className="col-span-12 md:col-span-6 md:col-start-7 pb-24 md:pb-0">
+					<Image 
+						src={pageImage}
+						alt=""
+						width={1200}
+						height={1200}
+					/>
+				</div>
+			</div>
+		</div>
 	);
 };

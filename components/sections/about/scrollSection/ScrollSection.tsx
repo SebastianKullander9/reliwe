@@ -10,13 +10,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function ScrollSection() {
+	const container = useRef<HTMLElement>(null);
 	const pinnedSection = useRef<HTMLDivElement>(null);
 	const pinnedHeader = useRef<HTMLDivElement>(null);
 	const endPinnedSection = useRef<HTMLDivElement>(null);
 
 	useGSAP(() => {
-		if (!endPinnedSection.current) return;
+		if (!endPinnedSection.current || !pinnedSection.current || !pinnedHeader.current) return;
 
+		// All ScrollTriggers created here will be automatically cleaned up
 		ScrollTrigger.create({
 			trigger: pinnedSection.current,
 			start: "top top",
@@ -24,6 +26,8 @@ export default function ScrollSection() {
 			end: "bottom bottom",
 			pin: true,
 			pinSpacing: false,
+			anticipatePin: 1,
+			invalidateOnRefresh: true,
 		});
 
 		ScrollTrigger.create({
@@ -41,10 +45,14 @@ export default function ScrollSection() {
 				}
 			},
 		});
+	}, { 
+		scope: container, // This is crucial - scopes all GSAP operations to this container
+		dependencies: [], // Empty array means run once on mount
+		revertOnUpdate: true // Clean up and recreate if dependencies change
 	});
 
 	return (
-		<section className="relative">
+		<section className="relative" ref={container}>
 			<div
 				className="absolute w-full h-screen bg-cover bg-center"
 				style={{ backgroundImage: `url(${telestaden.src})` }}
@@ -80,10 +88,9 @@ export default function ScrollSection() {
 				</div>
 			</div>
 			
-
 			{sections.map((section, index) => (
 				<div 
-					className={`relative w-full ${index + 1 === sections.length ? "h-[calc(100vh-188px)] md:h-[calc(100vh-240px)]" : ""} h-screen z-10 text-[var(--reliwe-offwhite)] flex items-center justify-center body-x-padding`}
+					className={`relative w-full ${index + 1 === sections.length ? "h-[calc(100vh-188px)] md:h-[calc(100vh-240px)]" : "h-screen"} z-10 text-[var(--reliwe-offwhite)] flex items-center justify-center body-x-padding`}
 					ref={index + 1 === sections.length ? endPinnedSection : null}
 					key={section.title + index}
 				>
@@ -100,14 +107,3 @@ export default function ScrollSection() {
 		</section>
 	);
 }
-/*
-			<div className="relative w-full h-screen z-10">
-				<h1 className="text-7xl text-white">SECTION ONE</h1>
-			</div>
-			<div className="relative w-full h-screen z-10">
-				<h1 className="text-7xl text-white">SECTION TWO</h1>
-			</div>
-			<div className="relative w-full h-screen z-10" ref={endPinnedSection}>
-				<h1 className="text-7xl text-white">SECTION THREE</h1>
-			</div>
-*/

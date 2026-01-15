@@ -1,4 +1,5 @@
 import CallToAbout from "@/components/sections/Home/CallToAbout";
+import CallToAboutTwo from "@/components/sections/Home/CallToAboutTwo";
 import CallToProjects from "@/components/sections/Home/CallToProjects";
 import Hero from "@/components/sections/Home/Hero";
 import KeyNumbers from "@/components/sections/Home/KeyNumbers";
@@ -96,6 +97,7 @@ export default async function Home() {
             <Hero />
             <div className="relative z-[9997] flex flex-col" id="gpu-scroll">
                 {/*<CallToAbout data={data.callToAbout} />*/}
+				<CallToAboutTwo />
                 <CallToProjects data={data.callToProjects} />
                 <KeyNumbers />
             </div>
