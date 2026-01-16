@@ -1,6 +1,6 @@
 "use client";
 
-import telestaden from "../../../../public/about/Telestaden.png";
+import barkaby from "../../../../public/site-images/barkaby-hero.webp";
 import { sections } from "./content";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -18,7 +18,6 @@ export default function ScrollSection() {
 	useGSAP(() => {
 		if (!endPinnedSection.current || !pinnedSection.current || !pinnedHeader.current) return;
 
-		// All ScrollTriggers created here will be automatically cleaned up
 		ScrollTrigger.create({
 			trigger: pinnedSection.current,
 			start: "top top",
@@ -46,16 +45,16 @@ export default function ScrollSection() {
 			},
 		});
 	}, { 
-		scope: container, // This is crucial - scopes all GSAP operations to this container
-		dependencies: [], // Empty array means run once on mount
-		revertOnUpdate: true // Clean up and recreate if dependencies change
+		scope: container,
+		dependencies: [],
+		revertOnUpdate: true
 	});
 
 	return (
 		<section className="relative" ref={container}>
 			<div
 				className="absolute w-full h-screen bg-cover bg-center"
-				style={{ backgroundImage: `url(${telestaden.src})` }}
+				style={{ backgroundImage: `url(${barkaby.src})` }}
 				ref={pinnedSection}
 			>
 				<div 
@@ -74,7 +73,7 @@ export default function ScrollSection() {
 					<h2 
 						className="heading absolute left-1/2 -translate-x-1/2 bottom-0"
 						style={{ 
-							backgroundImage: `url(${telestaden.src})`,
+							backgroundImage: `url(${barkaby.src})`,
 							backgroundSize: "cover",
 							backgroundPosition: "center",
 							WebkitBackgroundClip: "text",

@@ -40,7 +40,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                         <div className="hidden lg:block">
                             <Link href="/vara-projekt">
                                 <BaseButtonBackground
-                                    label="Våra projekt"
+                                    label="Läs mer"
                                     bgColor="#1f5d37"
                                     hoverTextColor="#faf7f5"
                                 />
@@ -74,7 +74,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                     <div className="lg:hidden flex justify-center mt-[-28px]">
                         <Link href="/vara-projekt">
                             <BaseButtonBackground
-                                label="Våra projekt"
+                                label="Läs mer"
                                 bgColor="#1f5d37"
                                 hoverTextColor="#faf7f5"
                             />

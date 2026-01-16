@@ -1,67 +1,88 @@
-import BaseButtonBackground from "@/components/ui/buttons/baseButton/BaseButtonBackground";
+"use client";
+
 import Image from "next/image";
+import imageBig from "../../../public/site-images/abouttwobig.jpg";
+import imageSmall from "../../../public/site-images/startpagesquare2.jpg"
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
+import BaseButtonBackground from "@/components/ui/buttons/baseButton/BaseButtonBackground";
 
-interface CallToAboutData {
-    heading: string;
-    text: string;
-    image?: {
-        _type: "image";
-        asset: {
-            _ref: string;
-            _type: "reference";
-        };
-        alt?: string;
-    };
-}
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function CallToAbout({ data }: { data: CallToAboutData }) {
-    const { heading, text, image } = data;
+export default function CallToAbout() {
+	const pinStart = useRef<HTMLDivElement>(null);
+	const pinEnd = useRef<HTMLDivElement>(null);
 
-    return (
-        <section
-            className="w-full py-24 md:h-[calc(100vh+100px)] bg-[var(--reliwe-offwhite)] body-x-padding flex items-center"
-            aria-labelledby="about-heading"
-        >
-            <div className="flex flex-col lg:flex-row items-horizontal-gap max-h-9/10">
-                <div className="w-full lg:w-1/2 flex flex-col justify-between items-vertical-gap lg:gap-0">
-                    <h2 className="heading lg:text-start lg:max-w-[10ch] text-center">{heading}</h2>
-                    <div className="flex flex-col items-vertical-gap max-w-prose">
-                        <p className="max-w-prose">{text}</p>
-                        <div className="hidden lg:block">
-                            <Link href="/om-oss">
-                                <BaseButtonBackground
-                                    label="Om oss"
-                                    bgColor="#1f5d37"
-                                    hoverTextColor="#faf7f5"
-                                />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap lg:gap-0 relative">
-                    {image && (
-                        <Image
-                            src={urlFor(image).url()}
-							width={2000}
-							height={800}
-							className="object-contain max-h-full object-right"
-                            alt={image.alt || ""}
-                            loading="lazy"
-                        />
-                    )}
-                    <div className="lg:hidden flex justify-center">
-                        <Link href="/om-oss">
-                            <BaseButtonBackground
-                                label="Om oss"
-                                bgColor="#1f5d37"
-                                hoverTextColor="#faf7f5"
-                            />
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
+	useGSAP(() => {
+		if (!pinStart.current && !pinEnd.current) return;
+
+		const mm = gsap.matchMedia();
+
+		mm.add("(min-width: 1350px)", () => {
+			ScrollTrigger.create({
+				trigger: pinStart.current,
+				start: "bottom bottom",
+				endTrigger: pinEnd.current,
+				end: "bottom bottom",
+				pin: true,
+				pinSpacing: false,
+				anticipatePin: 0,
+			});
+		});
+
+		return () => mm.revert();
+	});
+
+	return (
+		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-4 md:gap-8">
+			<div>
+				<h1 className="heading">
+					Rum för livet
+				</h1>
+				<p className="max-w-prose !text-xl md:!text-2xl xl:!text-2xl">
+					Välkommen till en bostadsutvecklare som skapar hållbara hem och levande stadsdelar där människor kan trivas och växa – idag och hela livet ut.
+				</p>
+			</div>
+			<div className="grid grid-cols-12 gap-4 md:gap-8">
+				<div className="col-span-12 md:col-span-3 relative">
+					<Image 
+						src={imageSmall}
+						alt=""
+						width={600}
+						height={600}
+						className="aspect-square rounded-lg"
+					/>
+				</div>
+				<div className="col-span-12 md:col-span-6 relative pb-8" ref={pinEnd}>
+					<Image 
+						src={imageBig}
+						alt=""
+						width={1200}
+						height={800}
+						className="w-full h-auto rounded-lg"
+						onLoad={() => {
+							ScrollTrigger.refresh();
+						}}
+					/>
+				</div>
+				<div className="col-span-12 md:col-span-3 xl:h-[70vh] flex flex-col justify-end gap-8" ref={pinStart}>
+					<p className="!text-sm xl:!text-lg">
+						Vi skapar bostäder där människor trivs, oavsett upplåtelseform. Våra projekt präglas av omtanke, hög kvalitet och långsiktigt värde. I många hus planerar vi lokaler i bottenplan som bidrar till god närservice och levande stadsdelar – allt för en enklare och tryggare vardag för våra boende.
+					</p>
+					<div className="flex justify-center md:justify-start pb-8">
+						<Link href="/om-oss">
+							<BaseButtonBackground
+								label="Läs mer"
+								bgColor="#1f5d37"
+								hoverTextColor="#faf7f5"
+							/>
+						</Link>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
