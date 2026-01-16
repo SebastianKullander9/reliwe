@@ -11,7 +11,7 @@ export default function ImageDisplay({ imgUrls, projectName }: ImageDisplayProps
             <div className="relative w-full aspect-[4/3]">
                 <Image
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-lg"
                     src={imgUrls[0]}
                     alt={`Exterior view of project ${projectName}`}
 					unoptimized

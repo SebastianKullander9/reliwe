@@ -35,7 +35,7 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
 									/>
 								</div>
 							</div>
-							<h2 className="text-4xl md:text-[clamp(3rem,6vw,5.3rem)] text-center">
+							<h2 className="heading text-center">
 								Du hittar oss här
 							</h2>
 							<p className="text-center">

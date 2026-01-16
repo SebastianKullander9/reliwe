@@ -29,7 +29,7 @@ export default function CallToAboutTwo() {
 				end: "bottom bottom",
 				pin: true,
 				pinSpacing: false,
-				anticipatePin: 1,
+				anticipatePin: 0,
 			});
 		});
 
@@ -37,12 +37,12 @@ export default function CallToAboutTwo() {
 	});
 
 	return (
-		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pt-24 pb-48 flex flex-col gap-4 md:gap-8">
+		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-4 md:gap-8">
 			<div>
 				<h1 className="heading">
 					Rum för livet
 				</h1>
-				<p className="max-w-prose !text-xl md:!text-2xl xl:!text-3xl">
+				<p className="max-w-prose !text-xl md:!text-2xl xl:!text-2xl">
 					Välkommen till en bostadsutvecklare som skapar hållbara hem och levande stadsdelar där människor kan trivas och växa – idag och hela livet ut.
 				</p>
 			</div>
@@ -56,20 +56,23 @@ export default function CallToAboutTwo() {
 						className="aspect-square rounded-lg"
 					/>
 				</div>
-				<div className="col-span-12 md:col-span-6 relative" ref={pinEnd}>
+				<div className="col-span-12 md:col-span-6 relative pb-8" ref={pinEnd}>
 					<Image 
 						src={imageBig}
 						alt=""
 						width={1200}
 						height={800}
 						className="w-full h-auto rounded-lg"
+						onLoadingComplete={() => {
+							ScrollTrigger.refresh();
+						}}
 					/>
 				</div>
 				<div className="col-span-12 md:col-span-3 xl:h-[70vh] flex flex-col justify-end gap-8" ref={pinStart}>
 					<p className="!text-sm xl:!text-lg">
 						Vi skapar bostäder där människor trivs, oavsett upplåtelseform. Våra projekt präglas av omtanke, hög kvalitet och långsiktigt värde. I många hus planerar vi lokaler i bottenplan som bidrar till god närservice och levande stadsdelar – allt för en enklare och tryggare vardag för våra boende.
 					</p>
-					<div className="flex justify-center md:justify-start">
+					<div className="flex justify-center md:justify-start pb-8">
 						<Link href="/om-oss">
 							<BaseButtonBackground
 								label="Läs mer"

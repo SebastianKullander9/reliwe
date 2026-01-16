@@ -26,7 +26,7 @@ export default function ScrollSection() {
 			end: "bottom bottom",
 			pin: true,
 			pinSpacing: false,
-			anticipatePin: 1,
+			anticipatePin: 0,
 			invalidateOnRefresh: true,
 		});
 
@@ -37,7 +37,7 @@ export default function ScrollSection() {
 			end: "bottom bottom",
 			pin: true,
 			pinSpacing: false,
-			anticipatePin: 1,
+			anticipatePin: 0,
 			invalidateOnRefresh: true,
 			onEnter: () => {
 				if (pinnedHeader.current) {

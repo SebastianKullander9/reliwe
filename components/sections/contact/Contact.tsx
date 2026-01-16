@@ -58,28 +58,30 @@ export default function Contact({ content }: { content: ContactContent }) {
                         <h2 className="text-family text-[21px]">
                             E-post
                         </h2>
-                        <p>
+                        <p className="!font-bold">
                             {content.contactInfo.email}
                         </p>
                     </div>
-                    <div className="flex flex-col gap-1">
-                        <h2 className="text-family text-[21px]">
-                            Besöksadress Stockholm
-                        </h2>
-                        <div>
-							<p>{content.contactInfo.address1?.street || "Ingen adress angiven"}</p>
-							<p>{content.contactInfo.address1?.city || ""}</p>
-                        </div>
-                    </div>
-					<div className="flex flex-col gap-1">
-                        <h2 className="text-family text-[21px]">
-                            Besöksadress Norrköping
-                        </h2>
-                        <div>
-							<p>{content.contactInfo.address2?.street || "Ingen adress angiven"}</p>
-							<p>{content.contactInfo.address2?.city || ""}</p>
-                        </div>
-                    </div>
+					<div className="flex flex-col md:flex-row gap-8">
+						<div className="flex flex-col gap-1">
+							<h2 className="text-family text-[21px]">
+								Besöksadress Stockholm
+							</h2>
+							<div>
+								<p className="!font-bold">{content.contactInfo.address1?.street || "Ingen adress angiven"}</p>
+								<p className="!font-bold">{content.contactInfo.address1?.city || ""}</p>
+							</div>
+						</div>
+						<div className="flex flex-col gap-1">
+							<h2 className="text-family text-[21px]">
+								Besöksadress Norrköping
+							</h2>
+							<div>
+								<p className="!font-bold">{content.contactInfo.address2?.street || "Ingen adress angiven"}</p>
+								<p className="!font-bold">{content.contactInfo.address2?.city || ""}</p>
+							</div>
+						</div>
+					</div>
                 </div>
             </div>
         </section>

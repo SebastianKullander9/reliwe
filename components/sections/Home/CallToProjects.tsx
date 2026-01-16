@@ -61,7 +61,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                                     <Image
                                         fill
                                         loading="lazy"
-                                        className="object-cover"
+                                        className="object-cover rounded-lg"
                                         src={project.imageUrl}
                                         alt={project.images?.alt || project.title}
 										unoptimized

@@ -53,7 +53,7 @@ h1, h2 {
 
 .heading {
 	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
-	@apply text-[clamp(2.4rem,6vw,5.3rem)];
+	@apply text-[clamp(2.4rem,6vw,4.3rem)];
 	-webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -64,7 +64,7 @@ h1, h2 {
 
 .heading-no-break {
 	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
-	@apply text-[clamp(2.4rem,6vw,5.3rem)];
+	@apply text-[clamp(2.4rem,6vw,4.3rem)];
 }
 
 .text-bold {
