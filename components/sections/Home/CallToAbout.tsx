@@ -40,7 +40,7 @@ export default function CallToAbout() {
 		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-4 md:gap-8">
 			<div>
 				<h1 className="heading">
-					Rum för livet
+					Om oss
 				</h1>
 				<p className="max-w-prose !text-xl md:!text-2xl xl:!text-2xl">
 					Välkommen till en bostadsutvecklare som skapar hållbara hem och levande stadsdelar där människor kan trivas och växa – idag och hela livet ut.

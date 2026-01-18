@@ -36,11 +36,8 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
 								</div>
 							</div>
 							<h2 className="heading text-center">
-								Du hittar oss här
+								Vill du ta kontakt?
 							</h2>
-							<p className="text-center">
-								Har du frågor om våra projekt eller vill komma i kontakt med oss?
-							</p>
 						</div>
 						<div className="flex items-center flex-col">
 							<Link href="/kontakt">
