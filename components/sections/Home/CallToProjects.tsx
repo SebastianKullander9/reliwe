@@ -55,7 +55,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                             key={project.title}
                             className="w-full h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-full lg:w-1/2 flex flex-col items-vertical-gap"
                         >
-                            <h3 className="text-center uppercase text-xl tracking-wider">{project.title}</h3>
+                            <h3 className="text-start text-xl tracking-wider">{project.title}</h3>
                             <div className="relative w-full h-full">
                                 {project.imageUrl && (
                                     <Image
