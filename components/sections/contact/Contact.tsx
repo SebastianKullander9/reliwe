@@ -44,7 +44,7 @@ export default function Contact({ content }: { content: ContactContent }) {
 					showImage={false}
 				/>
 			</div>
-            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">
+            <div className="w-full h-[50vh] bg-[var(--reliwe-offwhite)] flex flex-col md:flex-row">
                 <div className="relative w-full md:w-1/2 h-full order-2 md:order-1 hidden md:block">
                     <Image
                         fill
