@@ -2,6 +2,7 @@ import IntroBanner from "@/components/ui/introBanner/IntroBanner";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import ProjectsList from "./ProjectList";
+import { Suspense } from "react";
 
 type SanityImage = {
     _type: "image";
@@ -113,7 +114,9 @@ export default async function OurProjects() {
                 imgAlt={data.introBanner.image?.alt || ""}
                 screenReaderH1="Våra projekt - Reliwe bostadsprojekt"
             />
-            <ProjectsList projects={data.projects} />
+            <Suspense fallback={<div>Loading projects...</div>}>
+				<ProjectsList projects={data.projects} />
+			</Suspense>
         </section>
     );
 }
