@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import BaseButtonBackground from "../buttons/baseButton/BaseButtonBackground";
 import MobileMenu from "./MobileMenu";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 type HeaderProps = {
     startBackground: string;
@@ -34,7 +35,7 @@ export default function Header({
     const [background, setBackground] = useState(startBackground);
     const [text, setText] = useState(startTextColor);
     const [btnColor, setBtnColor] = useState("#faf7f5");
-    const [hamburgerColor, setHamburgerColor] = useState(btnScrollChange ? "#faf7f5" : "black");
+    const [hamburgerColor, setHamburgerColor] = useState(btnScrollChange ? "#faf7f5" : "#faf7f5");
 
 	useEffect(() => {
 		setIsOpen(false);
@@ -63,8 +64,7 @@ export default function Header({
             }
         }
 
-        // Handle header visibility - ADD THRESHOLD HERE
-        const hideThreshold = colorCutoff + 100; // Hide only after color change + extra scroll
+        const hideThreshold = colorCutoff + 100;
         
         if (currentScroll > prevScroll.current && currentScroll > hideThreshold) {
             setShowHeader(false);
@@ -99,12 +99,12 @@ export default function Header({
             <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 
             <header 
-                className={`fixed w-full header-height flex flex-row justify-between items-center body-x-padding z-[9999]
+                className={`fixed w-full header-height grid grid-cols-3 items-center body-x-padding z-[9999]
                     ${showHeader ? "translate-y-0" : "-translate-y-full"} 
                     transition-transform duration-300`}
                 style={{ backgroundColor: isOpen ? "var(--reliwe-offwhite)" : background }}
             >
-                <div className="min-w-50 flex justify-start">
+                <div className="flex justify-start">
                     <Link href="/" aria-label="Go to reliwe home page">
                         <Image 
                             width={80} 
@@ -113,9 +113,9 @@ export default function Header({
                                 isOpen ? (
                                     "/logo/reliwe-logo-black.png"
                                 ): btnScrollChange
-                                ? (btnColor ? "/logo/reliwe-logo-offwhite.png" : "/logo/reliwe-logo-black.png")
+                                ? (btnColor ? "/logo/reliwe-logo-offwhite.png" : "/logo/reliwe-logo-offwhite.png")
                                 : 
-                                "/logo/reliwe-logo-black.png"
+                                "/logo/reliwe-logo-offwhite.png"
                             } 
                             alt="Reliwe company logo"
                             priority
@@ -123,51 +123,77 @@ export default function Header({
                     </Link>
                     <span className="sr-only">Reliwe</span>
                 </div>
-                <nav aria-label="Main navigation" className="gap-16 hidden md:flex">
-                    {linkData.map((link) => {
-                        const isActive = pathname === link.href;
+                <div className="hidden md:flex justify-center">
+					<nav aria-label="Main navigation" className="gap-16 flex">
+						{linkData.map((link) => {
+							const isActive = pathname.startsWith(link.href);
 
-                        return (
-                            <Link key={link.href} href={link.href}>
-                                <span className="relative group" style={{ color: text }}>
-                                    {link.label}
-                                    <span 
-                                        className={`
-                                            absolute left-0 bottom-[-3] h-[1px] transition-all duration-300
-                                            w-0 ${isActive ? "w-full" : "group-hover:w-full"}
-                                            group-focus:w-full focus-visible:w-full
-                                        `}
-                                        style={{ backgroundColor: text }}
-                                    ></span>
-                                </span>
-                            </Link>
-                        );
-                    })}
-                </nav>
-                <div className="min-w-50 justify-end hidden md:flex">
-                    {btnScrollChange ? (
-                        btnColor ? (
-							<Link target="_blank" href="https://form.typeform.com/to/eX3wW0qu">
-								<BaseButton 
-									label="Anmäl intresse" 
-									bgColor={btnColor} 
-									hoverTextColor="#000000"
+							if (link.href === "/projekt") {
+								return (
+									<div key={link.href} className="relative group flex flex-col items-center">
+										<Link href="/projekt">
+											<span className="relative cursor-pointer" style={{ color: text }}>
+												<div className="flex flex-row items-center">
+													{link.label}
+													<MdKeyboardArrowDown size={28} />
+												</div>
+											<span
+												className={`absolute left-0 bottom-[-3] h-[1px] transition-all duration-300
+												w-0 ${isActive ? "w-full" : "group-hover:w-full"}`}
+												style={{ backgroundColor: text }}
+											/>
+											</span>
+										</Link>
+
+									<div
+										className="absolute top-full left-1/2 -translate-x-1/2
+												opacity-0 group-hover:opacity-100
+												pointer-events-none group-hover:pointer-events-auto
+												transition"
+									>
+										<div className="bg-[var(--reliwe-offwhite)] rounded-md shadow-md py-2 min-w-[160px]">
+										<Link href="/projekt" className="block px-4 py-2 hover:bg-gray-100">
+											Alla
+										</Link>
+										<Link href="/projekt?status=planned" className="block px-4 py-2 hover:bg-gray-100">
+											Planerade
+										</Link>
+										<Link href="/projekt?status=ongoing" className="block px-4 py-2 hover:bg-gray-100">
+											Pågående
+										</Link>
+										<Link href="/projekt?status=done" className="block px-4 py-2 hover:bg-gray-100">
+											Genomförda
+										</Link>
+										</div>
+									</div>
+									</div>
+								);
+							}
+
+							return (
+							<Link key={link.href} href={link.href}>
+								<span className="relative group" style={{ color: text }}>
+								{link.label}
+								<span
+									className={`absolute left-0 bottom-[-3] h-[1px] transition-all duration-300
+									w-0 ${isActive ? "w-full" : "group-hover:w-full"}`}
+									style={{ backgroundColor: text }}
 								/>
+								</span>
 							</Link>
-                        ) : (
-							<Link target="_blank" href="https://form.typeform.com/to/eX3wW0qu">
-                            	<BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
-							</Link>
-                        )
-                    ) : (
-						<Link target="_blank" href="https://form.typeform.com/to/eX3wW0qu">
-                        	<BaseButtonBackground label="Anmäl intresse" bgColor="#1f5d37" hoverTextColor="#faf7f5" />
-						</Link>
-                    )}  
-                </div>
-                <div className="md:hidden">
-                    <Hamburger toggled={isOpen} toggle={setIsOpen} distance="sm" size={28} color={isOpen ? "black" : hamburgerColor} />
-                </div>
+							);
+						})}
+						</nav>
+				</div>
+                <div className="md:hidden ml-auto col-end-4">
+					<Hamburger
+						toggled={isOpen}
+						toggle={setIsOpen}
+						distance="sm"
+						size={28}
+						color={isOpen ? "black" : hamburgerColor}
+					/>
+				</div>
             </header>
         </>
     );

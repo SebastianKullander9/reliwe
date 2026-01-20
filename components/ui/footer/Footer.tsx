@@ -12,7 +12,7 @@ type FooterProps = {
 export default function Footer({ aboveHero, isFooterVisible, isClient=false }: FooterProps) {
     return (
         <>
-            <footer className={`w-full h-[100dvh] flex flex-col md:flex-row fixed inset-0 transition-all duration-300 ${isClient ? "" : "z-1"} ${
+            <footer className={`w-full h-[100dvh] flex flex-col md:flex-row relative transition-all duration-300 ${isClient ? "" : "z-1"} ${
                 isFooterVisible ? "z-10" : (aboveHero ? "-z-20" : "-z-30")
             }`}>
                 <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
@@ -47,7 +47,7 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
 					</div>
 
                 </div>
-                <div className="absolute bottom-0 w-full h-24 flex justify-center">
+                <div className="absolute bottom-8 w-full h-24 flex justify-center z-[9999]">
                     <div className="absolute bottom-4 flex flex-row items-horizontal-gap items-center">
                         <p className="!text-sm md:!text-base">© {new Date().getFullYear()} Reliwe AB</p>
                         <p>|</p>
@@ -57,8 +57,6 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
                     </div>
                 </div>
             </footer>
-
-            <div className="w-full h-screen pointer-events-none" aria-hidden="true" data-scroll-spacer />
         </>
     );
 }

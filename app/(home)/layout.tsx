@@ -5,9 +5,9 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
         <>
             <Header 
                 startBackground="" 
-                scrolledBackground="#faf7f5" 
+                scrolledBackground="#1f5d37" 
                 startTextColor="#faf7f5"
-                scrolledTextColor="black"
+                scrolledTextColor="#faf7f5"
                 colorCutoff={1}
                 btnScrollChange={true}
             />

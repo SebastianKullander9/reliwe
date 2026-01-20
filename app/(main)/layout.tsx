@@ -4,10 +4,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return (
         <>
             <Header 
-                startBackground="#c9cec3" 
-                scrolledBackground="#faf7f5"
-                startTextColor="black"
-                scrolledTextColor="black"
+                startBackground="#1f5d37" 
+                scrolledBackground="#1f5d37" 
+                startTextColor="#faf7f5"
+                scrolledTextColor="#faf7f5"
                 colorCutoff={1} 
             />
             {children}

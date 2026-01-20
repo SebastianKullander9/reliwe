@@ -1,5 +1,5 @@
 export const linkData = [
 	{ href: "/om-oss", label: "Om oss" },
-    { href: "/vara-projekt", label: "Våra projekt" },
+    { href: "/projekt", label: "Projekt" },
     { href: "/kontakt", label: "Kontakt" }
 ];
