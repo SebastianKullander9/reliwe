@@ -38,7 +38,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                     <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap">
                         <p>{text}</p>
                         <div className="hidden lg:block">
-                            <Link href="/vara-projekt">
+                            <Link href="/projekt">
                                 <BaseButtonBackground
                                     label="Läs mer"
                                     bgColor="#1f5d37"
@@ -72,7 +72,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                     ))}
 
                     <div className="lg:hidden flex justify-center mt-[-28px]">
-                        <Link href="/vara-projekt">
+                        <Link href="/projekt">
                             <BaseButtonBackground
                                 label="Läs mer"
                                 bgColor="#1f5d37"
