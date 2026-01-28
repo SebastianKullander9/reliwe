@@ -53,21 +53,24 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                     {featuredProjects.map((project) => (
                         <div
                             key={project.title}
-                            className="w-full h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-full lg:w-1/2 flex flex-col items-vertical-gap"
+                            className="w-full h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-full lg:w-1/2 flex flex-col "
                         >
-                            <h3 className="text-start text-xl tracking-wider">{project.title}</h3>
                             <div className="relative w-full h-full">
                                 {project.imageUrl && (
                                     <Image
                                         fill
                                         loading="lazy"
-                                        className="object-cover rounded-lg"
+                                        className="object-cover"
                                         src={project.imageUrl}
                                         alt={project.images?.alt || project.title}
 										unoptimized
                                     />
                                 )}
                             </div>
+							<div className="flex flex-col md:flex-row items-center justify-between bg-[var(--reliwe-green)] p-3 text-[var(--reliwe-offwhite)]">
+								<h3 className="text-start text-lg md:text-xl tracking-wider">{project.title}</h3>
+								<p className="!text-sm">Pågående</p>
+							</div>
                         </div>
                     ))}
 
