@@ -7,11 +7,12 @@ type IntroBannerProps = {
     imgAlt: string;
     screenReaderH1: string;
     showImage?: boolean;
+	bgColor?: string;
 }
 
-export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReaderH1, showImage=true }: IntroBannerProps) {
+export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReaderH1, showImage=true, bgColor="#faf7f5" }: IntroBannerProps) {
     return (
-        <section className="w-full bg-[var(--reliwe-offwhite)]">
+        <section className="w-full" style={{ backgroundColor: bgColor }}>
             <h1 className="sr-only">{screenReaderH1}</h1>
 
             <div className="w-full h-full body-x-padding flex flex-col text-center items-center justify-center items-vertical-gap py-12 lg:py-24 min-h-[50vh]">

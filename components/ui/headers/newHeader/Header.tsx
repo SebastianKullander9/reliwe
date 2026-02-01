@@ -60,11 +60,6 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 						</Link>
 					))}
 				</div>
-				<div className="w-1/3 flex justify-end">
-					<ButtonAnimationWrapper>
-						<Button />
-					</ButtonAnimationWrapper>
-				</div>
 			</div>
 			{activeMenuItem?.subMenu && (
 				<div className="bg-[var(--reliwe-offwhite)] h-10">
