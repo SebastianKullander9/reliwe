@@ -36,7 +36,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                         <h2 className="heading lg:text-start text-center">{heading}</h2>
                     </div>
                     <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap">
-                        <p>{text}</p>
+                        <p className="text-medium">{text}</p>
                         <div className="hidden lg:block">
                             <Link href="/projekt">
                                 <BaseButtonBackground

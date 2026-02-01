@@ -75,7 +75,7 @@ p, li, a, button, h3, h4 {
     font-family: "Geist", sans-serif;
 	font-style: normal;
 	font-optical-sizing: auto;
-	@apply font-[400] md:font-[500];
+	/*@apply font-[400] md:font-[500];*/
 }
 
 .emphasize-text {
@@ -83,9 +83,29 @@ p, li, a, button, h3, h4 {
 	font-size: 18px;
 }
 
-p, span {
-	@apply text-[16px] md:text-[18px] font-[300] md:font-[500];
-};
+/*p, span {
+	@apply text-[16px] md:text-[17px] font-[300] md:font-[500];
+};*/
+
+.text-small {
+	font-size: 16px;
+	line-height: 1.65;
+}
+
+.text-default {
+	font-size: 17px;
+	line-height: 1.6;
+}
+
+.text-medium {
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+.text-large {
+	font-size: 24px;
+	line-height: 1.4;
+}
 
 
 .override-text-size {

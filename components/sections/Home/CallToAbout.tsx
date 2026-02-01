@@ -42,7 +42,7 @@ export default function CallToAbout() {
 				<h1 className="heading">
 					Om oss
 				</h1>
-				<p className="max-w-prose">
+				<p className="max-w-prose text-medium">
 					Välkommen till en bostadsutvecklare som skapar hållbara hem och levande stadsdelar där människor kan trivas och växa – idag och hela livet ut.
 				</p>
 			</div>
@@ -69,7 +69,7 @@ export default function CallToAbout() {
 					/>
 				</div>
 				<div className="col-span-12 md:col-span-3 xl:h-[70vh] flex flex-col justify-end gap-8" ref={pinStart}>
-					<p className="">
+					<p className="text-default">
 						Vi skapar bostäder där människor trivs, oavsett upplåtelseform. Våra projekt präglas av omtanke, hög kvalitet och långsiktigt värde. I många hus planerar vi lokaler i bottenplan som bidrar till god närservice och levande stadsdelar – allt för en enklare och tryggare vardag för våra boende.
 					</p>
 					<div className="flex justify-center md:justify-start pb-8">
