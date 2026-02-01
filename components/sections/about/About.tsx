@@ -1,7 +1,6 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
 import Intro from "./Intro";
 import ScrollSection from "./scrollSection/ScrollSection";
-import Sustainability from "./sustainability/Sustainability";
 import KeyNumbers from "../Home/KeyNumbers";
 import Interest from "../interest/Interest";
 
@@ -62,7 +61,6 @@ export default function About({ content }: { content: AboutContent }) {
 			<ScrollSection />
 			<div className="h-24 bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
-            <Sustainability cards={content.sustainability} />
 			<Interest />
         </section>
     )

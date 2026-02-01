@@ -1,10 +1,8 @@
 import CallToAbout from "@/components/sections/Home/CallToAbout";
 import CallToProjects from "@/components/sections/Home/CallToProjects";
 import Hero from "@/components/sections/Home/Hero";
-//import KeyNumbers from "@/components/sections/Home/KeyNumbers";
-import KeyNumbersTwo from "@/components/sections/Home/KeyNumbersTwo";
+import KeyNumbers from "@/components/sections/Home/KeyNumbers";
 import Interest from "@/components/sections/interest/Interest";
-import FooterTwo from "@/components/ui/footer/FooterTwo";
 import FooterWithClient from "@/components/ui/footer/FooterWithClient";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -99,12 +97,11 @@ export default async function Home() {
             <Hero />
             <div className="relative z-[9997] flex flex-col" id="gpu-scroll">
                 <CallToProjects data={data.callToProjects} />
-                <KeyNumbersTwo />
+                <KeyNumbers />
 				<CallToAbout />
 				<Interest />
             </div>
-            {/*<FooterWithClient />*/}
-			<FooterTwo />
+            <FooterWithClient />
         </>
     );
 }
