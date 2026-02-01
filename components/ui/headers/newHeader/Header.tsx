@@ -5,14 +5,11 @@ import { headerVariants } from "./header.variants";
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
-import ButtonAnimationWrapper from "../../buttons/newButtons/ButtonAnimationWrapper";
-import { useHeader } from "@/components/hooks/useHeader";
+import { IoIosArrowUp } from "react-icons/io";
 import { useHeaderTwo } from "@/components/hooks/useHeaderTwo";
 
 export default function Header({ variant = "home" }: { variant?: "home" | "default" }) {
-	//const { state, isVisible } = useHeader(headerVariants[variant]);
 	const { state, isVisible, openSubMenu, toggleSubMenu, closeSubMenu, headerHeight  } = useHeaderTwo(headerVariants[variant]);
-	const Button = state.button;
 
 	const activeMenuItem = menuConfig.menu.find(
 		(item) => item.label === openSubMenu
@@ -55,15 +52,21 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 								<p>
 									{menuItem.label}
 								</p>
-								{menuItem.subMenu?.length && (<IoIosArrowDown size={19} />)}
+								{menuItem.subMenu?.length && ( openSubMenu ? <IoIosArrowUp size={19} /> : <IoIosArrowDown size={19} /> )}
 							</div>
 						</Link>
 					))}
 				</div>
 			</div>
 			{activeMenuItem?.subMenu && (
-				<div className="bg-[var(--reliwe-offwhite)] h-10">
-					<div className="body-x-padding flex gap-8 h-full items-center justify-center">
+				<div 
+					className="h-15"
+					style={{ backgroundColor: state.background }}
+				>
+					<div 
+						className="body-x-padding flex gap-8 h-full items-center justify-center"
+						style={{ color: state.textColor }}
+					>
 						{activeMenuItem.subMenu.map((item) => (
 							<Link
 								key={item.href}

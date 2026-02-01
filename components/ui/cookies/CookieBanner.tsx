@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Script from "next/script";
+import Link from "next/link";
 
 interface CookieBannerProps {
     gaId: string;
@@ -65,7 +66,8 @@ export default function CookieBanner({ gaId }: CookieBannerProps) {
 					<p className="text-black !text-sm">
 						<strong className="font-bold">Vi använder cookies för att förbättra din upplevelse. </strong> 
 						Du kan acceptera eller avvisa
-						analyscookies.
+						analyscookies.<span> </span>
+						<Link href="/integritetspolicy" className="underline underline-offset-2 hover:text-gray-900">Se integritets och cookie policy</Link>
 					</p>
 					<div className="flex md:flex-row md:gap-12 justify-between">
 						<button 

@@ -15,11 +15,11 @@ export const headerVariants: Record<"home" | "default", HeaderVariantConfig> = {
 			logoSrc: "/logo/reliwe-logo-offwhite.png"
 		},
 		scrolled: {
-			background: "#faf7f5",
-			textColor: "#000",
+			background: "#1f5d37",
+			textColor: "#faf7f5",
 			button: ButtonBackground,
 			hamburgerColor: "#000",
-			logoSrc: "/logo/reliwe-logo-black.png"
+			logoSrc: "/logo/reliwe-logo-offwhite.png"
 		},
 		scrollThreshold: scrollThreshold,
 		headerHeight: headerHeight,
@@ -27,8 +27,8 @@ export const headerVariants: Record<"home" | "default", HeaderVariantConfig> = {
 
 	default: {
 		initial: {
-			background: "#faf7f5",
-			textColor: "#000",
+			background: "#1f5d37",
+			textColor: "#faf7f5",
 			button: ButtonBackground,
 			hamburgerColor: "#000",
 			logoSrc: "/logo/reliwe-logo-offwhite.png"
