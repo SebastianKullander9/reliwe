@@ -11,47 +11,33 @@ type MobileMenuProps = {
 }
 
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
-    const [projectsOpen, setProjectsOpen] = useState(false);
-
     return (
         <section
             className={`${isOpen ? "translate-y-0" : "translate-y-full"} 
                         transition-transform duration-300 fixed inset-0 
                         bg-[var(--reliwe-offwhite)] z-[9999]`}
         >
-            <div className="h-full flex flex-col justify-center items-center text-center gap-24 body-x-padding">
+            <div className="h-full flex flex-col justify-center items-center text-center gap-24 body-x-padding relative">
+				<button
+					aria-label="Close menu"
+					onClick={() => setIsOpen(false)}
+					className="absolute top-6 right-6 text-3xl"
+				>
+					✕
+				</button>
                 <nav className="flex flex-col text-2xl gap-4 items-center">
-
-                    <Link href="/om-oss" onClick={() => setIsOpen(false)}>
+					<Link href="/">
+						Hem
+					</Link>
+                    <Link href="/om-oss">
                         Om oss
                     </Link>
 
-                    <button
-                        onClick={() => setProjectsOpen(!projectsOpen)}
-                        className="text-2xl font-medium flex flex-row items-center"
-                    >
+					<Link href="/projekt">
                         Projekt
-						<MdKeyboardArrowDown size={28} />
-                    </button>
+                    </Link>
 
-                    {projectsOpen && (
-                        <div className="flex flex-col text-lg gap-2 mt-2">
-                            <Link href="/projekt" onClick={() => setIsOpen(false)}>
-                                Alla
-                            </Link>
-                            <Link href="/projekt?status=planned" onClick={() => setIsOpen(false)}>
-                                Planerade
-                            </Link>
-                            <Link href="/projekt?status=ongoing" onClick={() => setIsOpen(false)}>
-                                Pågående
-                            </Link>
-                            <Link href="/projekt?status=done" onClick={() => setIsOpen(false)}>
-                                Genomförda
-                            </Link>
-                        </div>
-                    )}
-
-                    <Link href="/kontakt" onClick={() => setIsOpen(false)}>
+                    <Link href="/kontakt">
                         Kontakt
                     </Link>
                 </nav>

@@ -13,7 +13,6 @@ export default function VaraProjekt() {
             <div className="relative z-2">
                 <OurProjects />
             </div>
-            <Footer />
         </>
     );
 }

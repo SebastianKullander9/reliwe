@@ -99,7 +99,7 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
                                 <div className="relative w-full aspect-[4/3] cursor-grab">
                                     <Image
                                         fill
-                                        className="object-cover rounded-lg"
+                                        className="object-cover"
                                         src={url}
                                         alt={`Exterior view of project ${projectName}, Image ${index + 1}`}
                                         priority={index === 0}

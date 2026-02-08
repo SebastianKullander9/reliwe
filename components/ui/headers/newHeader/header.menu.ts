@@ -8,7 +8,7 @@ export const menuConfig: { menu: HeaderMenuItem[] } = {
 		},
 		{
 			label: "Projekt",
-			href: "",
+			href: "/projekt",
 			subMenu: [
 				{ label: "Alla", href: "/projekt" },
 				{ label: "Planerade", href: "/projekt?status=planned" },

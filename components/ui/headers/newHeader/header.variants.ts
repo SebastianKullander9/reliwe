@@ -10,14 +10,12 @@ export const headerVariants: Record<"home" | "default", HeaderVariantConfig> = {
 		initial: {
 			background: "transparent",
 			textColor: "#faf7f5",
-			button: ButtonBorder,
 			hamburgerColor: "#faf7f5",
 			logoSrc: "/logo/reliwe-logo-offwhite.png"
 		},
 		scrolled: {
 			background: "#1f5d37",
 			textColor: "#faf7f5",
-			button: ButtonBackground,
 			hamburgerColor: "#000",
 			logoSrc: "/logo/reliwe-logo-offwhite.png"
 		},
@@ -29,7 +27,6 @@ export const headerVariants: Record<"home" | "default", HeaderVariantConfig> = {
 		initial: {
 			background: "#1f5d37",
 			textColor: "#faf7f5",
-			button: ButtonBackground,
 			hamburgerColor: "#000",
 			logoSrc: "/logo/reliwe-logo-offwhite.png"
 		},

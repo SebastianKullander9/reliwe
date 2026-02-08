@@ -3,6 +3,7 @@ import Intro from "./Intro";
 import ScrollSection from "./scrollSection/ScrollSection";
 import KeyNumbers from "../Home/KeyNumbers";
 import Interest from "../interest/Interest";
+import Background from "./Background";
 
 type SanityImage = {
     asset: {
@@ -61,6 +62,7 @@ export default function About({ content }: { content: AboutContent }) {
 			<ScrollSection />
 			<div className="h-24 bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
+			<Background />
 			<Interest />
         </section>
     )

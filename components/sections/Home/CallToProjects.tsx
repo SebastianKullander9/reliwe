@@ -1,7 +1,7 @@
-import BaseButtonBackground from "@/components/ui/buttons/baseButton/BaseButtonBackground";
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
+import ButtonBackground from "@/components/ui/buttons/newButtons/ButtonBackground";
 
 type SanityImage = {
     _type: "image";
@@ -36,14 +36,12 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                         <h2 className="heading lg:text-start text-center">{heading}</h2>
                     </div>
                     <div className="w-full lg:w-1/2 flex flex-col items-vertical-gap">
-                        <p className="text-medium">{text}</p>
+                        <p className="">{text}</p>
                         <div className="hidden lg:block">
                             <Link href="/projekt">
-                                <BaseButtonBackground
-                                    label="Läs mer"
-                                    bgColor="#1f5d37"
-                                    hoverTextColor="#faf7f5"
-                                />
+								<ButtonAnimationWrapper>
+                           	 		<ButtonBackground label="Läs mer" />
+								</ButtonAnimationWrapper>
                             </Link>
                         </div>
                     </div>
@@ -76,11 +74,9 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
 
                     <div className="lg:hidden flex justify-center mt-[-28px]">
                         <Link href="/projekt">
-                            <BaseButtonBackground
-                                label="Läs mer"
-                                bgColor="#1f5d37"
-                                hoverTextColor="#faf7f5"
-                            />
+							<ButtonAnimationWrapper>
+                            	<ButtonBackground label="Läs mer" />
+							</ButtonAnimationWrapper>
                         </Link>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ interface ProjectStatsProps {
 
 export default function ProjectStats({ project }: ProjectStatsProps) {
 	return (
-		<div className="flex flex-row justify-between ">
+		<div className="flex flex-row justify-between">
 			<div className="flex flex-col items-vertical-gap">
 				<div>
 					<p>Byggstart</p>

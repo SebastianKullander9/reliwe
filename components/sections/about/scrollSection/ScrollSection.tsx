@@ -72,15 +72,6 @@ export default function ScrollSection() {
 				>
 					<h2 
 						className="heading absolute left-1/2 -translate-x-1/2 bottom-0"
-						style={{ 
-							backgroundImage: `url(${barkaby.src})`,
-							backgroundSize: "cover",
-							backgroundPosition: "center",
-							WebkitBackgroundClip: "text",
-							backgroundClip: "text",
-							WebkitTextFillColor: "transparent",
-							color: "transparent"
-						}}
 					>
 						Om oss
 					</h2>

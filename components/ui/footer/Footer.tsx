@@ -1,7 +1,8 @@
 import Image from "next/image";
-import BaseButtonBackground from "../buttons/baseButton/BaseButtonBackground";
 import Link from "next/link";
 import ReliweLogo from "@/public/logo/reliwe-logo-green.png";
+import ButtonAnimationWrapper from "../buttons/newButtons/ButtonAnimationWrapper";
+import ButtonBackground from "../buttons/newButtons/ButtonBackground";
 
 type FooterProps = {
     aboveHero?: boolean;
@@ -41,7 +42,9 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
 						</div>
 						<div className="flex items-center flex-col">
 							<Link href="/kontakt">
-								<BaseButtonBackground label="Kontakta oss" bgColor="#1f5d37" hoverTextColor="#faf7f5"/>
+								<ButtonAnimationWrapper>
+									<ButtonBackground label="Kontakta oss" />
+								</ButtonAnimationWrapper>
 							</Link>
 						</div>
 					</div>

@@ -8,7 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import Link from "next/link";
-import BaseButtonBackground from "@/components/ui/buttons/baseButton/BaseButtonBackground";
+import ButtonBackground from "@/components/ui/buttons/newButtons/ButtonBackground";
+import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -37,12 +38,12 @@ export default function CallToAbout() {
 	});
 
 	return (
-		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-4 md:gap-8">
+		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-4 md:gap-8 pt-24 md:pt-0">
 			<div>
-				<h1 className="heading">
+				<h1 className="heading text-center md:text-start">
 					Om oss
 				</h1>
-				<p className="max-w-prose text-medium">
+				<p className="max-w-prose">
 					Välkommen till en bostadsutvecklare som skapar hållbara hem och levande stadsdelar där människor kan trivas och växa – idag och hela livet ut.
 				</p>
 			</div>
@@ -53,7 +54,7 @@ export default function CallToAbout() {
 						alt=""
 						width={600}
 						height={600}
-						className="aspect-square rounded-lg"
+						className="aspect-square"
 					/>
 				</div>
 				<div className="col-span-12 md:col-span-6 relative pb-8" ref={pinEnd}>
@@ -62,7 +63,7 @@ export default function CallToAbout() {
 						alt=""
 						width={1200}
 						height={800}
-						className="w-full h-auto rounded-lg"
+						className="w-full h-auto"
 						onLoad={() => {
 							ScrollTrigger.refresh();
 						}}
@@ -74,11 +75,9 @@ export default function CallToAbout() {
 					</p>
 					<div className="flex justify-center md:justify-start pb-8">
 						<Link href="/om-oss">
-							<BaseButtonBackground
-								label="Läs mer"
-								bgColor="#1f5d37"
-								hoverTextColor="#faf7f5"
-							/>
+							<ButtonAnimationWrapper>
+								<ButtonBackground label="Läs mer" />
+							</ButtonAnimationWrapper>
 						</Link>
 					</div>
 				</div>

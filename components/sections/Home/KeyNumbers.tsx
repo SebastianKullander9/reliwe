@@ -84,8 +84,6 @@ export default async function KeyNumbers() {
                     </div>
                 </div>
             </section>
-
-            <div className="h-48 w-full bg-[var(--reliwe-offwhite)]" />
         </>
     );
 }

@@ -10,14 +10,12 @@ export type HeaderVariantConfig = {
 	initial: {
 		background: string;
 		textColor: string;
-		button: ComponentType;
 		hamburgerColor: string;
 		logoSrc: string;
 	};
 	scrolled?: {
 		background: string;
 		textColor: string;
-		button: ComponentType;
 		hamburgerColor: string;
 		logoSrc: string;
 	};
