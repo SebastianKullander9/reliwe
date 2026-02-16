@@ -14,6 +14,7 @@ type FeaturedProject = {
     images?: SanityImage;
     year?: string;
     imageUrl?: string;
+	status: ProjectStatus;
 }
 
 type CallToProjectsData = {
@@ -22,8 +23,18 @@ type CallToProjectsData = {
     featuredProjects: FeaturedProject[];
 }
 
+type ProjectStatus = "ongoing" | "planned" | "done";
+
+const projectStatusMap = {
+	"ongoing": "Pågående",
+	"planned": "Planerad",
+	"done": "Genomförd"
+}
+
 export default function CallToProjects({ data }: { data: CallToProjectsData }) {
     const { heading, text, featuredProjects } = data;
+
+	console.log(featuredProjects);
 
     return (
         <>
@@ -67,7 +78,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
                             </div>
 							<div className="flex flex-col md:flex-row items-center justify-between bg-[var(--reliwe-green)] p-3 text-[var(--reliwe-offwhite)]">
 								<h3 className="text-start text-lg md:text-xl tracking-wider">{project.title}</h3>
-								<p className="!text-sm">Pågående</p>
+								<p className="!text-sm">{projectStatusMap[project.status]}</p>
 							</div>
                         </div>
                     ))}

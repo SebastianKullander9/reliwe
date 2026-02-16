@@ -38,8 +38,8 @@ export default function CallToAbout() {
 	});
 
 	return (
-		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-4 md:gap-8 pt-24 md:pt-0">
-			<div>
+		<div className="min-h-screen bg-[var(--reliwe-offwhite)] body-x-padding pb-48 flex flex-col gap-8 md:gap-8 pt-24 md:pt-0">
+			<div className="flex flex-col gap-8 md:gap-0">
 				<h1 className="heading text-center md:text-start">
 					Om oss
 				</h1>
@@ -47,7 +47,7 @@ export default function CallToAbout() {
 					Välkommen till en bostadsutvecklare som skapar hållbara hem och levande stadsdelar där människor kan trivas och växa – idag och hela livet ut.
 				</p>
 			</div>
-			<div className="grid grid-cols-12 gap-4 md:gap-8">
+			<div className="grid grid-cols-12 gap-8 md:gap-8">
 				<div className="col-span-12 md:col-span-3 relative">
 					<Image 
 						src={imageSmall}
@@ -57,7 +57,7 @@ export default function CallToAbout() {
 						className="aspect-square"
 					/>
 				</div>
-				<div className="col-span-12 md:col-span-6 relative pb-8" ref={pinEnd}>
+				<div className="col-span-12 md:col-span-6 relative md:pb-8" ref={pinEnd}>
 					<Image 
 						src={imageBig}
 						alt=""
@@ -69,7 +69,7 @@ export default function CallToAbout() {
 						}}
 					/>
 				</div>
-				<div className="col-span-12 md:col-span-3 xl:h-[70vh] flex flex-col justify-end gap-8" ref={pinStart}>
+				<div className="col-span-12 md:col-span-3 xl:h-[70vh] flex flex-col justify-end gap-12" ref={pinStart}>
 					<p className="text-default">
 						Vi skapar bostäder där människor trivs, oavsett upplåtelseform. Våra projekt präglas av omtanke, hög kvalitet och långsiktigt värde. I många hus planerar vi lokaler i bottenplan som bidrar till god närservice och levande stadsdelar – allt för en enklare och tryggare vardag för våra boende.
 					</p>

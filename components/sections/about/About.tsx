@@ -60,9 +60,8 @@ export default function About({ content }: { content: AboutContent }) {
                 image={content.intro.image}
             />
 			<ScrollSection />
-			<div className="h-24 bg-[var(--reliwe-offwhite)]" />
+			<div className="h-24 w-full bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
-			<div className="h-24 md:h-0 bg-[var(--reliwe-offwhite)]" />
 			<Background />
 			<Interest />
         </section>

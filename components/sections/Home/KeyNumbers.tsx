@@ -48,7 +48,7 @@ export default async function KeyNumbers() {
     return (
         <>
             <section className="w-full md:h-screen bg-[var(--reliwe-offwhite)] body-x-padding gap-12 flex flex-col">
-                <div className="flex flex-col md:flex-row items-horizontal-gap md:!gap-12 items-center">
+                <div className="flex flex-col md:flex-row items-horizontal-gap md:!gap-16 items-center">
                     <div className="w-full md:w-1/2">
                         <h2 className="heading md:pb-0 md:text-start text-center">{data.heading}</h2>
                     </div>

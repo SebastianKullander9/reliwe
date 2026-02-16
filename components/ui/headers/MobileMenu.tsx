@@ -13,7 +13,7 @@ type MobileMenuProps = {
 export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     return (
         <section
-            className={`${isOpen ? "translate-y-0" : "translate-y-full"} 
+            className={`${isOpen ? "translate-y-0" : "translate-y-[110%]"} 
                         transition-transform duration-300 fixed inset-0 
                         bg-[var(--reliwe-offwhite)] z-[9999]`}
         >

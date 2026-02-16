@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { HeaderVariantConfig } from "../ui/headers/newHeader/header.types";
+import { HeaderVariantConfig } from "../ui/headers/header.types";
 import type { MouseEvent } from "react";
 
 export function useHeaderTwo(variant: HeaderVariantConfig) {

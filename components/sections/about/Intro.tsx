@@ -17,7 +17,7 @@ export default function Intro({ title, text, image }: IntroProps) {
 			>
                 <div className="w-full md:w-[60%] flex flex-col md:justify-between items-vertical-gap md:gap-0">
                     <h2 className="heading text-center md:text-start">{title}</h2>
-                    <p className="max-w-prose">{text}</p>
+                    <p className="max-w-prose pb-8 md:pb-0">{text}</p>
                 </div>
                 <div className="w-full md:w-[40%] relative aspect-[4/5] md:aspect-auto md:min-h-full">
                     {image?.asset?.url && (

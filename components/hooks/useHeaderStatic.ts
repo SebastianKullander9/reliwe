@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { HeaderVariantConfig } from "../ui/headers/newHeader/header.types";
+import { HeaderVariantConfig } from "../ui/headers/header.types";
 
 export function useHeaderStatic(variant: HeaderVariantConfig) {
 	const [isVisible, setIsVisible] = useState(true);

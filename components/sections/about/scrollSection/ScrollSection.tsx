@@ -1,99 +1,123 @@
 "use client";
 
-import barkaby from "../../../../public/site-images/barkaby-hero.webp";
+import Image from "next/image";
+import Barkaby from "@/public/site-images/barkaby-hero.webp";
 import { sections } from "./content";
-import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function ScrollSection() {
-	const container = useRef<HTMLElement>(null);
-	const pinnedSection = useRef<HTMLDivElement>(null);
-	const pinnedHeader = useRef<HTMLDivElement>(null);
-	const endPinnedSection = useRef<HTMLDivElement>(null);
-
+export default function AboutScroll() {
+	const containerRef = useRef<HTMLDivElement>(null);
+	const bottomSectionRef = useRef<HTMLDivElement>(null);
+	const headingRef = useRef<HTMLDivElement>(null);
+	
 	useGSAP(() => {
-		if (!endPinnedSection.current || !pinnedSection.current || !pinnedHeader.current) return;
+		ScrollTrigger.config({
+			autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+			ignoreMobileResize: true,
+		});
 
 		ScrollTrigger.create({
-			trigger: pinnedSection.current,
+			trigger: containerRef.current,
 			start: "top top",
-			endTrigger: endPinnedSection.current,
-			end: "bottom bottom",
+			endTrigger: bottomSectionRef.current,
+			end: "bottom bottom-=50vh",
 			pin: true,
 			pinSpacing: false,
-			anticipatePin: 0,
 			invalidateOnRefresh: true,
 		});
 
 		ScrollTrigger.create({
-			trigger: pinnedHeader.current,
+			trigger: containerRef.current,
 			start: "top top",
-			endTrigger: endPinnedSection.current,
-			end: "bottom bottom",
-			pin: true,
+			endTrigger: bottomSectionRef.current,
+			end: "bottom bottom-=50vh",
+			pin: headingRef.current,
 			pinSpacing: false,
-			anticipatePin: 0,
 			invalidateOnRefresh: true,
-			onEnter: () => {
-				if (pinnedHeader.current) {
-					pinnedHeader.current.style.zIndex = "30";
-				}
-			},
 		});
-	}, { 
-		scope: container,
-		dependencies: [],
-		revertOnUpdate: true
-	});
+
+		const headingElement = headingRef.current?.querySelector(".animateHeading");
+		
+		if (headingElement) {
+			gsap.to(headingElement, {
+				scale: 0.7,
+				scrollTrigger: {
+					trigger: containerRef.current,
+					start: "top bottom",
+					end: "top top",
+					scrub: true,
+				},
+			});
+		}
+		
+		ScrollTrigger.refresh();
+	}, { dependencies: [], scope: containerRef});
 
 	return (
-		<section className="relative" ref={container}>
-			<div
-				className="absolute w-full h-screen bg-cover bg-center"
-				style={{ backgroundImage: `url(${barkaby.src})` }}
-				ref={pinnedSection}
-			>
-				<div 
-					className="absolute inset-0" 
-					style={{
-						background: 'radial-gradient(circle, rgba(0,0,0,0.5) 0%, transparent 100%)'
-					}}
-				/>
+		<div className="relative pb-24">
+			<div className="h-40 md:h-65 bg-(--reliwe-offwhite) w-full flex justify-center absolute z-[100] shadow-xs" ref={headingRef}>
+				<h2 className="heading base bottom-0 absolute animateHeading">
+					Om oss
+				</h2>
 			</div>
-			
-			<div className="h-screen">
-				<div 
-					className="absolute top-0 left-0 h-[188px] md:h-[240px] w-full bg-[var(--reliwe-offwhite)] z-20"
-					ref={pinnedHeader}
-				>
-					<h2 
-						className="heading absolute left-1/2 -translate-x-1/2 bottom-0"
-					>
-						Om oss
-					</h2>
-				</div>
-			</div>
-			
-			{sections.map((section, index) => (
-				<div 
-					className={`relative w-full ${index + 1 === sections.length ? "h-[calc(100vh-188px)] md:h-[calc(100vh-240px)]" : "h-screen"} z-10 text-[var(--reliwe-offwhite)] flex items-center justify-center body-x-padding`}
-					ref={index + 1 === sections.length ? endPinnedSection : null}
-					key={section.title + index}
-				>
-					<div className="text-center">
-						<h1 className="heading-no-break">
-							{section.title}
-						</h1>
-						<p className="max-w-prose">
-							{section.text}
-						</p>
+
+			<div className="relative" ref={containerRef} style={{ zIndex: 10 }}>
+				<div className="h-screen relative">
+					<div className="bg-black/33 absolute inset-0" style={{ zIndex: 11}} />
+					<div className="absolute inset-0">
+						<Image 
+							src={Barkaby}
+							alt=""
+							fill
+							quality={95}
+							sizes="100vw"
+							className="object-cover"
+						/>
 					</div>
 				</div>
-			))}
-		</section>
+			</div>
+
+			<div className="relative" style={{ zIndex: 50 }}>
+				{sections.map((content, index) => (
+					<div 
+						ref={sections.length === index + 1 ? bottomSectionRef : undefined}
+						className={`${
+							index === 0 
+								? "h-[75vh] relative" 
+								: index === sections.length - 1 
+									? "h-[calc(100vh-260px)] flex justify-center items-center relative"
+									: "h-screen flex justify-center items-center relative"
+						}`}
+						key={index}
+					>
+						{index === 0 ? (
+							<div className="absolute w-full body-x-padding md:max-w-prose text-center top-0 left-1/2 -translate-x-1/2 text-(--reliwe-offwhite)">
+								<h1 className="heading base">
+									{content.title}
+								</h1>
+								<p>
+									{content.text}
+								</p>
+							</div>
+						) : (
+							<div className="w-full body-x-padding md:max-w-prose text-center p-12 text-(--reliwe-offwhite)">
+								<h1 className="heading base">
+									{content.title}
+								</h1>
+								<p>
+									{content.text}
+								</p>
+							</div>
+						)}
+					</div>
+				))}
+			</div>
+		</div>
+		
 	);
 }

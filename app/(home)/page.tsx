@@ -22,6 +22,7 @@ type FeaturedProject = {
     images?: SanityImage;
     year?: string;
     imageUrl?: string;
+	status: "ongoing" | "planned" | "done";
 };
 
 type CallToAboutData = {
@@ -55,7 +56,8 @@ async function getHomePage(): Promise<HomePageData> {
                 featuredProjects[]->{
                     title,
                     images[0],
-                    year
+                    year,
+					status
                 }
             }
         }
@@ -98,6 +100,7 @@ export default async function Home() {
             <div className="relative z-[9997] flex flex-col" id="gpu-scroll">
                 <CallToProjects data={data.callToProjects} />
                 <KeyNumbers />
+				<div className="h-24 bg-(--reliwe-offwhite)" />
 				<CallToAbout />
 				<Interest />
             </div>

@@ -6,15 +6,6 @@ export default function Background() {
 		<section className="min-h-screen w-full flex justify-center items-center relative body-x-padding">
 			<div className=" max-w-prose text-center">
 				<div className="flex flex-col gap-8">
-					<div className="flex justify-center">
-						<Image
-							src={reliweLogo}
-							alt="The logo of the company Reliwe AB"
-							width={250}
-							height={250}
-							className="scale-70 md:scale-100"
-						/>
-					</div>
 					<h1 className="heading">
 						Bakgrund
 					</h1>
