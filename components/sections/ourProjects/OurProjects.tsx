@@ -100,20 +100,22 @@ export default async function OurProjects() {
 
     return (
         <section>
-            <IntroBanner
-                title={data.introBanner.title}
-                texts={data.introBanner.texts}
-                imgUrl={
-                    data.introBanner.image
-                        ? urlFor(data.introBanner.image).width(2000)
-						.quality(95)
-						.auto("format")
-						.url()
-                        : ""
-                }
-                imgAlt={data.introBanner.image?.alt || ""}
-                screenReaderH1="Våra projekt - Reliwe bostadsprojekt"
-            />
+			<div className="md:pt-36 lg:pt-16 xl:pt-6">
+				<IntroBanner
+					title={data.introBanner.title}
+					texts={data.introBanner.texts}
+					imgUrl={
+						data.introBanner.image
+							? urlFor(data.introBanner.image).width(2000)
+							.quality(95)
+							.auto("format")
+							.url()
+							: ""
+					}
+					imgAlt={data.introBanner.image?.alt || ""}
+					screenReaderH1="Våra projekt - Reliwe bostadsprojekt"
+				/>
+			</div>
             <Suspense fallback={<div>Loading projects...</div>}>
 				<ProjectsList projects={data.projects} />
 			</Suspense>
