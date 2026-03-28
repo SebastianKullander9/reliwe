@@ -25,7 +25,7 @@ type CallToProjectsData = {
 
 type ProjectStatus = "ongoing" | "planned" | "done";
 
-const projectStatusMap = {
+export const projectStatusMap = {
 	"ongoing": "Pågående",
 	"planned": "Planerad",
 	"done": "Genomförd"

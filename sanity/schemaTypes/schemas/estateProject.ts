@@ -84,6 +84,51 @@ export const estateProject = defineType({
 			description: "Lägre nummer visas först. Används för manuell sortering.",
 			validation: Rule => Rule.min(0)
 		}),
+		defineField({
+			name: "hasSubpage",
+			title: "Har undersida?",
+			type: "boolean",
+			initialValue: false
+		}),
+		defineField({
+			name: "slug",
+			title: "Slug",
+			type: "slug",
+			options: { 
+				source: "title",
+				slugify: (input) =>
+					input
+						.toLowerCase()
+						.replace(/å/g, "a")
+						.replace(/ä/g, "a")
+						.replace(/ö/g, "o")
+						.replace(/[^a-z0-9]+/g, "-")
+						.replace(/(^-|-$)+/g, "")
+			},
+			validation: Rule => Rule.required()
+		}),
+		defineField({
+			name: "subpage",
+			title: "Undersida",
+			type: "object",
+			description: "Valfri undersida med extra information",
+			hidden: ({ document }) => !document?.hasSubpage,
+			fields: [
+				{
+					name: "title",
+					title: "Undersidans titel",
+					type: "string",
+					description: "Om tom används projekttitel"
+				},
+				{
+					name: "textBlocks",
+					title: "Text block",
+					type: "array",
+					of: [{ type: "text" }],
+					validation: Rule => Rule.max(3)
+				}
+			]
+		}),
     ],
     preview: {
         select: {

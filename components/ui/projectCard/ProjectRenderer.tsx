@@ -3,14 +3,23 @@ import ImageDisplay from "./ImageDisplay";
 import ProjectCardMulti from "./ProjectCardMulti";
 import ProjectCardSingle from "./ProjectCardSingle";
 
+export type SubPage = {
+	title: string;
+	textBlocks: string[];
+}
+
 export type ProjectItem = {
 	title: string;
 	text: string;
 	year: string;
 	movingInYear: string;
 	apartmentAmount: string;
+	status: "ongoing" | "done" | "planned";
 	roomAmount: string;
 	imgUrls: string[];
+	hasSubpage?: boolean;
+	slug: string;
+
 }
 
 interface ProjectRendererProps {

@@ -12,8 +12,8 @@ export async function POST(request: NextRequest) {
         revalidatePath("/", "page");
         revalidatePath("/om-oss", "page");
         revalidatePath("/kontakt", "page");
-        revalidatePath("/vara-projekt", "page");
         revalidatePath("/integritetspolicy", "page");
+		revalidatePath("/projekt", "layout");
         
         revalidatePath("/", "layout");
         return NextResponse.json({ revalidated: true })

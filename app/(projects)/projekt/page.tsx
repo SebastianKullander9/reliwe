@@ -1,5 +1,5 @@
 import OurProjects from "@/components/sections/ourProjects/OurProjects";
-import Footer from "@/components/ui/footer/Footer";
+import HeaderStatic from "@/components/ui/headers/HeaderStatic";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function VaraProjekt() {
     return (
         <>
+			<HeaderStatic />
             <div className="relative z-2">
                 <OurProjects />
             </div>

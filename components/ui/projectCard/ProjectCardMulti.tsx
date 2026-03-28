@@ -2,6 +2,9 @@ import { colorScheme } from "./colorScheme";
 import ImagesDisplay from "./ImagesDisplay";
 import { ProjectItem } from "./ProjectRenderer";
 import ProjectStats from "./ProjectStats";
+import Link from "next/link";
+import ButtonAnimationWrapper from "../buttons/newButtons/ButtonAnimationWrapper";
+import ButtonBackground from "../buttons/newButtons/ButtonBackground";
 
 interface ProjectCardMultiProps {
 	project: ProjectItem;
@@ -22,6 +25,13 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 						<h2 className="heading text-center md:text-start">
 							{project.title}
 						</h2>
+						{project.hasSubpage && (
+							<Link href={`/projekt/${project.slug}`}>
+								<ButtonAnimationWrapper>
+									<ButtonBackground label="Läs mer" />
+								</ButtonAnimationWrapper>
+							</Link>
+						)}
 					</div>
 					<div className="w-full md:w-1/2 flex flex-col items-vertical-gap">
 						<p>{project.text}</p>

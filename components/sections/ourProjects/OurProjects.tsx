@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import ProjectsList from "./ProjectList";
 import { Suspense } from "react";
+import { Project } from "@/app/types/types";
 
 type SanityImage = {
     _type: "image";
@@ -13,17 +14,19 @@ type SanityImage = {
     alt?: string;
 };
 
-type Project = {
-    title: string;
-    text: string;
-    year: string;
-    movingInYear: string;
-    apartmentAmount: string;
-    roomAmount: string;
-    images: SanityImage[];
-    imgUrls: string[];
-    status: "ongoing" | "done" | "planned";
-	sortOrder?:number;
+type SanityProject = {
+	title: string;
+	text: string;
+	year: string;
+	movingInYear: string;
+	apartmentAmount: string;
+	roomAmount: string;
+	images: SanityImage[];
+	status: "ongoing" | "done" | "planned";
+	sortOrder?: number;
+	slug: { current: string };
+	hasSubpage?: boolean;
+	subpage?: { title?: string; textBlocks?: string[] };
 };
 
 type IntroBannerData = {
@@ -69,12 +72,21 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
             roomAmount,
             images,
             status,
-			sortOrder
+			sortOrder,
+			slug {
+				current
+			},
+			hasSubpage,
+			subpage {
+				title,
+				textBlocks
+			}
         }
     `, {}, { next: { revalidate: 0 }});
 
-    const formattedProjects: Project[] = projects.map((project: Project) => ({
+    const formattedProjects: Project[] = projects.map((project: SanityProject) => ({
         ...project,
+		slug: project.slug?.current || "",
         imgUrls: project.images?.map((img: SanityImage) => 
 			urlFor(img)
 			.width(2000)

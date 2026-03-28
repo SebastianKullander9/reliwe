@@ -12,6 +12,8 @@ type Project = {
 	roomAmount: string;
 	imgUrls: string[];
 	status: "ongoing" | "done" | "planned";
+	slug: string;
+	hasSubpage?: boolean;
 };
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
