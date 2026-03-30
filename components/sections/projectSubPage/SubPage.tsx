@@ -3,6 +3,8 @@ import InfoSection from "./InfoSection";
 import IntroSection from "./IntroSection";
 import { urlFor } from "@/sanity/lib/image";
 import TextSection from "./TextSection";
+import InterestSection from "./InterestSection";
+import Footer from "@/components/ui/footer/Footer";
 
 interface ProjectSubPageProps {
 	project: Project;
@@ -18,8 +20,12 @@ export default function SubPage({ project }: ProjectSubPageProps) {
 	return (
 		<section>
 			<IntroSection project={project} imgUrls={imgUrls} />
-			<InfoSection project={project} />
-			<TextSection project={project} imgUrls={imgUrls} />
+			<div className="container mx-auto">
+				<InfoSection project={project} />
+				<TextSection project={project} imgUrls={imgUrls} />
+				<InterestSection />
+			</div>
+			<Footer />
 		</section>
 	);
 };
