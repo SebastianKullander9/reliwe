@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ReliweLogo from "@/public/logo/reliwe-logo-green.png";
+import ReliweTree from "@/public/site-images/tree-green-accent-softer.jpg"
 import ButtonAnimationWrapper from "../buttons/newButtons/ButtonAnimationWrapper";
 import ButtonBackground from "../buttons/newButtons/ButtonBackground";
 
@@ -18,7 +19,7 @@ export default function Footer({ aboveHero, isFooterVisible, isClient=false }: F
             }`}>
                 <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[var(--reliwe-green-accent)] flex items-center justify-center order-1 md:order-none pb-12 md:pb-0">
                     <Image 
-                        src="/site-images/tree-accent-green-new.jpg" 
+                        src={ReliweTree} 
                         alt="An illustration of a tree that fits with the brands color scheme"
 						className="scale-60 md:scale-100"
                         width={600} 
