@@ -5,11 +5,11 @@ interface InfoRowProps {
 
 export default function InfoRow({ title, text }: InfoRowProps) {
 	return (
-		<div className="flex flex-row justify-between border-b border-[var(--reliwe-green)]/25 p-4">
-			<p className="font-semibold">
+		<div className="flex flex-row justify-between border-b border-[var(--reliwe-green-accent3)] py-4">
+			<p className="text-[var(--reliwe-green-accent3)]">
 				{title}
 			</p>
-			<p>
+			<p className="text-[var(--reliwe-offwhite)]">
 				{text}
 			</p>
 		</div>

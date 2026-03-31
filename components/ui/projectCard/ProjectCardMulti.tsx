@@ -21,7 +21,7 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 				style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }}
 			>
 				<div className="flex flex-col md:flex-row items-vertical-gap">
-					<div className="w-full md:w-1/2">
+					<div className="w-full md:w-1/2 flex flex-col justify-between">
 						<h2 className="heading text-center md:text-start">
 							{project.title}
 						</h2>
