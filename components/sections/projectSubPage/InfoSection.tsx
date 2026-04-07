@@ -1,8 +1,8 @@
-import { Project } from "@/app/types/types";
+import { ProjectWithSubpage } from "@/app/types/types";
 import InfoCard from "@/components/ui/infoCard/InfoCard";
 
 interface InfoSectionProps {
-	project: Project;
+	project: ProjectWithSubpage;
 }
 
 export default function InfoSection({ project }: InfoSectionProps) {
@@ -14,15 +14,7 @@ export default function InfoSection({ project }: InfoSectionProps) {
 						{project.subpage?.title}
 					</h2>
 					<div className="max-w-prose flex flex-col gap-8">
-						<p>
-							{project.subpage?.textBlocks?.[0]}
-						</p>
-						<p>
-							{project.subpage?.textBlocks?.[1]}
-						</p>
-						<p>
-							{project.subpage?.textBlocks?.[2]}
-						</p>
+
 					</div>
 				</div>
 				<InfoCard project={project} />

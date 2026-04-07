@@ -24,7 +24,7 @@ export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 			hasSubpage,
 			subpage
 		}
-	`, { slug }, { next: { revalidate: false }});
+	`, { slug }, { next: { revalidate: 0 }});
 
 	console.log(project);
 
