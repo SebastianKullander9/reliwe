@@ -1,5 +1,5 @@
 import { Project } from "@/app/types/types";
-import InfoSection from "./InfoSection";
+import HeroSection from "./HeroSection";
 import IntroSection from "./IntroSection";
 import { urlFor } from "@/sanity/lib/image";
 import TextSection from "./TextSection";
@@ -19,9 +19,9 @@ export default function SubPage({ project }: ProjectSubPageProps) {
 
 	return (
 		<section>
-			<IntroSection project={project} imgUrls={imgUrls} />
-			<div className="container mx-auto">
-				<InfoSection project={project} />
+			<HeroSection project={project} imgUrls={imgUrls} />
+			<div className="xl:container mx-auto">
+				<IntroSection project={project} />
 				<TextSection project={project} imgUrls={imgUrls} />
 				<InterestSection />
 			</div>
