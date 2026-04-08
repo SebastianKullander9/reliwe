@@ -1,4 +1,4 @@
-import { Project } from "@/app/types/types";
+import { ProjectWithSubpage } from "@/app/types/types";
 import HeroSection from "./HeroSection";
 import IntroSection from "./IntroSection";
 import { urlFor } from "@/sanity/lib/image";
@@ -7,7 +7,7 @@ import InterestSection from "./InterestSection";
 import Footer from "@/components/ui/footer/Footer";
 
 interface ProjectSubPageProps {
-	project: Project;
+	project: ProjectWithSubpage;
 }
 
 export default function SubPage({ project }: ProjectSubPageProps) {
@@ -15,14 +15,12 @@ export default function SubPage({ project }: ProjectSubPageProps) {
 		urlFor(img).width(2000).quality(90).auto("format").url()
 	) ?? [];
 
-	console.log(imgUrls);
-
 	return (
 		<section>
 			<HeroSection project={project} imgUrls={imgUrls} />
 			<div className="xl:container mx-auto">
 				<IntroSection project={project} />
-				<ImageTextSections project={project} imgUrls={imgUrls} />
+				<ImageTextSections project={project} />
 				<InterestSection />
 			</div>
 			<Footer />

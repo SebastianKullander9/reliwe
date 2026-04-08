@@ -1,7 +1,7 @@
 "use server";
 
 import { client } from "@/sanity/lib/client";
-import { Project } from "@/app/types/types";
+import { ProjectWithSubpage } from "@/app/types/types";
 import SubPage from "@/components/sections/projectSubPage/SubPage";
 
 interface ProjectSubPageProps {
@@ -11,7 +11,7 @@ interface ProjectSubPageProps {
 export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 	const { slug } = await params;
 
-	const project: Project = await client.fetch(`
+	const project: ProjectWithSubpage = await client.fetch(`
 		*[_type=="estateProject" && slug.current==$slug][0]{
 			title,
 			text,
@@ -25,8 +25,6 @@ export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 			subpage
 		}
 	`, { slug }, { next: { revalidate: 0 }});
-
-	console.log(project);
 
 	return (
 		<>
