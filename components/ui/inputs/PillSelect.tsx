@@ -18,15 +18,15 @@ export default function PillSelect() {
 
 	return (
 		<div className="flex flex-col">
-			<label className="p-4">
+			<label className="pl-4 pb-4">
 				Önskat antal rum
 			</label>
-			<div className="flex flex-row gap-4">
+			<div className="flex flex-row flex-wrap gap-4">
 				{rooms.map((room, index) => (
 					<button
 						onClick={() => toggle(room)}
 						className={`
-							px-6 py-3  rounded-full border border-[var(--reliwe-green-accent2)]  cursor-pointer
+							px-4 py-[10px] rounded-full cursor-pointer 
 							${selectedRoomAmount.includes(room) ? "bg-[var(--reliwe-green)] text-[var(--reliwe-offwhite)]" : "hover:bg-[var(--reliwe-green-accent2)] bg-[var(--reliwe-green-accent)]"}
 						`}
 						key={room+index}

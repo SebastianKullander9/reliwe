@@ -2,7 +2,7 @@ import { Project } from "@/app/types/types";
 import HeroSection from "./HeroSection";
 import IntroSection from "./IntroSection";
 import { urlFor } from "@/sanity/lib/image";
-import TextSection from "./TextSection";
+import ImageTextSections from "./ImageTextSections";
 import InterestSection from "./InterestSection";
 import Footer from "@/components/ui/footer/Footer";
 
@@ -22,7 +22,7 @@ export default function SubPage({ project }: ProjectSubPageProps) {
 			<HeroSection project={project} imgUrls={imgUrls} />
 			<div className="xl:container mx-auto">
 				<IntroSection project={project} />
-				<TextSection project={project} imgUrls={imgUrls} />
+				<ImageTextSections project={project} imgUrls={imgUrls} />
 				<InterestSection />
 			</div>
 			<Footer />

@@ -4,6 +4,7 @@ import ButtonBackground from "../buttons/newButtons/ButtonBackground";
 import PillSelect from "../inputs/PillSelect";
 import Link from "next/link";
 import TextArea from "../inputs/TextArea";
+import CheckboxGroup from "../inputs/CheckboxGroup";
 
 export default function InterestForm() {
 	return (
@@ -16,36 +17,45 @@ export default function InterestForm() {
 					Var med från start
 				</h2>
 				<p className="max-w-prose">
-					Anmäl ditt intresse idag och säkra din plats i en av Stockholms mest spännande stadsutvecklingar.
+					Anmäl ditt intresse om du vill veta mer om våra planerade eller
+					pågående projekt. Detta är ingen köplats, utan ett sätt för oss att få en
+					bild av intresset och att dela mer information med dig.
 				</p>
 			</div>
-			<div className="border border-[var(--reliwe-green-accent)] rounded-lg p-8 flex flex-col gap-4">
-				<div className="inline-flex flex-row gap-8 w-full">
+			<div className="border border-[var(--reliwe-green-accent)] rounded-lg p-3 md:p-8 flex flex-col gap-4">
+				<div className="inline-flex flex-col md:flex-row gap-4 md:gap-8 w-full">
 					<Input 
 						label="Förnamn"
-						placeholder="Sven Svensson"
+						placeholder="Erik"
 						required
 					/>
 					<Input 
 						label="Efternamn"
-						placeholder="Sven Svensson"
+						placeholder="Andersson"
 						required
 					/>
 				</div>
-				<div className="inline-flex flex-row gap-8 w-full">
+				<div className="inline-flex flex-col md:flex-row gap-4 md:gap-8 w-full">
 					<Input 
 						label="E-post"
-						placeholder="email@test.se"
+						placeholder="erik.andersson@mail.se"
 						required
 					/>
 					<Input 
 						label="Telefon"
-						placeholder="000-0000000"
+						placeholder="070-123 45 67"
 						required
 					/>
 				</div>
 				<PillSelect />
-
+				<label className="pl-4">
+					Övriga önskemål
+				</label>
+				<CheckboxGroup name="ovriga" options={[
+					{label: "Bostadsrätt", value: "test1"}, 
+					{label: "Hyresrätt", value: "test2"}, 
+					{label: "Balkong/uteplats", value: "test3"}
+				]}/>
 				<TextArea />
 				<ButtonAnimationWrapper hasMaxWidth={false}>
 					<ButtonBackground label="Skicka intresseanmälan"/>
@@ -63,21 +73,3 @@ export default function InterestForm() {
 		</form>
 	);
 };
-
-/*
-Önskemål om fastighet:
-Upplands VäsbyLinköpingUppsala
-
-Önskemål om antal rum:
-
-Önskemål om storlek på yta:
-
-För- och efternamn: (obligatorisk)
-
-E-post: (obligatorisk)
-
-Telefon: (obligatorisk)
-
-Övriga önskemål:
-
-*/
