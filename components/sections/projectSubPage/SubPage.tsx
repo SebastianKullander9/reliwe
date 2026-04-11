@@ -21,7 +21,10 @@ export default function SubPage({ project }: ProjectSubPageProps) {
 			<div className="xl:container mx-auto">
 				<IntroSection project={project} />
 				<ImageTextSections project={project} />
-				<InterestSection />
+				<InterestSection
+					projectTitle={project.title}
+					availableRooms={project.subpage?.availableRooms ?? []}
+				/>
 			</div>
 			<Footer />
 		</section>

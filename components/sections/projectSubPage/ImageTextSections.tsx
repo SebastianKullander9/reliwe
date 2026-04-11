@@ -37,9 +37,11 @@ export default function ImageTextSections({ project }: TextSectionProps) {
 
                     <div className="flex flex-col gap-6 pt-2 flex-1">
                         <div className="w-15 h-1 bg-[var(--reliwe-green)] rounded-full" />
-						<h2 className="heading-poppins font-extrabold text-4xl">
-							Test titel här
-						</h2>
+						{section.title && (
+							<h2 className="heading-poppins font-extrabold text-4xl">
+								{section.title}
+							</h2>
+						)}
                         <p className="leading-relaxed">
                             {section.text}
                         </p>
