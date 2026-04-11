@@ -4,7 +4,7 @@ export const colorScheme = [
         hoverColor: "#efe6df",
     },
     {
-        backgroundColor: "#c9cec3", //light green
+        backgroundColor: "#dddfda", //light green
         hoverColor: "#bcc2b4",
     }
 ];

@@ -58,11 +58,11 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
 
     return (
         <figure className="w-full flex flex-col" aria-label="Project image gallery -mx-0 md:-mx-4">
-            <div 
+            <div
                 className="flex flex-row order-2 md:order-1 justify-center md:justify-start mt-4 md:mt-0 gap-8 md:gap-2"
                 style={{ display: disableCarousel ? "none" : "flex" }}
             >
-                <button 
+                <button
                     aria-label="Scroll images left"
                     onClick={scrollPrev}
                     disabled={!canScrollPrev && !OPTIONS.loop}
@@ -70,9 +70,9 @@ export default function ImagesDisplay({ imgUrls, projectName, clampedIndex }: Im
                     style={{ "--hover-color": colorScheme[clampedIndex].hoverColor } as React.CSSProperties}
                 >
 					<TfiArrowLeft size={30}/>
-                    
+
                 </button>
-                <button 
+                <button
                     aria-label="Scroll images right"
                     onClick={scrollNext}
                     disabled={!canScrollNext && !OPTIONS.loop}

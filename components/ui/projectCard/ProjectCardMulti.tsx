@@ -26,7 +26,7 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 							{project.title}
 						</h2>
 						{project.hasSubpage && (
-							<Link href={`/projekt/${project.slug}`}>
+							<Link href={`/projekt/${project.slug}`} className="hidden md:block">
 								<ButtonAnimationWrapper>
 									<ButtonBackground label="Läs mer" />
 								</ButtonAnimationWrapper>
@@ -41,8 +41,17 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 				<div>
 					<ImagesDisplay imgUrls={project.imgUrls} projectName={project.title} clampedIndex={clampedIndex} />
 				</div>
+				{project.hasSubpage && (
+					<div className="flex flex-row justify-center">
+						<Link href={`/projekt/${project.slug}`} className="md:hidden">
+							<ButtonAnimationWrapper>
+								<ButtonBackground label="Läs mer" />
+							</ButtonAnimationWrapper>
+						</Link>
+					</div>
+				)}
 			</article>
-			
+
 			<div className="h-20 w-full" style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }} />
 		</>
 	);
