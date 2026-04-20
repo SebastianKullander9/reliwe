@@ -120,7 +120,7 @@ export default function InterestForm({ projectTitle, availableRooms }: InterestF
 	const roomOptions = availableRooms
 		.slice()
 		.sort((a, b) => a - b)
-		.map((n) => `${n} rok`);
+		.map((n) => (n >= 5 ? "5+ rok" : `${n} rok`));
 	const [fields, setFields] = useState<FormFields>({
 		firstName: "",
 		lastName: "",

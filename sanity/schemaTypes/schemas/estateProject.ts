@@ -257,6 +257,27 @@ export const estateProject = defineType({
                     ]
                 },
 				{
+					name: "gallery",
+					title: "Bildgalleri",
+					type: "array",
+					of: [{
+						type: "image",
+						options: { hotspot: true },
+						fields: [
+							{
+								name: "alt",
+								title: "Alternativ text",
+								type: "string",
+								description: "Beskrivning av bilden för tillgänglighet"
+							}
+						]
+					}],
+					options: {
+						layout: "grid"
+					},
+					description: "Bilder som visas i ett galleri på undersidan"
+				},
+				{
 					name: "availableRooms",
 					title: "Tillgängliga rumsalternativ",
 					type: "array",
@@ -267,12 +288,7 @@ export const estateProject = defineType({
 							{ title: "2 rok", value: 2 },
 							{ title: "3 rok", value: 3 },
 							{ title: "4 rok", value: 4 },
-							{ title: "5 rok", value: 5 },
-							{ title: "6 rok", value: 6 },
-							{ title: "7 rok", value: 7 },
-							{ title: "8 rok", value: 8 },
-							{ title: "9 rok", value: 9 },
-							{ title: "10 rok", value: 10 },
+            				{ title: "5 rok eller mer", value: 5 },
 						],
 						layout: "grid"
 					},

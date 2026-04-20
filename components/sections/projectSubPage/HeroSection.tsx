@@ -1,25 +1,28 @@
-import { Project } from "@/app/types/types";
+import { ProjectWithSubpage } from "@/app/types/types";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { projectStatusMap } from "../Home/CallToProjects";
 
 interface IntroSectionProps {
-	project: Project;
-	imgUrls: string[];
+	project: ProjectWithSubpage;
+	heroUrl: string | undefined;
 }
 
-export default function HeroSection({ project, imgUrls }: IntroSectionProps) {
-
+export default function HeroSection({ project, heroUrl }: IntroSectionProps) {
 	return (
 		<section>
 			<div className="relative w-full h-[75vh] overflow-hidden">
-				<Image 
-					src={imgUrls[0]}
+				{heroUrl && (
+				<div className="relative w-full h-[75vh] overflow-hidden">
+					<Image 
+					src={heroUrl}
 					alt="Hero image from one of reliwes projects 'Barkaby'"
 					fill
 					className="object-cover object-center"
 					priority
 				/>
+				</div>
+				)}
 			</div>
 			<div className="bg-[var(--reliwe-green-accent)]">
 				<div className="body-x-padding xl:container flex flex-col md:flex-row justify-between mx-auto body-x-padding md:items-center p-4 ">
@@ -33,4 +36,4 @@ export default function HeroSection({ project, imgUrls }: IntroSectionProps) {
 			</div>
 		</section>
 	);
-};
+};				
