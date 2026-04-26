@@ -4,7 +4,7 @@ interface PillSelectProps {
 	label?: string;
 	options?: string[];
 	value: string[];
-	onChange: (value: string[]) => void;
+	onToggle: (option: string) => void;
 	error?: string;
 	required?: boolean;
 }
@@ -15,16 +15,10 @@ export default function PillSelect({
 	label = "Önskat antal rum",
 	options = DEFAULT_ROOMS,
 	value,
-	onChange,
+	onToggle,
 	error,
 	required = false,
 }: PillSelectProps) {
-	const toggle = (option: string) =>
-		onChange(
-			value.includes(option)
-				? value.filter((r) => r !== option)
-				: [...value, option]
-		);
 
 	return (
 		<div className="flex flex-col gap-2">
@@ -37,7 +31,7 @@ export default function PillSelect({
 			<div className="flex flex-row flex-wrap gap-4">
 				{options.map((option, index) => (
 					<button
-						onClick={() => toggle(option)}
+						onClick={() => onToggle(option)}
 						className={`
 							px-4 py-[10px] rounded-full cursor-pointer
 							${value.includes(option)

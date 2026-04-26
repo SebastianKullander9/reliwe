@@ -4,17 +4,11 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import { ProjectWithSubpage } from "@/app/types/types";
-import Masonry from "react-masonry-css";
 import { useLenis } from "lenis/react";
 
 interface GallerySectionProps {
     project: ProjectWithSubpage;
 }
-
-const breakpointColumns = {
-    default: 2,
-    640: 1,
-};
 
 export default function GallerySection({ project }: GallerySectionProps) {
     const images = project.subpage?.gallery;
@@ -42,11 +36,7 @@ export default function GallerySection({ project }: GallerySectionProps) {
                 </p>
                 <h2 className="font-extrabold text-4xl mb-8">{project.subpage?.title ?? project.title}</h2>
 
-                <Masonry
-                    breakpointCols={breakpointColumns}
-                    className="flex gap-4"
-                    columnClassName="flex flex-col gap-4"
-                >
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {images.map((image, index) => {
                         const url = urlFor(image.asset)
                             .width(1200)
@@ -57,21 +47,21 @@ export default function GallerySection({ project }: GallerySectionProps) {
                         return (
                             <div
                                 key={index}
-                                className="overflow-hidden rounded-lg cursor-pointer group relative"
+                                className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
                                 onClick={() => setLightboxIndex(index)}
                             >
                                 <Image
                                     src={url}
                                     alt={image.alt ?? `Galleribild ${index + 1}`}
-                                    width={1200}
-                                    height={800}
-                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                                    sizes="(max-width: 640px) 100vw, 50vw"
                                 />
-                                <div className="absolute inset-0 bg-[var(--reliwe-green)] opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-lg" />
+                                <div className="absolute inset-0 bg-[var(--reliwe-green)] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                             </div>
                         );
                     })}
-                </Masonry>
+                </div>
             </section>
 
             {lightboxIndex !== null && current && (

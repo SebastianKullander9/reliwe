@@ -13,7 +13,7 @@ export default function Interest() {
 					</div>
 				</div>
 				<div>
-					<Link target="_blank" href="https://form.typeform.com/to/eX3wW0qu">
+					<Link href="/intresse">
 						<ButtonAnimationWrapper>
 							<ButtonBackground label="Anmäl intresse" />
 						</ButtonAnimationWrapper>

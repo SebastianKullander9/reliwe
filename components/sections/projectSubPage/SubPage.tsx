@@ -9,9 +9,10 @@ import GallerySection from "./GallerySection";
 
 interface ProjectSubPageProps {
 	project: ProjectWithSubpage;
+	otherProjects: { _id: string; title: string; slug: string | null }[];
 }
 
-export default function SubPage({ project }: ProjectSubPageProps) {
+export default function SubPage({ project, otherProjects }: ProjectSubPageProps) {
 	const heroUrl = project.subpage.heroImage
 		? urlFor(project.subpage.heroImage).width(2000).quality(90).auto("format").url()
 		: undefined;
@@ -26,6 +27,7 @@ export default function SubPage({ project }: ProjectSubPageProps) {
 				<InterestSection
 					projectTitle={project.title}
 					availableRooms={project.subpage?.availableRooms ?? []}
+					otherProjects={otherProjects}
 				/>
 				
 			</div>

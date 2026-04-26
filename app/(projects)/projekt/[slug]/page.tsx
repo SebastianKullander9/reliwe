@@ -11,24 +11,29 @@ interface ProjectSubPageProps {
 export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 	const { slug } = await params;
 
-	const project: ProjectWithSubpage = await client.fetch(`
-		*[_type=="estateProject" && slug.current==$slug][0]{
-			title,
-			text,
-			year,
-			apartmentAmount,
-			movingInYear,
-			roomAmount,
-			images,
-			status,
-			hasSubpage,
-			subpage
-		}
-	`, { slug }, { next: { revalidate: 0 }});
+	const [project, otherProjects] = await Promise.all([
+		client.fetch<ProjectWithSubpage>(`
+			*[_type=="estateProject" && slug.current==$slug][0]{
+				title,
+				text,
+				year,
+				apartmentAmount,
+				movingInYear,
+				roomAmount,
+				images,
+				status,
+				hasSubpage,
+				subpage
+			}
+		`, { slug }, { next: { revalidate: 0 } }),
+		client.fetch<{ _id: string; title: string; slug: string | null }[]>(`
+			*[_type=="estateProject" && slug.current!=$slug]{ _id, title, "slug": slug.current }
+		`, { slug }, { next: { revalidate: 0 } }),
+	]);
 
 	return (
 		<>
-			<SubPage project={project} />
+			<SubPage project={project} otherProjects={otherProjects} />
 		</>
 	);
 };

@@ -61,51 +61,123 @@ function validateClient(fields: FormFields): FormErrors {
 const EXTRAS_OPTIONS = [
 	{ label: "Bostadsrätt", value: "bostadsratt" },
 	{ label: "Hyresrätt", value: "hyresratt" },
-	{ label: "Balkong/uteplats", value: "balkong" },
 ];
 
-function SuccessState({ onReset }: { onReset: () => void }) {
-	return (
-		<div className="flex flex-col max-w-180 mx-auto gap-4">
-			<div className="border border-[var(--reliwe-green-accent)] rounded-lg p-8 flex flex-col items-center gap-4 text-center">
-				<div className="w-16 h-16 rounded-full bg-[var(--reliwe-green-accent)] flex items-center justify-center">
-					<svg
-						className="w-8 h-8 text-[var(--reliwe-green)]"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						strokeWidth={2.5}
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M5 13l4 4L19 7"
-						/>
-					</svg>
-				</div>
-				<p className="font-light tracking-wider text-[var(--reliwe-green)] text-sm">
-					TACK!
-				</p>
-				<h2 className="font-extrabold text-3xl">Din anmälan är mottagen</h2>
-				<p className="max-w-prose text-sm text-gray-500">
-					Vi har tagit emot din intresseanmälan och återkommer med mer
-					information om projektet. Håll utkik i din inkorg!
-				</p>
-				<div className="flex flex-col w-full gap-3 mt-2">
+const SUB_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function SuccessState({ otherProjects, initialEmail, originalProject }: { otherProjects: { _id: string; title: string; slug: string | null }[]; initialEmail: string; originalProject: string }) {
+	const [selected, setSelected] = useState<string[]>([]);
+	const [email, setEmail] = useState(initialEmail);
+	const [emailError, setEmailError] = useState("");
+	const [submitError, setSubmitError] = useState("");
+	const [loading, setLoading] = useState(false);
+	const [done, setDone] = useState(false);
+
+	const toggle = (title: string) => {
+		setSelected((prev) => prev.includes(title) ? prev.filter((s) => s !== title) : [...prev, title]);
+	};
+
+	const handleSubscribe = async (e: React.FormEvent) => {
+		e.preventDefault();
+		setEmailError("");
+		setSubmitError("");
+
+		if (!SUB_EMAIL_RE.test(email.trim())) {
+			setEmailError("Ange en giltig e-postadress.");
+			return;
+		}
+		if (selected.length === 0) {
+			setSubmitError("Välj minst ett projekt.");
+			return;
+		}
+
+		setLoading(true);
+		try {
+			const res = await fetch("/api/interest-updates", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email: email.trim(), selectedProjects: [originalProject, ...selected] }),
+			});
+			if (res.ok) {
+				setDone(true);
+			} else {
+				setSubmitError("Något gick fel. Försök igen.");
+			}
+		} catch {
+			setSubmitError("Kunde inte nå servern. Kontrollera din internetanslutning.");
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	if (done) {
+		return (
+			<div className="flex flex-col max-w-180 mx-auto gap-4">
+				<div className="border border-[var(--reliwe-green-accent)] rounded-lg p-8 flex flex-col items-center gap-6 text-center">
+					<div className="w-16 h-16 rounded-full bg-[var(--reliwe-green-accent)] flex items-center justify-center">
+						<svg className="w-8 h-8 text-[var(--reliwe-green)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+							<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+						</svg>
+					</div>
+					<h2 className="font-extrabold text-3xl">Tack!</h2>
+					<p className="max-w-prose text-sm text-gray-500">Du kommer att få uppdateringar om valda projekt.</p>
 					<Link href="/projekt">
 						<ButtonAnimationWrapper hasMaxWidth={false}>
 							<ButtonBackground label="Gå tillbaka till alla projekt" />
 						</ButtonAnimationWrapper>
 					</Link>
-					<Link target="_blank" href="https://form.typeform.com/to/eX3wW0qu">
-						<button
-							onClick={onReset}
-							className="w-full px-4 py-3 rounded-full bg-[var(--reliwe-green-accent)] hover:bg-[var(--reliwe-green-accent2)] text-[var(--reliwe-green)] transition-colors"
-						>
-							Anmäl intresse för flera projekt
-						</button>
-					</Link>
 				</div>
+			</div>
+		);
+	}
+
+	return (
+		<div className="flex flex-col max-w-180 mx-auto gap-4">
+			<div className="border border-[var(--reliwe-green-accent)] rounded-lg p-6 md:p-8 flex flex-col gap-6">
+				<div className="flex flex-col gap-2 text-center">
+					<div className="w-16 h-16 rounded-full bg-[var(--reliwe-green-accent)] flex items-center justify-center mx-auto">
+						<svg className="w-8 h-8 text-[var(--reliwe-green)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+							<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+						</svg>
+					</div>
+					<h2 className="font-extrabold text-3xl mt-2">Tack för din intresseanmälan!</h2>
+					<p className="font-semibold text-base mt-1">Är du även intresserad av andra projekt vi utvecklar?</p>
+					<p className="text-sm text-gray-500">Välj de områden du vill få information om nedan.</p>
+				</div>
+
+				{otherProjects.length > 0 && (
+					<div className="flex flex-col gap-3">
+						{otherProjects.map((p) => (
+							<label key={p._id} className="flex items-center gap-3 cursor-pointer group">
+								<input
+									type="checkbox"
+									checked={selected.includes(p.title)}
+									onChange={() => toggle(p.title)}
+									className="w-5 h-5 rounded border-gray-300 accent-[var(--reliwe-green)] cursor-pointer"
+								/>
+								<span className="text-sm group-hover:text-[var(--reliwe-green)] transition-colors">{p.title}</span>
+							</label>
+						))}
+					</div>
+				)}
+
+				<form onSubmit={handleSubscribe} className="flex flex-col gap-4" noValidate>
+					<p className="text-sm text-gray-500">Fyll i din e-postadress för att få uppdateringar och möjlighet att anmäla intresse för kommande projekt i valda områden.</p>
+					<Input
+						label="E-postadress"
+						placeholder="erik.andersson@mail.se"
+						required
+						type="email"
+						value={email}
+						onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
+						error={emailError || undefined}
+						autoComplete="email"
+					/>
+					{submitError && <p className="text-sm text-red-500 text-center">{submitError}</p>}
+					<ButtonAnimationWrapper hasMaxWidth={false}>
+						<ButtonBackground label={loading ? "Skickar..." : "Skicka"} disabled={loading} />
+					</ButtonAnimationWrapper>
+				</form>
 			</div>
 		</div>
 	);
@@ -114,9 +186,10 @@ function SuccessState({ onReset }: { onReset: () => void }) {
 interface InterestFormProps {
 	projectTitle: string;
 	availableRooms: number[];
+	otherProjects: { _id: string; title: string; slug: string | null }[];
 }
 
-export default function InterestForm({ projectTitle, availableRooms }: InterestFormProps) {
+export default function InterestForm({ projectTitle, availableRooms, otherProjects }: InterestFormProps) {
 	const roomOptions = availableRooms
 		.slice()
 		.sort((a, b) => a - b)
@@ -226,7 +299,7 @@ export default function InterestForm({ projectTitle, availableRooms }: InterestF
 	if (submitted) {
 		return (
 			<div ref={containerRef}>
-				<SuccessState onReset={() => setSubmitted(false)} />
+				<SuccessState otherProjects={otherProjects} initialEmail={fields.email} originalProject={projectTitle} />
 			</div>
 		);
 	}
@@ -243,8 +316,7 @@ export default function InterestForm({ projectTitle, availableRooms }: InterestF
 				</p>
 				<h2 className="font-extrabold text-4xl">Var med från start</h2>
 				<p className="max-w-prose">
-					Anmäl ditt intresse om du vill veta mer om våra planerade eller
-					pågående projekt. Detta är ingen köplats, utan ett sätt för oss att
+					Anmäl ditt intresse om du vill veta mer om {projectTitle}. Detta är ingen köplats, utan ett sätt för oss att
 					få en bild av intresset och att dela mer information med dig.
 				</p>
 			</div>
@@ -304,8 +376,13 @@ export default function InterestForm({ projectTitle, availableRooms }: InterestF
 				<PillSelect
 					options={roomOptions}
 					value={fields.rooms}
-					onChange={(v) => {
-						setField("rooms", v);
+					onToggle={(option) => {
+						setFields((prev) => {
+							const rooms = prev.rooms.includes(option)
+								? prev.rooms.filter((r) => r !== option)
+								: [...prev.rooms, option];
+							return { ...prev, rooms };
+						});
 						setTouched((prev) => ({ ...prev, rooms: true }));
 					}}
 					error={touched.rooms ? errors.rooms : undefined}
