@@ -42,7 +42,7 @@ export default function Contact({ content }: { content: ContactContent }) {
 					imgAlt=""
 					screenReaderH1="Contact us"
 					showImage={false}
-					bgColor="#c9cec3"
+					bgColor="#dddfda"
 				/>
 			</div>
             <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">

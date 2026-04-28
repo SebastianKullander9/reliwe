@@ -162,7 +162,7 @@ function SuccessState({ otherProjects, initialEmail, originalProject }: { otherP
 				)}
 
 				<form onSubmit={handleSubscribe} className="flex flex-col gap-4" noValidate>
-					<p className="text-sm text-gray-500">Fyll i din e-postadress för att få uppdateringar och möjlighet att anmäla intresse för kommande projekt i valda områden.</p>
+					<p className="text-sm text-gray-500">Fyll i din e-postadress för att få uppdateringar och möjlighet att anmäla intresse för projekt i valda områden.</p>
 					<Input
 						label="E-postadress"
 						placeholder="erik.andersson@mail.se"
