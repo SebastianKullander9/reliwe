@@ -78,6 +78,13 @@ export const estateProject = defineType({
             validation: (Rule) => Rule.required().error("Projektstatus krävs.")
         }),
         defineField({
+            name: "showInInterestForm",
+            title: "Visa i intresseanmälan",
+            type: "boolean",
+            description: "Bocka i för att visa detta projekt som valbar i intresseanmälan på andra projektsidor.",
+            initialValue: false,
+        }),
+        defineField({
             name: "sortOrder",
             title: "Sorteringsordning",
             type: "number",

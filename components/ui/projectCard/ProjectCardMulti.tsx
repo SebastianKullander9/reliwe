@@ -28,7 +28,7 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 						{project.hasSubpage && (
 							<Link href={`/projekt/${project.slug}`} className="hidden md:block">
 								<ButtonAnimationWrapper>
-									<ButtonBackground label="Läs mer" />
+									<ButtonBackground label="Läs mer & anmäl intresse" />
 								</ButtonAnimationWrapper>
 							</Link>
 						)}
@@ -44,8 +44,8 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 				{project.hasSubpage && (
 					<div className="flex flex-row justify-center">
 						<Link href={`/projekt/${project.slug}`} className="md:hidden">
-							<ButtonAnimationWrapper>
-								<ButtonBackground label="Läs mer" />
+							<ButtonAnimationWrapper hasMaxWidth={false} >
+								<ButtonBackground label="Läs mer & anmäl intresse" />
 							</ButtonAnimationWrapper>
 						</Link>
 					</div>

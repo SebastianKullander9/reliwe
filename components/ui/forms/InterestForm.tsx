@@ -141,12 +141,12 @@ function SuccessState({ otherProjects, initialEmail, originalProject }: { otherP
 						</svg>
 					</div>
 					<h2 className="font-extrabold text-3xl mt-2">Tack för din intresseanmälan!</h2>
-					<p className="font-semibold text-base mt-1">Är du även intresserad av andra projekt vi utvecklar?</p>
-					<p className="text-sm text-gray-500">Välj de områden du vill få information om nedan.</p>
+					<p className="font-semibold text-base mt-1">Du kommer att få uppdateringar om Barkabyporten</p>
 				</div>
 
 				{otherProjects.length > 0 && (
 					<div className="flex flex-col gap-3">
+						<p className="font-semibold text-sm">Är du även intresserad av andra projekt vi utvecklar?</p>
 						{otherProjects.map((p) => (
 							<label key={p._id} className="flex items-center gap-3 cursor-pointer group">
 								<input

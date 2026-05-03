@@ -27,7 +27,7 @@ export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 			}
 		`, { slug }, { next: { revalidate: 0 } }),
 		client.fetch<{ _id: string; title: string; slug: string | null }[]>(`
-			*[_type=="estateProject" && slug.current!=$slug && status=="ongoing"]{ _id, title, "slug": slug.current }
+			*[_type=="estateProject" && slug.current!=$slug && (status=="ongoing" || showInInterestForm==true)]{ _id, title, "slug": slug.current }
 		`, { slug }, { next: { revalidate: 0 } }),
 	]);
 
