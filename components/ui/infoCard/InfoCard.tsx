@@ -1,10 +1,6 @@
 import { Project } from "@/app/types/types";
 import InfoRow from "./InfoRow";
-import ButtonAnimationWrapper from "../buttons/newButtons/ButtonAnimationWrapper";
-import ButtonWhiteBackground from "../buttons/newButtons/ButtonWhiteBackground";
-import { 
-	CircleArrowDown
-} from "lucide-react";
+import ScrollToInterestButton from "./ScrollToInterestButton";
 
 interface InfoCardProps {
 	project: Project;	
@@ -41,12 +37,7 @@ export default function InfoCard({ project }: InfoCardProps) {
 				</div>
 			</div>
 			<div className="w-full">
-				<ButtonAnimationWrapper hasMaxWidth={false}>
-					<ButtonWhiteBackground 
-						label="Gå till intresseanmälan" 
-						Icon={CircleArrowDown}
-					/>
-				</ButtonAnimationWrapper>
+				<ScrollToInterestButton />
 			</div>
 		</div>
 	);

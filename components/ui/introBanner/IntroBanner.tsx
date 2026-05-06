@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { ReactNode } from "react"
 
 type IntroBannerProps = {
     title: string;
@@ -8,9 +9,10 @@ type IntroBannerProps = {
     screenReaderH1: string;
     showImage?: boolean;
 	bgColor?: string;
+    ctaNode?: ReactNode;
 }
 
-export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReaderH1, showImage=true, bgColor="#faf7f5" }: IntroBannerProps) {
+export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReaderH1, showImage=true, bgColor="#faf7f5", ctaNode }: IntroBannerProps) {
     return (
         <section className="w-full" style={{ backgroundColor: bgColor }}>
             <h1 className="sr-only">{screenReaderH1}</h1>
@@ -18,13 +20,14 @@ export default function IntroBanner({ title, texts, imgUrl, imgAlt, screenReader
             <div className="w-full h-full body-x-padding flex flex-col text-center items-center justify-center items-vertical-gap py-12 lg:py-24 min-h-[50vh]">
                 <h2 className="heading-no-break mt-[15vh] sm:mt-[10vh] md:mt-[5vh]">{title}</h2>
                 {texts.map((text, index) => (
-                    <p 
+                    <p
                         key={index}
                         className="max-w-prose"
                     >
                         {text}
                     </p>
                 ))}
+                {ctaNode}
             </div>
             {showImage ? (
                 <div className="w-full h-[50vh] relative">

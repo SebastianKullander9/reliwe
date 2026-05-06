@@ -141,7 +141,7 @@ function SuccessState({ otherProjects, initialEmail, originalProject }: { otherP
 						</svg>
 					</div>
 					<h2 className="font-extrabold text-3xl mt-2">Tack för din intresseanmälan!</h2>
-					<p className="font-semibold text-base mt-1">Du kommer att få uppdateringar om Barkabyporten</p>
+					<p className="font-semibold text-base mt-1">Du kommer nu att få uppdateringar om {originalProject}</p>
 				</div>
 
 				{otherProjects.length > 0 && (

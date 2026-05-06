@@ -1,4 +1,5 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
+import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import ProjectsList from "./ProjectList";
@@ -126,6 +127,14 @@ export default async function OurProjects() {
 					}
 					imgAlt={data.introBanner.image?.alt || ""}
 					screenReaderH1="Våra projekt - Reliwe bostadsprojekt"
+					ctaNode={
+						<p className="max-w-prose">
+							<Link href="/intresse" className="underline underline-offset-2 hover:opacity-60 transition-opacity duration-200">
+								Anmäl ditt intresse
+							</Link>
+							{" "}och bli först med att ta del av våra nya projekt och lediga hem.
+						</p>
+					}
 				/>
 			</div>
             <Suspense fallback={<div>Loading projects...</div>}>

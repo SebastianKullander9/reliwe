@@ -8,7 +8,7 @@ interface InterestSectionProps {
 
 export default function InterestSection({ projectTitle, availableRooms, otherProjects }: InterestSectionProps) {
 	return (
-		<section className="py-24 body-x-padding">
+		<section id="interest-form" className="py-24 body-x-padding">
 			<InterestForm projectTitle={projectTitle} availableRooms={availableRooms} otherProjects={otherProjects} />
 		</section>
 	);
