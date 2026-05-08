@@ -88,7 +88,7 @@ export const estateProject = defineType({
             name: "excludeFromInterestForm",
             title: "Exkludera från intresseanmälan",
             type: "boolean",
-            description: "Bocka i för att dölja detta pågående projekt från intresseanmälan på andra projektsidor.",
+            description: "Bocka i för att dölja detta pågående eller planerade projekt från intresseanmälan.",
             initialValue: false,
         }),
         defineField({

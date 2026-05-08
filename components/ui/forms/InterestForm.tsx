@@ -178,6 +178,13 @@ function SuccessState({ otherProjects, initialEmail, originalProject }: { otherP
 						<ButtonBackground label={loading ? "Skickar..." : "Skicka"} disabled={loading} />
 					</ButtonAnimationWrapper>
 				</form>
+
+				<p className="text-sm text-gray-500 text-center pt-2 border-t border-[var(--reliwe-green-accent)]">
+					Fundrar du över något annat projekt?{" "}
+					<a href="mailto:info@reliwe.se" className="text-[var(--reliwe-green)] font-medium hover:underline">
+						Kontakta oss gärna på info@reliwe.se
+					</a>
+				</p>
 			</div>
 		</div>
 	);

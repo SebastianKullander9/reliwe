@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default async function IntressePage() {
 	const projects = await client.fetch<{ _id: string; title: string; slug: string | null }[]>(
-		`*[_type=="estateProject" && ((status=="ongoing" && excludeFromInterestForm!=true) || showInInterestForm==true)] | order(title asc) { _id, title, "slug": slug.current }`,
+		`*[_type=="estateProject" && (((status=="ongoing" || status=="planned") && excludeFromInterestForm!=true) || showInInterestForm==true)] | order(title asc) { _id, title, "slug": slug.current }`,
 		{},
 		{ next: { revalidate: 0 } }
 	);

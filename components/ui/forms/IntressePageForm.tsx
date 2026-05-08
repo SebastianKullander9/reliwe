@@ -261,6 +261,12 @@ export default function IntressePageForm({ projects }: { projects: Project[] }) 
 					{touched.selectedProjects && errors.selectedProjects && (
 						<p className="pl-1 text-sm text-red-500">{errors.selectedProjects}</p>
 					)}
+					<p className="pl-1 text-sm text-gray-500">
+						Fundrar du över något annat projekt?{" "}
+						<a href="mailto:info@reliwe.se" className="text-[var(--reliwe-green)] font-medium hover:underline">
+							Kontakta oss gärna på info@reliwe.se
+						</a>
+					</p>
 				</div>
 
 				<div className="border-t border-[var(--reliwe-green-accent)]" />
