@@ -7,7 +7,7 @@ type SanityImage = {
 
 export type Project = {
     title: string;
-    text: string;
+    text: any[];
     year: string;
     movingInYear: string;
     apartmentAmount: string;

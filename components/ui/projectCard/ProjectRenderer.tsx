@@ -10,7 +10,7 @@ export type SubPage = {
 
 export type ProjectItem = {
 	title: string;
-	text: string;
+	text: any[];
 	year: string;
 	movingInYear: string;
 	apartmentAmount: string;

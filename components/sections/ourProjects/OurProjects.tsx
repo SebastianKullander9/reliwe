@@ -17,7 +17,7 @@ type SanityImage = {
 
 type SanityProject = {
 	title: string;
-	text: string;
+	text: any[];
 	year: string;
 	movingInYear: string;
 	apartmentAmount: string;

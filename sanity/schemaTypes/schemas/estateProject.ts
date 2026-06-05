@@ -15,8 +15,35 @@ export const estateProject = defineType({
         defineField({
             name: "text",
             title: "Beskrivning",
-            type: "text",
-            rows: 4,
+            type: "array",
+            of: [
+                {
+                    type: "block",
+                    styles: [{ title: "Normal", value: "normal" }],
+                    lists: [],
+                    marks: {
+                        decorators: [
+                            { title: "Fet", value: "strong" },
+                            { title: "Kursiv", value: "em" },
+                        ],
+                        annotations: [
+                            {
+                                name: "link",
+                                type: "object",
+                                title: "Länk",
+                                fields: [
+                                    {
+                                        name: "href",
+                                        type: "url",
+                                        title: "URL",
+                                        validation: Rule => Rule.uri({ allowRelative: true })
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
             validation: Rule => Rule.required().error("Beskrivning krävs")
         }),
         defineField({

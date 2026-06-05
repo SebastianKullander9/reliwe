@@ -5,7 +5,7 @@ import { useProjectFilter } from "@/components/context/ProjectFilterContext";
 
 type Project = {
 	title: string;
-	text: string;
+	text: any[];
 	year: string;
 	movingInYear: string;
 	apartmentAmount: string;

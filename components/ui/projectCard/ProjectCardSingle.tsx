@@ -5,6 +5,7 @@ import ProjectStats from "./ProjectStats";
 import Link from "next/link";
 import ButtonAnimationWrapper from "../buttons/newButtons/ButtonAnimationWrapper";
 import ButtonBackground from "../buttons/newButtons/ButtonBackground";
+import { PortableText } from "@portabletext/react";
 
 interface ProjectCardSingleProps {
 	project: ProjectItem;
@@ -29,7 +30,7 @@ export default function ProjectCardSingle({ project, index }: ProjectCardSingleP
 					<div className="w-full flex flex-col md:flex-row justify-between items-vertical-gap">
 						<div className="max-w-prose flex flex-col justify-between items-vertical-gap">
 							<div className="flex flex-col gap-12">
-								<p>{project.text}</p>
+								<PortableText value={project.text} components={{ marks: { link: ({ children, value }) => <a href={value.href} className="underline underline-offset-2 hover:opacity-60 transition-opacity duration-200" target="_blank" rel="noopener noreferrer">{children}</a> } }} />
 								{project.hasSubpage && (
 									<Link href={`/projekt/${project.slug}`} className="hidden md:block">
 										<ButtonAnimationWrapper hasMaxWidth={false} >

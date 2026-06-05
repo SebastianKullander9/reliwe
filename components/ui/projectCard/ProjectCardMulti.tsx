@@ -5,6 +5,7 @@ import ProjectStats from "./ProjectStats";
 import Link from "next/link";
 import ButtonAnimationWrapper from "../buttons/newButtons/ButtonAnimationWrapper";
 import ButtonBackground from "../buttons/newButtons/ButtonBackground";
+import { PortableText } from "@portabletext/react";
 
 interface ProjectCardMultiProps {
 	project: ProjectItem;
@@ -34,7 +35,7 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 						)}
 					</div>
 					<div className="w-full md:w-1/2 flex flex-col items-vertical-gap">
-						<p>{project.text}</p>
+						<PortableText value={project.text} components={{ marks: { link: ({ children, value }) => <a href={value.href} className="underline underline-offset-2 hover:opacity-60 transition-opacity duration-200" target="_blank" rel="noopener noreferrer">{children}</a> } }} />
 						<ProjectStats project={project} />
 					</div>
 				</div>
