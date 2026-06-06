@@ -63,12 +63,8 @@ h1, h2 {
 .heading {
 	/*@apply text-5xl md:text-5xl lg:text-6xl xl:text-8xl;*/
 	@apply text-[clamp(2.4rem,4vw,4.3rem)];
-	-webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+	hyphens: none;
+	overflow-wrap: break-word;
 }
 
 .heading-no-break {
