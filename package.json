@@ -14,6 +14,7 @@
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.10.3",
+    "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "gsap": "^3.13.0",
     "hamburger-react": "^2.5.2",
