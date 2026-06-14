@@ -58,7 +58,7 @@ function validateClient(fields: FormFields): FormErrors {
 	return errors;
 }
 
-const EXTRAS_OPTIONS = [
+const ALL_HOUSING_OPTIONS = [
 	{ label: "Bostadsrätt", value: "bostadsratt" },
 	{ label: "Hyresrätt", value: "hyresratt" },
 ];
@@ -193,10 +193,12 @@ function SuccessState({ otherProjects, initialEmail, originalProject }: { otherP
 interface InterestFormProps {
 	projectTitle: string;
 	availableRooms: number[];
+	availableHousingTypes: string[];
 	otherProjects: { _id: string; title: string; slug: string | null }[];
 }
 
-export default function InterestForm({ projectTitle, availableRooms, otherProjects }: InterestFormProps) {
+export default function InterestForm({ projectTitle, availableRooms, availableHousingTypes, otherProjects }: InterestFormProps) {
+	const housingOptions = ALL_HOUSING_OPTIONS.filter((o) => availableHousingTypes.includes(o.value));
 	const roomOptions = availableRooms
 		.slice()
 		.sort((a, b) => a - b)
@@ -397,13 +399,15 @@ export default function InterestForm({ projectTitle, availableRooms, otherProjec
 				/>
 
 				{/* Extras / housing type */}
-				<CheckboxGroup
-					name="ovriga"
-					label="Övriga önskemål"
-					options={EXTRAS_OPTIONS}
-					value={fields.extras}
-					onChange={(v) => setField("extras", v)}
-				/>
+				{housingOptions.length > 0 && (
+					<CheckboxGroup
+						name="ovriga"
+						label="Övriga önskemål"
+						options={housingOptions}
+						value={fields.extras}
+						onChange={(v) => setField("extras", v)}
+					/>
+				)}
 
 				{/* Free-text message */}
 				<TextArea

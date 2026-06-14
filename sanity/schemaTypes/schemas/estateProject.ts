@@ -319,6 +319,20 @@ export const estateProject = defineType({
 					description: "Bilder som visas i ett galleri på undersidan"
 				},
 				{
+					name: "availableHousingTypes",
+					title: "Upplåtelseformer",
+					type: "array",
+					of: [{ type: "string" }],
+					options: {
+						list: [
+							{ title: "Bostadsrätt", value: "bostadsratt" },
+							{ title: "Hyresrätt", value: "hyresratt" },
+						],
+						layout: "grid"
+					},
+					description: "Välj vilka upplåtelseformer som ska visas i intresseanmälan. Lämna tomt för att dölja fältet."
+				},
+				{
 					name: "availableRooms",
 					title: "Tillgängliga rumsalternativ",
 					type: "array",

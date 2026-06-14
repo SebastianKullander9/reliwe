@@ -27,6 +27,7 @@ export default function SubPage({ project, otherProjects }: ProjectSubPageProps)
 				<InterestSection
 					projectTitle={project.title}
 					availableRooms={project.subpage?.availableRooms ?? []}
+					availableHousingTypes={project.subpage?.availableHousingTypes ?? []}
 					otherProjects={otherProjects}
 				/>
 				

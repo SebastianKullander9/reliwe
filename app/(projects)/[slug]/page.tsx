@@ -23,7 +23,10 @@ export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 				images,
 				status,
 				hasSubpage,
-				subpage
+				subpage{
+					...,
+					availableHousingTypes
+				}
 			}
 		`, { slug }, { next: { revalidate: 0 } }),
 		client.fetch<{ _id: string; title: string; slug: string | null }[]>(`

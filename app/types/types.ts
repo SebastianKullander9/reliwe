@@ -48,6 +48,7 @@ export type ProjectWithSubpage = Project & {
         title?: string;
         heroImage?: SanityImage;
         availableRooms?: number[];
+        availableHousingTypes?: string[];
         intro?: IntroSection;
         sections?: Section[];
 		gallery?: SanityImage[];
