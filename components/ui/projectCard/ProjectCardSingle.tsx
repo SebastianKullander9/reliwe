@@ -32,7 +32,7 @@ export default function ProjectCardSingle({ project, index }: ProjectCardSingleP
 							<div className="flex flex-col gap-12">
 								<ProjectText text={project.text} />
 								{project.hasSubpage && (
-									<Link href={`/projekt/${project.slug}`} className="hidden md:block">
+									<Link href={`/${project.slug}`} className="hidden md:block">
 										<ButtonAnimationWrapper hasMaxWidth={false} >
 											<ButtonBackground label="Läs mer & anmäl intresse" />
 										</ButtonAnimationWrapper>
@@ -49,7 +49,7 @@ export default function ProjectCardSingle({ project, index }: ProjectCardSingleP
 				</div>
 				{project.hasSubpage && (
 						<div className="flex flex-row justify-center md:hidden">
-							<Link href={`/projekt/${project.slug}`}>
+							<Link href={`/${project.slug}`}>
 								<ButtonAnimationWrapper>
 									<ButtonBackground label="Läs mer & anmäl intresse" />
 								</ButtonAnimationWrapper>
