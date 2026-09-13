@@ -61,17 +61,23 @@ export default function Contact({ content }: { content: ContactContent }) {
                             <p className="text-large">
                                 Allmänna frågor
                             </p>
-                            <p className="text-base font-medium">
+                            <a
+                                href={`mailto:${content.contactInfo.generalEmail}`}
+                                className="text-base font-medium hover:opacity-60 transition-opacity duration-200"
+                            >
                                 {content.contactInfo.generalEmail}
-                            </p>
+                            </a>
                         </div>
                         <div className="flex flex-col gap-1">
                             <p className="text-large">
                                 Hyra Bostad
                             </p>
-                            <p className="text-base font-medium">
+                            <a
+                                href={`mailto:${content.contactInfo.rentalEmail}`}
+                                className="text-base font-medium hover:opacity-60 transition-opacity duration-200"
+                            >
                                 {content.contactInfo.rentalEmail}
-                            </p>
+                            </a>
                         </div>
                     </div>
 					<div className="flex flex-col md:flex-row gap-8">
