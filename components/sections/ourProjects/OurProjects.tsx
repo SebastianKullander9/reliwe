@@ -53,17 +53,8 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
     `, {}, { next: { revalidate: 0 }});
 
     const projects = await client.fetch(`
-        *[_type == "estateProject"] 
-		| order(
-			select(
-				status == "planned" => 0,
-				status == "ongoing" => 1,
-				status == "done" => 2,
-				99
-			) asc,
-			orderRank asc,
-			_createdAt desc
-		)
+        *[_type == "estateProject"]
+		| order(orderRank asc, _createdAt desc)
 		{
             title,
             text,
