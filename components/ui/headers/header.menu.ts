@@ -17,6 +17,11 @@ export const menuConfig: { menu: HeaderMenuItem[] } = {
 			]
 		},
 		{
+			label: "Lewa Bostad",
+			href: "https://lewabostad.se",
+			external: true,
+		},
+		{
 			label: "Kontakt",
 			href: "/kontakt"
 		}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import { FiArrowUpRight } from "react-icons/fi";
 import { useHeaderTwo } from "@/components/hooks/useHeaderTwo";
 import { useProjectFilter } from "@/components/context/ProjectFilterContext";
 import { useRouter } from "next/navigation";
@@ -98,12 +99,32 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 					</div>
 					<div className="flex-row w-1/3 gap-12 justify-center hidden md:flex">
 						{menuConfig.menu.map((menuItem, index) => {
+							if (menuItem.external) {
+								return (
+									<a
+										href={menuItem.href}
+										key={menuItem.label + index}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="hover:text-[#efe5de] transition-colors duration-200"
+										style={{ color: state.textColor }}
+									>
+										<div className="flex flex-row items-center gap-1">
+											<p className="hover:underline underline-offset-4">
+												{menuItem.label}
+											</p>
+											<FiArrowUpRight size={19} />
+										</div>
+									</a>
+								)
+							}
+
 							let active = isActiveLink(menuItem.href);
 
 							return (
-								<Link 
-									href={menuItem.href} 
-									key={menuItem.label + index} 
+								<Link
+									href={menuItem.href}
+									key={menuItem.label + index}
 									className="hover:text-[#efe5de] transition-colors duration-200"
 									style={{ color: state.textColor }}
 									onClick={(e) => {

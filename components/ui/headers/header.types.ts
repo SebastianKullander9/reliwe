@@ -4,6 +4,7 @@ export type HeaderMenuItem = {
 	label: string;
 	href: string;
 	subMenu?: HeaderMenuItem[];
+	external?: boolean;
 }
 
 export type HeaderVariantConfig = {

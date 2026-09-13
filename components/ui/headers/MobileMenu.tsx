@@ -4,6 +4,7 @@ import Link from "next/link";
 import BaseButtonBackground from "../buttons/baseButton/BaseButtonBackground";
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { FiArrowUpRight } from "react-icons/fi";
 
 type MobileMenuProps = {
     isOpen: boolean;
@@ -36,6 +37,16 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
 					<Link href="/projekt">
                         Projekt
                     </Link>
+
+					<a
+						href="https://lewabostad.se"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex flex-row items-center gap-1"
+					>
+						Lewa Bostad
+						<FiArrowUpRight size={22} />
+					</a>
 
                     <Link href="/kontakt">
                         Kontakt
