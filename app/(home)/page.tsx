@@ -102,7 +102,7 @@ export default async function Home() {
                 <KeyNumbers />
 				<div className="h-24 bg-(--reliwe-offwhite)" />
 				<CallToAbout />
-				<Interest />
+				{/* <Interest /> hidden: "Anmäl intresse" is now available in the header */}
             </div>
             <FooterWithClient />
         </>

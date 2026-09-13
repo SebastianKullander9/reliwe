@@ -63,7 +63,7 @@ export default function About({ content }: { content: AboutContent }) {
 			<div className="h-24 w-full bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
 			<Background />
-			<Interest />
+			{/* <Interest /> hidden: "Anmäl intresse" is now available in the header */}
         </section>
     )
 }

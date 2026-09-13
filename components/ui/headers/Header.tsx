@@ -14,6 +14,8 @@ import { useState, useEffect } from "react";
 import MobileMenu from "./MobileMenu";
 import Hamburger from "hamburger-react";
 import { usePathname } from "next/navigation";
+import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
+import ButtonWhiteBackground from "@/components/ui/buttons/newButtons/ButtonWhiteBackground";
 
 export default function Header({ variant = "home" }: { variant?: "home" | "default" }) {
 	const pathname = usePathname();
@@ -141,6 +143,13 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 								</Link>
 							)
 						})}
+					</div>
+					<div className="w-1/3 hidden md:flex justify-end">
+						<Link href="/intresse">
+							<ButtonAnimationWrapper>
+								<ButtonWhiteBackground label="Anmäl intresse" />
+							</ButtonAnimationWrapper>
+						</Link>
 					</div>
 					<div className="md:hidden ml-auto">
 						<Hamburger
