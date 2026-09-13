@@ -30,17 +30,13 @@ export default async function OmOss() {
                 alt
             }
         },
-        ourVision,
-        ourRole,
-        sustainability[]{
-            image{
-                asset->{
-                    url
-                },
-                alt
-            },
+        scrollSections[]{
             title,
             text
+        },
+        background{
+            title,
+            texts
         }
     }`, {}, { next: { revalidate: 0 } });
 

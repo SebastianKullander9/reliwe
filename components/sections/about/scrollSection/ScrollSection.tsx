@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Barkaby from "@/public/site-images/barkaby-hero.webp";
-import { sections } from "./content";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +9,12 @@ import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function AboutScroll() {
+type ScrollSectionContent = {
+	title: string;
+	text: string;
+}
+
+export default function AboutScroll({ sections = [] }: { sections?: ScrollSectionContent[] }) {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const bottomSectionRef = useRef<HTMLDivElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);

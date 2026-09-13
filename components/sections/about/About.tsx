@@ -12,8 +12,7 @@ type SanityImage = {
     alt: string;
 }
 
-type SustainabilityCard = {
-    image: SanityImage;
+type ScrollSectionContent = {
     title: string;
     text: string;
 }
@@ -29,15 +28,11 @@ type AboutContent = {
         text: string;
         image: SanityImage;
     };
-    ourVision: {
+    scrollSections: ScrollSectionContent[];
+    background: {
         title: string;
-        text: string;
+        texts: string[];
     };
-    ourRole: {
-        title: string;
-        text: string;
-    };
-    sustainability: SustainabilityCard[];
 }
 
 export default function About({ content }: { content: AboutContent }) {
@@ -59,10 +54,10 @@ export default function About({ content }: { content: AboutContent }) {
                 text={content.intro.text}
                 image={content.intro.image}
             />
-			<ScrollSection />
+			<ScrollSection sections={content.scrollSections ?? []} />
 			<div className="h-24 w-full bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
-			<Background />
+			<Background title={content.background?.title} texts={content.background?.texts} />
 			{/* <Interest /> hidden: "Anmäl intresse" is now available in the header */}
         </section>
     )

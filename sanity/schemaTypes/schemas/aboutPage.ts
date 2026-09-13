@@ -54,47 +54,41 @@ export const aboutPage = defineType({
         }),
 
         defineField({
-            name: "ourVision",
-            title: "Sektion 2",
-            type: "object",
-            fields: [
-                defineField({ name: "title", title: "Titel", type: "string" }),
-                defineField({ name: "text", title: "Text", type: "text", rows: 5 }),
-            ],
-        }),
-
-        defineField({
-            name: "ourRole",
-            title: "Sektion 3",
-            type: "object",
-            fields: [
-                defineField({ name: "title", title: "Titel", type: "string" }),
-                defineField({ name: "text", title: "Text", type: "text", rows: 5 }),
-            ],
-        }),
-
-        defineField({
-            name: "sustainability",
-            title: "Hållbarhet (3 kort)",
+            name: "scrollSections",
+            title: "Rullande sektioner (4 st)",
+            description: "De fyra sektionerna som visas i den fästa rull-animationen under intro-sektionen.",
             type: "array",
             of: [
                 defineField({
-                    name: "card",
+                    name: "scrollSection",
+                    title: "Sektion",
                     type: "object",
                     fields: [
-                        defineField({
-                            name: "image",
-                            title: "Bild",
-                            type: "image",
-                            options: { hotspot: true },
-                            fields: [{ name: "alt", title: "Alt-text", type: "string" }],
-                        }),
-                        defineField({ name: "title", title: "Titel", type: "string" }),
-                        defineField({ name: "text", title: "Text", type: "text", rows: 3 }),
+                        defineField({ name: "title", title: "Titel", type: "string", validation: (Rule) => Rule.required() }),
+                        defineField({ name: "text", title: "Text", type: "text", rows: 4, validation: (Rule) => Rule.required() }),
                     ],
+                    preview: {
+                        select: { title: "title", subtitle: "text" },
+                    },
                 }),
             ],
-            validation: (Rule) => Rule.length(3).required(),
+            validation: (Rule) => Rule.length(4).required(),
+        }),
+
+        defineField({
+            name: "background",
+            title: "Bakgrund",
+            type: "object",
+            fields: [
+                defineField({ name: "title", title: "Titel", type: "string", initialValue: "Bakgrund" }),
+                defineField({
+                    name: "texts",
+                    title: "Texter (ett stycke per rad)",
+                    type: "array",
+                    of: [{ type: "text" }],
+                    validation: (Rule) => Rule.min(1).required(),
+                }),
+            ],
         }),
     ],
 });
