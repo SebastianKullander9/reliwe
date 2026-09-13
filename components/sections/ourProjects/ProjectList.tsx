@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { scroller } from "react-scroll";
 import ProjectRenderer from "@/components/ui/projectCard/ProjectRenderer";
 import { useProjectFilter } from "@/components/context/ProjectFilterContext";
 
@@ -17,11 +19,26 @@ type Project = {
 };
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
-	const { activeFilter, setActiveFilter } = useProjectFilter();
+	const { activeFilter, scrollToSlug, setScrollToSlug } = useProjectFilter();
 
 	const filteredProjects = activeFilter === "all"
 		? projects
 		: projects.filter((p) => p.status === activeFilter);
+
+	useEffect(() => {
+		if (!scrollToSlug) return;
+
+		const timeout = setTimeout(() => {
+			scroller.scrollTo(scrollToSlug, {
+				smooth: true,
+				duration: 600,
+				offset: 0,
+			});
+			setScrollToSlug(null);
+		}, 300);
+
+		return () => clearTimeout(timeout);
+	}, [scrollToSlug, setScrollToSlug]);
 
 	return (
 		<div id="projectTop">

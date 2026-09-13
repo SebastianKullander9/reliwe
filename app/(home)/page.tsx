@@ -23,6 +23,11 @@ type FeaturedProject = {
     year?: string;
     imageUrl?: string;
 	status: "ongoing" | "planned" | "done";
+	slug: string;
+};
+
+type RawFeaturedProject = Omit<FeaturedProject, "slug"> & {
+	slug?: { current: string };
 };
 
 type CallToAboutData = {
@@ -57,7 +62,10 @@ async function getHomePage(): Promise<HomePageData> {
                     title,
                     images[0],
                     year,
-					status
+					status,
+					slug {
+						current
+					}
                 }
             }
         }
@@ -71,8 +79,9 @@ async function getHomePage(): Promise<HomePageData> {
     }
 
     const formattedProjects: FeaturedProject[] =
-        data.callToProjects?.featuredProjects?.map((project: FeaturedProject) => ({
+        data.callToProjects?.featuredProjects?.map((project: RawFeaturedProject) => ({
             ...project,
+            slug: project.slug?.current || "",
             imageUrl: project.images ? urlFor(project.images).width(2000).quality(95).auto("format").url() : undefined,
         })) ?? [];
 

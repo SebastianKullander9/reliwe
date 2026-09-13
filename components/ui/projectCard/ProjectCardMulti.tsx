@@ -18,7 +18,8 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 	return (
 		<>
 			<article
-				className="w-full body-x-padding section-y-padding flex flex-col items-vertical-gap md:gap-24"
+				id={project.slug || undefined}
+				className="w-full scroll-mt-[84px] body-x-padding section-y-padding flex flex-col items-vertical-gap md:gap-24"
 				style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }}
 			>
 				<div className="flex flex-col md:flex-row items-vertical-gap">

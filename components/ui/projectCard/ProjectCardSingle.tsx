@@ -17,9 +17,10 @@ export default function ProjectCardSingle({ project, index }: ProjectCardSingleP
 
 	return (
 		<>
-			<article 
-				className="w-full min-h-[calc(100vh)] body-x-padding section-y-padding flex flex-col items-vertical-gap"
-				style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }}	
+			<article
+				id={project.slug || undefined}
+				className="w-full min-h-[calc(100vh)] scroll-mt-[84px] body-x-padding section-y-padding flex flex-col items-vertical-gap"
+				style={{ backgroundColor: colorScheme[clampedIndex].backgroundColor }}
 			>
 				<div>
 					<h2 className="heading text-center md:text-start">

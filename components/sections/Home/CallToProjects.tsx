@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
 import ButtonBackground from "@/components/ui/buttons/newButtons/ButtonBackground";
+import { useProjectFilter } from "@/components/context/ProjectFilterContext";
 
 type SanityImage = {
     _type: "image";
@@ -15,6 +18,7 @@ type FeaturedProject = {
     year?: string;
     imageUrl?: string;
 	status: ProjectStatus;
+	slug: string;
 }
 
 type CallToProjectsData = {
@@ -33,8 +37,12 @@ export const projectStatusMap = {
 
 export default function CallToProjects({ data }: { data: CallToProjectsData }) {
     const { heading, text, featuredProjects } = data;
+	const { setActiveFilter, setScrollToSlug } = useProjectFilter();
 
-	console.log(featuredProjects);
+	const handleProjectClick = (slug: string) => {
+		setActiveFilter("all");
+		setScrollToSlug(slug || null);
+	};
 
     return (
         <>
@@ -60,16 +68,18 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
 
                 <div className="flex flex-col lg:flex-row h-full gap-24 sm:gap-12">
                     {featuredProjects.map((project) => (
-                        <div
+                        <Link
+                            href="/projekt"
                             key={project.title}
-                            className="w-full h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-full lg:w-1/2 flex flex-col "
+                            onClick={() => handleProjectClick(project.slug)}
+                            className="w-full h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-full lg:w-1/2 flex flex-col cursor-pointer"
                         >
-                            <div className="relative w-full h-full">
+                            <div className="relative w-full h-full overflow-hidden">
                                 {project.imageUrl && (
                                     <Image
                                         fill
                                         loading="lazy"
-                                        className="object-cover"
+                                        className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                                         src={project.imageUrl}
                                         alt={project.images?.alt || project.title}
 										unoptimized
@@ -80,7 +90,7 @@ export default function CallToProjects({ data }: { data: CallToProjectsData }) {
 								<h3 className="text-start text-lg md:text-xl tracking-wider">{project.title}</h3>
 								<p className="!text-sm">{projectStatusMap[project.status]}</p>
 							</div>
-                        </div>
+                        </Link>
                     ))}
 
                     <div className="lg:hidden flex justify-center mt-[-28px]">
