@@ -40,8 +40,14 @@ export const contactPage = defineType({
             type: "object",
             fields: [
                 defineField({
-                    name: "email",
-                    title: "E-post",
+                    name: "generalEmail",
+                    title: "Allmänna frågor",
+                    type: "string",
+                    validation: (Rule) => Rule.required().email(),
+                }),
+                defineField({
+                    name: "rentalEmail",
+                    title: "Hyra Bostad",
                     type: "string",
                     validation: (Rule) => Rule.required().email(),
                 }),

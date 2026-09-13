@@ -14,7 +14,8 @@ type ContactContent = {
         texts: string[];
     };
     contactInfo: {
-        email: string;
+        generalEmail: string;
+        rentalEmail: string;
         address1: {
             street: string;
             city: string;
@@ -55,13 +56,23 @@ export default function Contact({ content }: { content: ContactContent }) {
                     />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center items-horizontal-gap order-1 md:order-2">
-                    <div className="flex flex-col gap-1">
-                        <p className="text-large">
-                            E-post
-                        </p>
-                        <p className="text-base font-medium">
-                            {content.contactInfo.email}
-                        </p>
+                    <div className="flex flex-col md:flex-row gap-8">
+                        <div className="flex flex-col gap-1">
+                            <p className="text-large">
+                                Allmänna frågor
+                            </p>
+                            <p className="text-base font-medium">
+                                {content.contactInfo.generalEmail}
+                            </p>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <p className="text-large">
+                                Hyra Bostad
+                            </p>
+                            <p className="text-base font-medium">
+                                {content.contactInfo.rentalEmail}
+                            </p>
+                        </div>
                     </div>
 					<div className="flex flex-col md:flex-row gap-8">
 						<div className="flex flex-col gap-1">

@@ -14,7 +14,8 @@ export default async function Kontakt() {
             texts
         },
         contactInfo{
-            email,
+            generalEmail,
+            rentalEmail,
             address1{
                 street,
                 city
