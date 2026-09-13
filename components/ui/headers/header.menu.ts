@@ -13,7 +13,7 @@ export const menuConfig: { menu: HeaderMenuItem[] } = {
 				{ label: "Alla", href: "/projekt" },
 				{ label: "Planerade", href: "/projekt?status=planned" },
 				{ label: "Pågående", href: "/projekt?status=ongoing" },
-				{ label: "Genomförda", href: "/projekt?status=done" },
+				{ label: "Färdigställda", href: "/projekt?status=done" },
 			]
 		},
 		{

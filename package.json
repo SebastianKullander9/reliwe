@@ -13,6 +13,7 @@
     "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
+    "@sanity/orderable-document-list": "^1.5.1",
     "@sanity/vision": "^4.10.3",
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",

@@ -98,7 +98,7 @@ export const estateProject = defineType({
                 list: [
                     { title: "Planerade", value: "planned" },
                     { title: "Pågående", value: "ongoing" },
-                    { title: "Genomförda", value: "done" },
+                    { title: "Färdigställda", value: "done" },
                 ],
                 layout: "radio",
             },
@@ -119,11 +119,9 @@ export const estateProject = defineType({
             initialValue: false,
         }),
         defineField({
-            name: "sortOrder",
-            title: "Sorteringsordning",
-            type: "number",
-            description: "Lägre nummer visas först. Används för manuell sortering.",
-            validation: Rule => Rule.min(0)
+            name: "orderRank",
+            type: "string",
+            hidden: true,
         }),
         defineField({
             name: "hasSubpage",

@@ -24,7 +24,7 @@ type SanityProject = {
 	roomAmount: string;
 	images: SanityImage[];
 	status: "ongoing" | "done" | "planned";
-	sortOrder?: number;
+	orderRank?: string;
 	slug: { current: string };
 	hasSubpage?: boolean;
 	subpage?: { title?: string; textBlocks?: string[] };
@@ -61,7 +61,7 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
 				status == "done" => 2,
 				99
 			) asc,
-			sortOrder asc,
+			orderRank asc,
 			_createdAt desc
 		)
 		{
@@ -73,7 +73,7 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
             roomAmount,
             images,
             status,
-			sortOrder,
+			orderRank,
 			slug {
 				current
 			},
