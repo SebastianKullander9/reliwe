@@ -5,7 +5,7 @@ type BackgroundProps = {
 
 export default function Background({ title = "Bakgrund", texts = [] }: BackgroundProps) {
 	return (
-		<section className="min-h-screen w-full flex justify-center items-center relative body-x-padding">
+		<section className="w-full flex justify-center items-center relative body-x-padding py-10 md:py-12">
 			<div className=" max-w-prose text-center">
 				<div className="flex flex-col gap-8">
 					<h2 className="heading">

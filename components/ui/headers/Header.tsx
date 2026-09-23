@@ -85,13 +85,13 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 				`}
 				style={{ backgroundColor: state.background }}
 			>
-				<div 
-					className="flex flex-row w-full items-center body-x-padding"
+				<div
+					className="flex flex-row w-full items-center justify-between body-x-padding"
 					style={{ height: headerHeight }}
 				>
-					<div className="w-1/3 relative">
+					<div className="relative flex-shrink-0 md:w-[180px]">
 						<Link href="/">
-							<Image 
+							<Image
 								src={state.logoSrc}
 								alt="logo of the company reliwe AB"
 								height={80}
@@ -99,7 +99,7 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 							/>
 						</Link>
 					</div>
-					<div className="flex-row w-1/3 gap-12 justify-center hidden md:flex">
+					<div className="flex-row flex-1 gap-6 lg:gap-8 xl:gap-12 justify-center hidden md:flex px-4">
 						{menuConfig.menu.map((menuItem, index) => {
 							if (menuItem.external) {
 								return (
@@ -108,7 +108,7 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 										key={menuItem.label + index}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="hover:text-[#efe5de] transition-colors duration-200"
+										className="hover:text-[#efe5de] transition-colors duration-200 whitespace-nowrap"
 										style={{ color: state.textColor }}
 									>
 										<div className="flex flex-row items-center gap-1">
@@ -127,7 +127,7 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 								<Link
 									href={menuItem.href}
 									key={menuItem.label + index}
-									className="hover:text-[#efe5de] transition-colors duration-200"
+									className="hover:text-[#efe5de] transition-colors duration-200 whitespace-nowrap"
 									style={{ color: state.textColor }}
 									onClick={(e) => {
 										if (!menuItem.subMenu?.length) return;
@@ -144,7 +144,7 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 							)
 						})}
 					</div>
-					<div className="w-1/3 hidden md:flex justify-end">
+					<div className="hidden md:flex justify-end flex-shrink-0 md:w-[180px]">
 						<Link href="/intresse">
 							<ButtonAnimationWrapper>
 								<ButtonWhiteBackground label="Anmäl intresse" />

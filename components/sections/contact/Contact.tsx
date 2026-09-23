@@ -1,5 +1,6 @@
 import IntroBanner from "@/components/ui/introBanner/IntroBanner";
 import Image from "next/image";
+import BodyBackground from "./BodyBackground";
 
 type SanityImage = {
     asset: {
@@ -35,7 +36,8 @@ export default function Contact({ content }: { content: ContactContent }) {
 
     return (
         <section>
-			<div className="min-h-[50vh] bg-[var(--reliwe-green-accent)]">
+			<BodyBackground color="#dddfda" />
+			<div className="min-h-[50dvh] bg-[var(--reliwe-green-accent)]">
 				<IntroBanner
 					title={content.introBanner.title}
 					texts={content.introBanner.texts}
@@ -46,7 +48,7 @@ export default function Contact({ content }: { content: ContactContent }) {
 					bgColor="#dddfda"
 				/>
 			</div>
-            <div className="w-full h-[50vh] bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">
+            <div className="w-full min-h-[50dvh] md:h-[50dvh] pb-[env(safe-area-inset-bottom)] md:pb-0 bg-[var(--reliwe-green-accent)] flex flex-col md:flex-row">
                 <div className="relative w-full md:w-1/2 h-full order-2 md:order-1 hidden md:block">
                     <Image
                         fill
@@ -55,7 +57,7 @@ export default function Contact({ content }: { content: ContactContent }) {
                         alt={content.contactInfo.image.alt}
                     />
                 </div>
-                <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center items-horizontal-gap order-1 md:order-2">
+                <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center items-horizontal-gap order-1 md:order-2 py-12 md:py-0">
                     <div className="flex flex-col md:flex-row gap-8">
                         <div className="flex flex-col gap-1">
                             <p className="text-large">
