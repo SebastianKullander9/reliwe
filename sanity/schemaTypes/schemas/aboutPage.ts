@@ -76,19 +76,31 @@ export const aboutPage = defineType({
         }),
 
         defineField({
-            name: "background",
-            title: "Bakgrund",
-            type: "object",
-            fields: [
-                defineField({ name: "title", title: "Titel", type: "string", initialValue: "Bakgrund" }),
+            name: "backgroundSections",
+            title: "Bakgrundssektioner",
+            description: "Sektionerna längst ner på sidan. Lägg till, ta bort eller ändra ordning på dem här.",
+            type: "array",
+            of: [
                 defineField({
-                    name: "texts",
-                    title: "Texter (ett stycke per rad)",
-                    type: "array",
-                    of: [{ type: "text" }],
-                    validation: (Rule) => Rule.min(1).required(),
+                    name: "backgroundSection",
+                    title: "Sektion",
+                    type: "object",
+                    fields: [
+                        defineField({ name: "title", title: "Titel", type: "string", validation: (Rule) => Rule.required() }),
+                        defineField({
+                            name: "texts",
+                            title: "Texter (ett stycke per rad)",
+                            type: "array",
+                            of: [{ type: "text" }],
+                            validation: (Rule) => Rule.min(1).required(),
+                        }),
+                    ],
+                    preview: {
+                        select: { title: "title", subtitle: "texts.0" },
+                    },
                 }),
             ],
+            validation: (Rule) => Rule.min(1).required(),
         }),
     ],
 });

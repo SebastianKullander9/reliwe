@@ -17,6 +17,11 @@ type ScrollSectionContent = {
     text: string;
 }
 
+type BackgroundSectionContent = {
+    title: string;
+    texts: string[];
+}
+
 type AboutContent = {
     introBanner: {
         title: string;
@@ -29,16 +34,21 @@ type AboutContent = {
         image: SanityImage;
     };
     scrollSections: ScrollSectionContent[];
-    background: {
-        title: string;
-        texts: string[];
-    };
+    backgroundSections?: BackgroundSectionContent[];
+    /** Legacy single section, kept as a fallback until the content is migrated. */
+    background?: BackgroundSectionContent;
 }
 
 export default function About({ content }: { content: AboutContent }) {
     if (!content || !content.introBanner) {
         return <div>Loading...</div>;
     }
+
+    const backgroundSections = content.backgroundSections?.length
+        ? content.backgroundSections
+        : content.background
+            ? [content.background]
+            : [];
 
     return (
         <section>
@@ -57,7 +67,9 @@ export default function About({ content }: { content: AboutContent }) {
 			<ScrollSection sections={content.scrollSections ?? []} />
 			<div className="h-24 w-full bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
-			<Background title={content.background?.title} texts={content.background?.texts} />
+			{backgroundSections.map((section, index) => (
+				<Background key={index} title={section?.title} texts={section?.texts} />
+			))}
 			{/* <Interest /> hidden: "Anmäl intresse" is now available in the header */}
         </section>
     )

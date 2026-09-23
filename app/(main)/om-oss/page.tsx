@@ -34,6 +34,10 @@ export default async function OmOss() {
             title,
             text
         },
+        backgroundSections[]{
+            title,
+            texts
+        },
         background{
             title,
             texts
