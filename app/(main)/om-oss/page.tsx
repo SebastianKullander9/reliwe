@@ -35,8 +35,21 @@ export default async function OmOss() {
             text
         },
         backgroundSections[]{
+            _key,
             title,
-            texts
+            texts,
+            image{
+                asset->{
+                    url
+                },
+                alt,
+                hotspot
+            },
+            imagePosition,
+            button{
+                label,
+                link
+            }
         },
         background{
             title,

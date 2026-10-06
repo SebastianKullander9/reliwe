@@ -94,9 +94,62 @@ export const aboutPage = defineType({
                             of: [{ type: "text" }],
                             validation: (Rule) => Rule.min(1).required(),
                         }),
+                        defineField({
+                            name: "image",
+                            title: "Bild (valfri)",
+                            description: "Utan bild visas sektionen som centrerad text.",
+                            type: "image",
+                            options: { hotspot: true },
+                            fields: [{ name: "alt", title: "Alt-text", type: "string" }],
+                        }),
+                        defineField({
+                            name: "imagePosition",
+                            title: "Bildens placering",
+                            description: "Gäller på surfplatta och dator. På mobil visas bilden alltid ovanför texten.",
+                            type: "string",
+                            options: {
+                                list: [
+                                    { title: "Bild till vänster", value: "left" },
+                                    { title: "Bild till höger", value: "right" },
+                                ],
+                                layout: "radio",
+                                direction: "horizontal",
+                            },
+                            initialValue: "left",
+                            hidden: ({ parent }) => !parent?.image,
+                        }),
+                        defineField({
+                            name: "button",
+                            title: "Knapp (valfri)",
+                            type: "object",
+                            options: { collapsible: true, collapsed: true },
+                            fields: [
+                                defineField({ name: "label", title: "Text", type: "string" }),
+                                defineField({
+                                    name: "link",
+                                    title: "Länk",
+                                    description: "Intern sida, t.ex. /projekt, eller fullständig adress, t.ex. https://exempel.se",
+                                    type: "string",
+                                    validation: (Rule) =>
+                                        Rule.custom((value) => {
+                                            if (!value) return true;
+                                            return /^(\/|https?:\/\/|mailto:|tel:)/.test(value)
+                                                ? true
+                                                : "Länken måste börja med /, https://, mailto: eller tel:";
+                                        }),
+                                }),
+                            ],
+                            validation: (Rule) =>
+                                Rule.custom((value?: { label?: string; link?: string }) => {
+                                    if (!value || (!value.label && !value.link)) return true;
+                                    if (!value.label) return "Knappen behöver en text";
+                                    if (!value.link) return "Knappen behöver en länk";
+                                    return true;
+                                }),
+                        }),
                     ],
                     preview: {
-                        select: { title: "title", subtitle: "texts.0" },
+                        select: { title: "title", subtitle: "texts.0", media: "image" },
                     },
                 }),
             ],

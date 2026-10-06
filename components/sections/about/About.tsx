@@ -3,7 +3,7 @@ import Intro from "./Intro";
 import ScrollSection from "./scrollSection/ScrollSection";
 import KeyNumbers from "../Home/KeyNumbers";
 import Interest from "../interest/Interest";
-import Background from "./Background";
+import Background, { BackgroundButton, BackgroundImage } from "./Background";
 
 type SanityImage = {
     asset: {
@@ -18,8 +18,12 @@ type ScrollSectionContent = {
 }
 
 type BackgroundSectionContent = {
+    _key?: string;
     title: string;
     texts: string[];
+    image?: BackgroundImage;
+    imagePosition?: "left" | "right";
+    button?: BackgroundButton;
 }
 
 type AboutContent = {
@@ -68,7 +72,14 @@ export default function About({ content }: { content: AboutContent }) {
 			<div className="h-24 w-full bg-[var(--reliwe-offwhite)]" />
 			<KeyNumbers />
 			{backgroundSections.map((section, index) => (
-				<Background key={index} title={section?.title} texts={section?.texts} />
+				<Background
+					key={section?._key ?? index}
+					title={section?.title}
+					texts={section?.texts}
+					image={section?.image}
+					imagePosition={section?.imagePosition}
+					button={section?.button}
+				/>
 			))}
 			{/* <Interest /> hidden: "Anmäl intresse" is now available in the header */}
         </section>
