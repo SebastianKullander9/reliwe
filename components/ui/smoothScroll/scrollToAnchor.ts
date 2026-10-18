@@ -1,11 +1,19 @@
 import type { MouseEvent } from "react";
 
-/** Jumps straight to the element, skipping the smooth scroll through everything in between. */
+/**
+ * Jumps straight to the element, skipping the smooth scroll through everything in between.
+ * The element is centered vertically; if it's taller than the screen, its top is shown instead.
+ */
 export function scrollToAnchor(id: string) {
 	const element = document.getElementById(id);
 	if (!element) return false;
 
-	const top = element.getBoundingClientRect().top + window.scrollY;
+	const rect = element.getBoundingClientRect();
+	const elementTop = rect.top + window.scrollY;
+	const centerOffset = Math.max(0, (window.innerHeight - rect.height) / 2);
+	const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+	const top = Math.min(Math.max(0, elementTop - centerOffset), maxScroll);
+
 	window.scrollTo({ top, behavior: "instant" });
 	return true;
 }
