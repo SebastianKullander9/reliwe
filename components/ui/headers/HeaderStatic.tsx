@@ -11,6 +11,8 @@ import { Link as ScrollLink, scroller  } from "react-scroll";
 import MobileMenu from "./MobileMenu";
 import Hamburger from "hamburger-react";
 import { usePathname } from "next/navigation";
+import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
+import ButtonWhiteBackground from "@/components/ui/buttons/newButtons/ButtonWhiteBackground";
 
 export default function HeaderStatic({ variant = "default" }: { variant?: "home" | "default" }) {
 	const pathname = usePathname();
@@ -111,10 +113,10 @@ export default function HeaderStatic({ variant = "default" }: { variant?: "home"
 				}}
 			>
 				<div 
-					className="flex flex-row w-full items-center body-x-padding"
+					className="flex flex-row w-full items-center justify-between body-x-padding"
 					style={{ height: headerHeight }}
 				>
-					<div className="w-1/3 relative">
+					<div className="relative flex-shrink-0 md:w-[180px]">
 						<Link href="/">
 							<Image 
 								src={state.logoSrc}
@@ -124,7 +126,7 @@ export default function HeaderStatic({ variant = "default" }: { variant?: "home"
 							/>
 						</Link>
 					</div>
-					<div className="flex-row w-1/3 gap-12 justify-center hidden md:flex">
+					<div className="flex-row flex-1 gap-6 lg:gap-8 xl:gap-12 justify-center hidden md:flex px-4">
 						{menuConfig.menu.map((menuItem, index) => {
 							const isActive = pathname.startsWith(menuItem.href);
 
@@ -132,13 +134,20 @@ export default function HeaderStatic({ variant = "default" }: { variant?: "home"
 								<Link 
 									href={menuItem.href} 
 									key={menuItem.label + index} 
-									className="hover:underline underline-offset-4"
+									className="hover:underline underline-offset-4 whitespace-nowrap"
 									style={{ color: state.textColor }}
 								>
 									<p className={`${isActive ? "underline underline-offset-4" : ""}`}>{menuItem.label}</p>
 								</Link>
 							)
 						})}
+					</div>
+					<div className="hidden md:flex justify-end flex-shrink-0 md:w-[180px]">
+						<Link href="/intresse">
+							<ButtonAnimationWrapper>
+								<ButtonWhiteBackground label="Anmäl intresse" />
+							</ButtonAnimationWrapper>
+						</Link>
 					</div>
 					<div className="md:hidden ml-auto col-end-4">
 						<Hamburger
