@@ -11,9 +11,9 @@ export const menuConfig: { menu: HeaderMenuItem[] } = {
 			href: "/projekt",
 			subMenu: [
 				{ label: "Alla", href: "/projekt" },
-				{ label: "Planerade", href: "/projekt?status=planned" },
 				{ label: "Pågående", href: "/projekt?status=ongoing" },
-				{ label: "Färdigställda", href: "/projekt?status=done" },
+				{ label: "Planerade", href: "/projekt?status=planned" },
+				{ label: "Genomförda", href: "/projekt?status=done" },
 			]
 		},
 		{

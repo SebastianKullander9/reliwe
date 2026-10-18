@@ -96,9 +96,9 @@ export const estateProject = defineType({
             type: "string",
             options: {
                 list: [
-                    { title: "Planerade", value: "planned" },
                     { title: "Pågående", value: "ongoing" },
-                    { title: "Färdigställda", value: "done" },
+                    { title: "Planerade", value: "planned" },
+                    { title: "Genomförda", value: "done" },
                 ],
                 layout: "radio",
             },

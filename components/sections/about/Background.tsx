@@ -47,7 +47,7 @@ export default function Background({ title = "Bakgrund", texts = [], image, imag
 	// Without an image, keep the original centered text layout.
 	if (!imageUrl) {
 		return (
-			<section className="w-full flex justify-center items-center relative body-x-padding py-10 md:py-12">
+			<section className="w-full flex justify-center items-center relative body-x-padding section-y-padding">
 				<div className=" max-w-prose text-center">
 					<div className="flex flex-col gap-8">
 						<h2 className="heading">
