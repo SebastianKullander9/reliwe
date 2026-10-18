@@ -4,6 +4,7 @@ import ScrollSection from "./scrollSection/ScrollSection";
 import KeyNumbers from "../Home/KeyNumbers";
 import Interest from "../interest/Interest";
 import Background, { BackgroundButton, BackgroundImage } from "./Background";
+import ScrollToHash from "@/components/ui/smoothScroll/ScrollToHash";
 
 type SanityImage = {
     asset: {
@@ -20,6 +21,7 @@ type ScrollSectionContent = {
 type BackgroundSectionContent = {
     _key?: string;
     title: string;
+    anchorId?: string;
     texts: string[];
     image?: BackgroundImage;
     imagePosition?: "left" | "right";
@@ -75,6 +77,7 @@ export default function About({ content }: { content: AboutContent }) {
 				<Background
 					key={section?._key ?? index}
 					title={section?.title}
+					anchorId={section?.anchorId}
 					texts={section?.texts}
 					image={section?.image}
 					imagePosition={section?.imagePosition}
@@ -82,6 +85,7 @@ export default function About({ content }: { content: AboutContent }) {
 				/>
 			))}
 			{/* <Interest /> hidden: "Anmäl intresse" is now available in the header */}
+			<ScrollToHash />
         </section>
     )
 }

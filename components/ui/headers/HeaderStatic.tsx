@@ -13,6 +13,7 @@ import Hamburger from "hamburger-react";
 import { usePathname } from "next/navigation";
 import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
 import ButtonWhiteBackground from "@/components/ui/buttons/newButtons/ButtonWhiteBackground";
+import { handleAnchorLinkClick } from "@/components/ui/smoothScroll/scrollToAnchor";
 
 export default function HeaderStatic({ variant = "default" }: { variant?: "home" | "default" }) {
 	const pathname = usePathname();
@@ -134,6 +135,7 @@ export default function HeaderStatic({ variant = "default" }: { variant?: "home"
 								<Link 
 									href={menuItem.href} 
 									key={menuItem.label + index} 
+									onClick={(e) => handleAnchorLinkClick(menuItem.href, e)}
 									className="hover:underline underline-offset-4 whitespace-nowrap"
 									style={{ color: state.textColor }}
 								>

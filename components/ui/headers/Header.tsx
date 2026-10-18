@@ -16,6 +16,7 @@ import Hamburger from "hamburger-react";
 import { usePathname } from "next/navigation";
 import ButtonAnimationWrapper from "@/components/ui/buttons/newButtons/ButtonAnimationWrapper";
 import ButtonWhiteBackground from "@/components/ui/buttons/newButtons/ButtonWhiteBackground";
+import { handleAnchorLinkClick } from "@/components/ui/smoothScroll/scrollToAnchor";
 
 export default function Header({ variant = "home" }: { variant?: "home" | "default" }) {
 	const pathname = usePathname();
@@ -130,7 +131,10 @@ export default function Header({ variant = "home" }: { variant?: "home" | "defau
 									className="hover:text-[#efe5de] transition-colors duration-200 whitespace-nowrap"
 									style={{ color: state.textColor }}
 									onClick={(e) => {
-										if (!menuItem.subMenu?.length) return;
+										if (!menuItem.subMenu?.length) {
+											handleAnchorLinkClick(menuItem.href, e);
+											return;
+										}
 										toggleSubMenu(menuItem.label, e);
 									}}
 								>

@@ -12,8 +12,10 @@ export default function SmoothScroll() {
 		// Force remount of ReactLenis component on route change
 		setKey(prev => prev + 1);
 		
-		// Also reset native scroll
-		window.scrollTo(0, 0);
+		// Also reset native scroll, unless the URL targets a section (handled by ScrollToHash)
+		if (!window.location.hash) {
+			window.scrollTo(0, 0);
+		}
 	}, [pathname]);
 
 	return (

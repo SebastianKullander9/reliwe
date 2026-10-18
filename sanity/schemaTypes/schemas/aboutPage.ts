@@ -88,6 +88,22 @@ export const aboutPage = defineType({
                     fields: [
                         defineField({ name: "title", title: "Titel", type: "string", validation: (Rule) => Rule.required() }),
                         defineField({
+                            name: "anchorId",
+                            title: "Ankar-ID (valfri)",
+                            description: "Gör det möjligt att länka direkt till sektionen, t.ex. \"lewa-bostad\" ger länken /om-oss#lewa-bostad. Menylänken \"Lewa Bostad\" pekar på ankaret lewa-bostad.",
+                            type: "string",
+                            validation: (Rule) =>
+                                Rule.custom((value, context) => {
+                                    if (!value) return true;
+                                    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(value)) {
+                                        return "Använd endast små bokstäver (a-z), siffror och bindestreck, t.ex. lewa-bostad";
+                                    }
+                                    const sections = (context.document?.backgroundSections ?? []) as { anchorId?: string }[];
+                                    const duplicates = sections.filter((section) => section?.anchorId === value).length;
+                                    return duplicates > 1 ? "Ankar-ID:t används redan av en annan sektion" : true;
+                                }),
+                        }),
+                        defineField({
                             name: "texts",
                             title: "Texter (ett stycke per rad)",
                             type: "array",

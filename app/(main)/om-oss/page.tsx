@@ -37,6 +37,7 @@ export default async function OmOss() {
         backgroundSections[]{
             _key,
             title,
+            anchorId,
             texts,
             image{
                 asset->{
