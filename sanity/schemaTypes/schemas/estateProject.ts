@@ -195,42 +195,50 @@ export const estateProject = defineType({
 							title: "Textblock",
 							type: "text",
 							rows: 4
+						}
+					]
+				},
+				{
+					name: "factCard",
+					title: "Faktakort",
+					description: "Kortet bredvid introduktionen. Om inga rader läggs till visas Byggstart, Inflyttning, Antal lägenheter och Antal rum från projektets grunduppgifter.",
+					type: "object",
+					options: { collapsible: true, collapsed: false },
+					fields: [
+						{
+							name: "title",
+							title: "Rubrik",
+							type: "string",
+							description: "Om tom visas \"Fakta om projektet\""
 						},
 						{
-							name: "infobox",
-							title: "Infobox",
-							type: "object",
-							fields: [
+							name: "facts",
+							title: "Rader",
+							type: "array",
+							of: [
 								{
-									name: "subtitle",
-									title: "Undertitel",
-									type: "string",
-									description: "Visas som: Undertitel: <värde>"
-								},
-								{
-									name: "constructionStart",
-									title: "Byggstart",
-									type: "string",
-									description: "Visas som: Byggstart: <värde>"
-								},
-								{
-									name: "movingIn",
-									title: "Inflyttning",
-									type: "string",
-									description: "Visas som: Inflyttning: <värde>"
-								},
-								{
-									name: "apartmentAmount",
-									title: "Antal lägenheter",
-									type: "string",
-									description: "Visas som: Antal lägenheter: <värde>"
-								},
-								{
-									name: "roomAmount",
-									title: "Antal rum",
-									type: "string",
-									description: "Visas som: Antal rum: <värde>"
-								},
+									type: "object",
+									title: "Rad",
+									fields: [
+										{
+											name: "label",
+											title: "Titel",
+											type: "string",
+											description: "t.ex. Byggstart",
+											validation: Rule => Rule.required().error("Titel krävs")
+										},
+										{
+											name: "value",
+											title: "Värde",
+											type: "string",
+											description: "t.ex. 2026",
+											validation: Rule => Rule.required().error("Värde krävs")
+										}
+									],
+									preview: {
+										select: { title: "label", subtitle: "value" }
+									}
+								}
 							]
 						}
 					]
@@ -315,7 +323,8 @@ export const estateProject = defineType({
 										],
 										layout: "radio"
 									},
-									initialValue: "right"
+									initialValue: "right",
+									hidden: ({ parent }) => !parent?.image
 								}
                             ],
                             preview: {

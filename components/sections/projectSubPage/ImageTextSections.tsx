@@ -53,7 +53,7 @@ export default function ImageTextSections({ project }: TextSectionProps) {
             {sections.map((section, index) => (
                 <div
                     key={index}
-                    className={`flex gap-4 md:gap-12 items-start ${section.imagePosition === "left" ? "flex-col-reverse md:flex-row" : "flex-col-reverse md:flex-row-reverse"}`}
+                    className={`flex gap-4 md:gap-12 items-start ${!imgUrls[index] ? "flex-col" : section.imagePosition === "left" ? "flex-col-reverse md:flex-row" : "flex-col-reverse md:flex-row-reverse"}`}
                 >
                     {imgUrls[index] && (
                         <div className="relative w-full md:w-[55%] shrink-0 rounded-lg overflow-hidden aspect-[5/6]">
@@ -66,7 +66,8 @@ export default function ImageTextSections({ project }: TextSectionProps) {
                         </div>
                     )}
 
-                    <div className="flex flex-col gap-6 pt-2 flex-1">
+                    {/* Without an image, keep the text at a readable width instead of spanning the container. */}
+                    <div className={`flex flex-col gap-6 pt-2 flex-1 ${imgUrls[index] ? "" : "max-w-prose mx-auto w-full"}`}>
                         <div className="w-15 h-1 bg-[var(--reliwe-green)] rounded-full" />
 						{section.title && (
 							<h2 className="heading-poppins font-extrabold text-4xl">

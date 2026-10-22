@@ -20,20 +20,21 @@ export type Project = {
     hasSubpage?: boolean;
 };
 
-type InfoBox = {
-    subtitle?: string;
-    ownershipType?: string;
-    constructionStart?: string;
-    movingIn?: string;
-    apartmentAmount?: string;
-    roomAmount?: string;
+type Fact = {
+    _key?: string;
+    label?: string;
+    value?: string;
+};
+
+type FactCard = {
+    title?: string;
+    facts?: Fact[];
 };
 
 type IntroSection = {
     title?: string;
     image?: SanityImage;
     text?: string;
-    infobox?: InfoBox;
 };
 
 type Section = {
@@ -51,6 +52,7 @@ export type ProjectWithSubpage = Project & {
         availableRooms?: number[];
         availableHousingTypes?: string[];
         intro?: IntroSection;
+        factCard?: FactCard;
         sections?: Section[];
 		gallery?: SanityImage[];
     };
