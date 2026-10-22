@@ -1,6 +1,37 @@
+import { ReactNode } from "react";
 import Image from "next/image";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { ProjectWithSubpage } from "@/app/types/types";
 import { urlFor } from "@/sanity/lib/image";
+
+const portableTextComponents: PortableTextComponents = {
+    block: {
+        normal: ({ children }: { children?: ReactNode }) => <p className="leading-relaxed">{children}</p>,
+        h3: ({ children }: { children?: ReactNode }) => <h3 className="heading-poppins font-bold text-2xl mt-4">{children}</h3>,
+        h4: ({ children }: { children?: ReactNode }) => <h4 className="heading-poppins font-semibold text-xl mt-2">{children}</h4>,
+    },
+    list: {
+        bullet: ({ children }: { children?: ReactNode }) => <ul className="list-disc pl-6 flex flex-col gap-2 leading-relaxed">{children}</ul>,
+        number: ({ children }: { children?: ReactNode }) => <ol className="list-decimal pl-6 flex flex-col gap-2 leading-relaxed">{children}</ol>,
+    },
+    marks: {
+        strong: ({ children }: { children?: ReactNode }) => <strong className="font-bold">{children}</strong>,
+        em: ({ children }: { children?: ReactNode }) => <em className="italic">{children}</em>,
+        link: ({ children, value }: { children?: ReactNode; value?: { href?: string } }) => {
+            const href = value?.href ?? "";
+            const isExternal = /^https?:\/\//.test(href);
+            return (
+                <a
+                    href={href}
+                    className="underline underline-offset-2 hover:opacity-60 transition-opacity duration-200"
+                    {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+                >
+                    {children}
+                </a>
+            );
+        },
+    },
+};
 
 interface TextSectionProps {
     project: ProjectWithSubpage;
@@ -42,9 +73,15 @@ export default function ImageTextSections({ project }: TextSectionProps) {
 								{section.title}
 							</h2>
 						)}
-                        <p className="leading-relaxed">
-                            {section.text}
-                        </p>
+                        {section.content?.length ? (
+                            <div className="flex flex-col gap-4">
+                                <PortableText value={section.content} components={portableTextComponents} />
+                            </div>
+                        ) : section.text && (
+                            <p className="leading-relaxed">
+                                {section.text}
+                            </p>
+                        )}
                     </div>
                 </div>
             ))}

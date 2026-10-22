@@ -250,11 +250,57 @@ export const estateProject = defineType({
                                     type: "string"
                                 },
                                 {
+                                    name: "content",
+                                    title: "Innehåll",
+                                    description: "Blanda rubriker, underrubriker och stycken fritt. Markera text för att göra den fet, kursiv eller till en länk.",
+                                    type: "array",
+                                    of: [
+                                        {
+                                            type: "block",
+                                            styles: [
+                                                { title: "Normal", value: "normal" },
+                                                { title: "Rubrik", value: "h3" },
+                                                { title: "Underrubrik", value: "h4" },
+                                            ],
+                                            lists: [
+                                                { title: "Punktlista", value: "bullet" },
+                                                { title: "Numrerad lista", value: "number" },
+                                            ],
+                                            marks: {
+                                                decorators: [
+                                                    { title: "Fet", value: "strong" },
+                                                    { title: "Kursiv", value: "em" },
+                                                ],
+                                                annotations: [
+                                                    {
+                                                        name: "link",
+                                                        type: "object",
+                                                        title: "Länk",
+                                                        fields: [
+                                                            {
+                                                                name: "href",
+                                                                type: "url",
+                                                                title: "URL",
+                                                                validation: Rule => Rule.uri({ allowRelative: true, scheme: ["http", "https", "mailto", "tel"] })
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    validation: Rule => Rule.custom((value, context) => {
+                                        const parent = context.parent as { text?: string } | undefined;
+                                        return (value as unknown[] | undefined)?.length || parent?.text ? true : "Innehåll krävs";
+                                    })
+                                },
+                                {
                                     name: "text",
-                                    title: "Textblock",
+                                    title: "Textblock (äldre)",
+                                    description: "Gammalt textfält utan formatering. Visas bara om \"Innehåll\" är tomt. Flytta gärna texten till \"Innehåll\" och töm detta fält.",
                                     type: "text",
                                     rows: 4,
-                                    validation: Rule => Rule.required().error("Text krävs")
+                                    hidden: ({ parent }) => !parent?.text
                                 },
                                 {
                                     name: "image",
@@ -284,11 +330,14 @@ export const estateProject = defineType({
 								}
                             ],
                             preview: {
-                                select: { title: "title", text: "text" },
-                                prepare({ title, text }) {
+                                select: { title: "title", text: "text", content: "content", media: "image" },
+                                prepare({ title, text, content, media }) {
+                                    const firstBlock = content?.find((block: { _type: string }) => block._type === "block");
+                                    const preview: string = firstBlock?.children?.map((child: { text?: string }) => child.text ?? "").join("") || text || "";
                                     return {
                                         title: title || "Namnlös sektion",
-                                        subtitle: text?.slice(0, 60) + (text?.length > 60 ? "…" : "")
+                                        subtitle: preview.slice(0, 60) + (preview.length > 60 ? "…" : ""),
+                                        media
                                     }
                                 }
                             }
