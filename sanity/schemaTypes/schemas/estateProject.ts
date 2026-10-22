@@ -289,18 +289,7 @@ export const estateProject = defineType({
                                             }
                                         }
                                     ],
-                                    validation: Rule => Rule.custom((value, context) => {
-                                        const parent = context.parent as { text?: string } | undefined;
-                                        return (value as unknown[] | undefined)?.length || parent?.text ? true : "Innehåll krävs";
-                                    })
-                                },
-                                {
-                                    name: "text",
-                                    title: "Textblock (äldre)",
-                                    description: "Gammalt textfält utan formatering. Visas bara om \"Innehåll\" är tomt. Flytta gärna texten till \"Innehåll\" och töm detta fält.",
-                                    type: "text",
-                                    rows: 4,
-                                    hidden: ({ parent }) => !parent?.text
+                                    validation: Rule => Rule.required().error("Innehåll krävs")
                                 },
                                 {
                                     name: "image",
@@ -330,10 +319,10 @@ export const estateProject = defineType({
 								}
                             ],
                             preview: {
-                                select: { title: "title", text: "text", content: "content", media: "image" },
-                                prepare({ title, text, content, media }) {
+                                select: { title: "title", content: "content", media: "image" },
+                                prepare({ title, content, media }) {
                                     const firstBlock = content?.find((block: { _type: string }) => block._type === "block");
-                                    const preview: string = firstBlock?.children?.map((child: { text?: string }) => child.text ?? "").join("") || text || "";
+                                    const preview: string = firstBlock?.children?.map((child: { text?: string }) => child.text ?? "").join("") || "";
                                     return {
                                         title: title || "Namnlös sektion",
                                         subtitle: preview.slice(0, 60) + (preview.length > 60 ? "…" : ""),

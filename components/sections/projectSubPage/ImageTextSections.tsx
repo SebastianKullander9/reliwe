@@ -77,11 +77,7 @@ export default function ImageTextSections({ project }: TextSectionProps) {
                             <div className="flex flex-col gap-4">
                                 <PortableText value={section.content} components={portableTextComponents} />
                             </div>
-                        ) : section.text && (
-                            <p className="leading-relaxed">
-                                {section.text}
-                            </p>
-                        )}
+                        ) : null}
                     </div>
                 </div>
             ))}

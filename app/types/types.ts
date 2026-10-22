@@ -38,10 +38,7 @@ type IntroSection = {
 
 type Section = {
     title?: string;
-    /** Rich text content. Takes precedence over the legacy `text` field. */
     content?: PortableTextBlock[];
-    /** Legacy plain text, rendered only when `content` is empty. */
-    text?: string;
     image?: SanityImage;
     imagePosition: "left" | "right";
 };
