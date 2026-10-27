@@ -37,7 +37,8 @@ export default function ProjectCardMulti({ project, index }: ProjectCardMultiPro
 					</div>
 					<div className="w-full md:w-1/2 flex flex-col items-vertical-gap">
 						<ProjectText text={project.text} />
-						<ProjectStats project={project} />
+						{/* md:pr-4 matches the image carousel's slide padding so the right edges line up */}
+						<ProjectStats project={project} className="md:pr-4" />
 					</div>
 				</div>
 				<div>
