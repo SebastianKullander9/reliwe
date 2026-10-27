@@ -16,10 +16,7 @@ export default async function ProjectSubPage({ params }: ProjectSubPageProps) {
 			*[_type=="estateProject" && slug.current==$slug][0]{
 				title,
 				text,
-				year,
-				apartmentAmount,
-				movingInYear,
-				roomAmount,
+				facts,
 				images,
 				status,
 				hasSubpage,

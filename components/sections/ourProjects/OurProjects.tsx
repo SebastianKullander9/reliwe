@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import ProjectsList from "./ProjectList";
 import { Suspense } from "react";
-import { Project } from "@/app/types/types";
+import { Fact, Project } from "@/app/types/types";
 
 type SanityImage = {
     _type: "image";
@@ -18,10 +18,7 @@ type SanityImage = {
 type SanityProject = {
 	title: string;
 	text: any[];
-	year: string;
-	movingInYear: string;
-	apartmentAmount: string;
-	roomAmount: string;
+	facts?: Fact[];
 	images: SanityImage[];
 	status: "ongoing" | "done" | "planned";
 	orderRank?: string;
@@ -58,10 +55,7 @@ async function getOurProjectsPage(): Promise<OurProjectsPageData> {
 		{
             title,
             text,
-            year,
-            apartmentAmount,
-            movingInYear,
-            roomAmount,
+            facts,
             images,
             status,
 			orderRank,

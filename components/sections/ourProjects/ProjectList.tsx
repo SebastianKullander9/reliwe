@@ -4,14 +4,12 @@ import { useEffect } from "react";
 import { scroller } from "react-scroll";
 import ProjectRenderer from "@/components/ui/projectCard/ProjectRenderer";
 import { useProjectFilter } from "@/components/context/ProjectFilterContext";
+import { Fact } from "@/app/types/types";
 
 type Project = {
 	title: string;
 	text: any[];
-	year: string;
-	movingInYear: string;
-	apartmentAmount: string;
-	roomAmount: string;
+	facts?: Fact[];
 	imgUrls: string[];
 	status: "ongoing" | "done" | "planned";
 	slug: string;

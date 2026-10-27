@@ -15,7 +15,6 @@ type SanityImage = {
 type FeaturedProject = {
     title: string;
     images?: SanityImage;
-    year?: string;
     imageUrl?: string;
 	status: ProjectStatus;
 	slug: string;

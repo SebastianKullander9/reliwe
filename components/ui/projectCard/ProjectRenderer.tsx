@@ -2,6 +2,7 @@ import ImagesDisplay from "./ImagesDisplay";
 import ImageDisplay from "./ImageDisplay";
 import ProjectCardMulti from "./ProjectCardMulti";
 import ProjectCardSingle from "./ProjectCardSingle";
+import { Fact } from "@/app/types/types";
 
 export type SubPage = {
 	title: string;
@@ -11,11 +12,8 @@ export type SubPage = {
 export type ProjectItem = {
 	title: string;
 	text: any[];
-	year: string;
-	movingInYear: string;
-	apartmentAmount: string;
+	facts?: Fact[];
 	status: "ongoing" | "done" | "planned";
-	roomAmount: string;
 	imgUrls: string[];
 	hasSubpage?: boolean;
 	slug: string;

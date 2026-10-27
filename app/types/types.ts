@@ -6,13 +6,16 @@ type SanityImage = {
     alt?: string;
 };
 
+export type Fact = {
+    _key?: string;
+    label?: string;
+    value?: string;
+};
+
 export type Project = {
     title: string;
     text: any[];
-    year: string;
-    movingInYear: string;
-    apartmentAmount: string;
-    roomAmount: string;
+    facts?: Fact[];
     imgUrls: string[];
     images?: SanityImage[];
     status: "ongoing" | "done" | "planned";
@@ -20,15 +23,8 @@ export type Project = {
     hasSubpage?: boolean;
 };
 
-type Fact = {
-    _key?: string;
-    label?: string;
-    value?: string;
-};
-
 type FactCard = {
     title?: string;
-    facts?: Fact[];
 };
 
 type IntroSection = {

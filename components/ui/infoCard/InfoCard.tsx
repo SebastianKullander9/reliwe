@@ -8,17 +8,7 @@ interface InfoCardProps {
 
 export default function InfoCard({ project }: InfoCardProps) {
 	const factCard = project.subpage?.factCard;
-	const customFacts = factCard?.facts?.filter(fact => fact.label && fact.value);
-
-	// Without custom rows, fall back to the project's base fields.
-	const facts = customFacts?.length
-		? customFacts.map(fact => ({ key: fact._key, label: fact.label!, value: fact.value! }))
-		: [
-			{ key: "year", label: "Byggstart", value: project.year },
-			{ key: "movingInYear", label: "Inflyttning", value: project.movingInYear },
-			{ key: "apartmentAmount", label: "Antal lägenheter", value: project.apartmentAmount },
-			{ key: "roomAmount", label: "Antal rum", value: project.roomAmount },
-		];
+	const facts = project.facts?.filter(fact => fact.label && fact.value) ?? [];
 
 	return (
 		<div className="bg-[var(--reliwe-green)] p-8 rounded-xl md:min-w-80 lg:min-w-100 xl:min-w-120 flex flex-col gap-12 md:justify-between">
@@ -32,9 +22,9 @@ export default function InfoCard({ project }: InfoCardProps) {
 				<div className="flex flex-col">
 					{facts.map((fact, index) => (
 						<InfoRow
-							key={fact.key ?? index}
-							title={fact.label}
-							text={fact.value}
+							key={fact._key ?? index}
+							title={fact.label!}
+							text={fact.value!}
 						/>
 					))}
 				</div>

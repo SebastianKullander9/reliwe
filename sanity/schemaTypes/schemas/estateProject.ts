@@ -47,28 +47,35 @@ export const estateProject = defineType({
             validation: Rule => Rule.required().error("Beskrivning krävs")
         }),
         defineField({
-            name: "year",
-            title: "År",
-            type: "string",
-            description: "Projektår"
-        }),
-        defineField({
-            name: "apartmentAmount",
-            title: "Antal lägenheter",
-            type: "string",
-            description: "Totalt antal lägenheter"
-        }),
-        defineField({
-            name: "movingInYear",
-            title: "Inflyttningsår",
-            type: "string",
-            description: "Förväntat inflyttningsår"
-        }),
-        defineField({
-            name: "roomAmount",
-            title: "Antal rum",
-            type: "string",
-            description: "t.ex. '1-4' för 1 till 4 rum"
+            name: "facts",
+            title: "Fakta",
+            type: "array",
+            description: "Visas i projektlistan och i faktakortet på undersidan, t.ex. Byggstart: 2026",
+            of: [
+                {
+                    type: "object",
+                    title: "Rad",
+                    fields: [
+                        {
+                            name: "label",
+                            title: "Titel",
+                            type: "string",
+                            description: "t.ex. Byggstart",
+                            validation: Rule => Rule.required().error("Titel krävs")
+                        },
+                        {
+                            name: "value",
+                            title: "Värde",
+                            type: "string",
+                            description: "t.ex. 2026",
+                            validation: Rule => Rule.required().error("Värde krävs")
+                        }
+                    ],
+                    preview: {
+                        select: { title: "label", subtitle: "value" }
+                    }
+                }
+            ]
         }),
         defineField({
             name: "images",
@@ -201,7 +208,7 @@ export const estateProject = defineType({
 				{
 					name: "factCard",
 					title: "Faktakort",
-					description: "Kortet bredvid introduktionen. Om inga rader läggs till visas Byggstart, Inflyttning, Antal lägenheter och Antal rum från projektets grunduppgifter.",
+					description: "Kortet bredvid introduktionen. Raderna hämtas från projektets Fakta.",
 					type: "object",
 					options: { collapsible: true, collapsed: false },
 					fields: [
@@ -210,36 +217,6 @@ export const estateProject = defineType({
 							title: "Rubrik",
 							type: "string",
 							description: "Om tom visas \"Fakta om projektet\""
-						},
-						{
-							name: "facts",
-							title: "Rader",
-							type: "array",
-							of: [
-								{
-									type: "object",
-									title: "Rad",
-									fields: [
-										{
-											name: "label",
-											title: "Titel",
-											type: "string",
-											description: "t.ex. Byggstart",
-											validation: Rule => Rule.required().error("Titel krävs")
-										},
-										{
-											name: "value",
-											title: "Värde",
-											type: "string",
-											description: "t.ex. 2026",
-											validation: Rule => Rule.required().error("Värde krävs")
-										}
-									],
-									preview: {
-										select: { title: "label", subtitle: "value" }
-									}
-								}
-							]
 						}
 					]
 				},
@@ -401,14 +378,15 @@ export const estateProject = defineType({
     preview: {
         select: {
             title: "title",
-            year: "year",
+            factLabel: "facts.0.label",
+            factValue: "facts.0.value",
             media: "images.0"
         },
         prepare(selection) {
-            const { title, year, media } = selection
+            const { title, factLabel, factValue, media } = selection
             return {
                 title: title,
-                subtitle: year ? `År: ${year}` : "Inget år angivet",
+                subtitle: factLabel && factValue ? `${factLabel}: ${factValue}` : "Ingen fakta angiven",
                 media: media
             }
         }

@@ -20,7 +20,6 @@ type SanityImage = {
 type FeaturedProject = {
     title: string;
     images?: SanityImage;
-    year?: string;
     imageUrl?: string;
 	status: "ongoing" | "planned" | "done";
 	slug: string;
@@ -61,7 +60,6 @@ async function getHomePage(): Promise<HomePageData> {
                 featuredProjects[]->{
                     title,
                     images[0],
-                    year,
 					status,
 					slug {
 						current
